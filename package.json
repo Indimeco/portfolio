@@ -1,0 +1,46 @@
+{
+  "name": "portfolio-2019",
+  "private": true,
+  "description": "Indimeco's portfolio created in 2019",
+  "version": "0.0.0",
+  "author": "Indimeco",
+  "dependencies": {
+    "gatsby": "^2.13.73",
+    "gatsby-image": "^2.2.10",
+    "gatsby-plugin-manifest": "^2.2.6",
+    "gatsby-plugin-offline": "^2.2.7",
+    "gatsby-plugin-react-helmet": "^3.1.4",
+    "gatsby-plugin-sharp": "^2.2.13",
+    "gatsby-source-filesystem": "^2.1.11",
+    "gatsby-transformer-sharp": "^2.2.7",
+    "prop-types": "^15.7.2",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
+    "react-helmet": "^5.2.1",
+    "styled-components": "^4.3.2"
+  },
+  "devDependencies": {
+    "babel-jest": "^24.9.0",
+    "babel-preset-gatsby": "^0.2.11",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^24.9.0",
+    "prettier": "^1.18.2",
+    "react-test-renderer": "^16.9.0"
+  },
+  "keywords": [
+    "portfolio", "Indimeco"
+  ],
+  "license": "ISC",
+  "scripts": {
+    "build": "gatsby build",
+    "develop": "gatsby develop",
+    "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
+    "start": "npm run develop",
+    "serve": "gatsby serve",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/indimeco/portfolio-2019"
+  }
+}
