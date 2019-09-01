@@ -20,6 +20,9 @@
     "styled-components": "^4.3.2"
   },
   "devDependencies": {
+    "@commitlint/cli": "^8.1.0",
+    "@commitlint/config-conventional": "^8.1.0",
+    "@commitlint/prompt-cli": "^8.1.0",
     "babel-jest": "^24.9.0",
     "babel-preset-gatsby": "^0.2.11",
     "gh-pages": "^2.1.1",
@@ -42,15 +45,11 @@
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "start": "npm run develop",
     "serve": "gatsby serve",
-    "test": "jest"
+    "test": "jest",
+    "commit": "commit"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/indimeco/portfolio-2019"
-  },
-  "config": {
-    "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
-    }
   }
 }
