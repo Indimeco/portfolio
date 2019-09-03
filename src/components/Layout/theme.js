@@ -4,7 +4,7 @@ export const palette = {
 	periwinkle: '#CAE5FF',
 	raisinBlack: '#262626',
 	gunMetal: '#30343F',
-	ghostWhite: '#FAFAFF'
+	ghostWhite: '#FAFAFF',
 };
 
 export const theme = {
@@ -13,36 +13,36 @@ export const theme = {
 			fg: palette.raisinBlack,
 			bg: palette.ghostWhite,
 			fgAccent: palette.absoluteZero,
-			bgAccent: palette.periwinkle
+			bgAccent: palette.periwinkle,
 		},
 		main: {
 			fg: palette.ghostWhite,
 			bg: palette.darkCerulean,
 			fgAccent: palette.periwinkle,
-			bgAccent: palette.absoluteZero
+			bgAccent: palette.absoluteZero,
 		},
 		aux: {
 			fg: palette.ghostWhite,
 			bg: palette.gunMetal,
 			fgAccent: palette.periwinkle,
-			bgAccent: palette.raisinBlack
-		}
+			bgAccent: palette.raisinBlack,
+		},
 	},
 	spacing: {
-        indent: `
+		indent: `
             padding-left: 25px;
 		    padding-right: 25px;`,
 		tiny: '5px',
 		small: '10px',
 		medium: '20px',
-		large: '30px'
+		large: '30px',
 	},
 	fonts: {
 		small: '14px',
 		medium: '16px',
 		large: '18px',
-		fontFamily: 'palatino'
-	}
+		fontFamily: 'palatino',
+	},
 };
 
 export default theme;
