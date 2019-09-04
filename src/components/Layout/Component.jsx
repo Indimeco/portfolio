@@ -2,31 +2,16 @@ import React from 'react';
 
 import PropTypes from 'prop-types';
 import { ThemeProvider } from 'styled-components';
-import { useStaticQuery, graphql } from 'gatsby';
 import { theme } from './theme';
-
-import Header from '../header';
+import { Root } from './Component.style.js';
 import './base.css';
 
 const Layout = ({ children }) => {
-	const data = useStaticQuery(graphql`
-		query SiteTitleQuery {
-			site {
-				siteMetadata {
-					title
-				}
-			}
-		}
-	`);
-
 	return (
 		<ThemeProvider theme={theme}>
-			<>
-				<Header siteTitle={data.site.siteMetadata.title} />
-				<div>
-					<main>{children}</main>
-				</div>
-			</>
+			<Root>
+				<main>{children}</main>
+			</Root>
 		</ThemeProvider>
 	);
 };

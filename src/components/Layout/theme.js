@@ -41,6 +41,8 @@ export const theme = {
 		small: '14px',
 		medium: '16px',
 		large: '18px',
+		huge: '30px',
+		hero: '40px',
 		fontFamily: 'palatino',
 	},
 };

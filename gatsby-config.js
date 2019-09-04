@@ -1,8 +1,8 @@
 module.exports = {
 	pathPrefix: '/portfolio-2019',
 	siteMetadata: {
-		title: `Jacob Lawrence | Web Developer`,
-		description: `Portfolio for a versatile and skilled developer`,
+		title: `Jacob Lawrence`,
+		description: `Web Developer`,
 		author: `Indimeco`,
 	},
 	plugins: [

@@ -3,12 +3,13 @@ import React from 'react';
 import Layout from '../components/Layout';
 import SEO from '../components/seo';
 import Navigation from '../components/Navigation';
+import Heading from '../components/Heading';
 
 const IndexPage = () => (
 	<Layout>
 		<SEO title="Jacob Lawrence | Web Developer" />
 		<Navigation />
-		<h1>Lorem ipsum.</h1>
+		<Heading />
 		<p>
 			Lorem ipsum dolor sit amet consectetur adipiscing elit pretium, cursus
 			nunc nascetur suspendisse litora justo congue eget tincidunt, cum montes
