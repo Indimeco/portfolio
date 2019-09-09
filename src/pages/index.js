@@ -4,6 +4,7 @@ import Layout from '../components/Layout';
 import SEO from '../components/seo';
 import Navigation from '../components/Navigation';
 import Heading from '../components/Heading';
+import Portfolio from '../components/Portfolio';
 
 const IndexPage = () => (
 	<Layout>
@@ -21,6 +22,7 @@ const IndexPage = () => (
 			fusce massa erat malesuada quisque himenaeos nam quam, gravida vivamus
 			dapibus aptent rutrum dignissim pulvinar taciti diam proin.
 		</p>
+		<Portfolio />
 	</Layout>
 );
 
