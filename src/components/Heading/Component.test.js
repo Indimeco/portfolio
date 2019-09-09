@@ -1,10 +1,27 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import Component from './Component';
+import { ThemeProvider } from 'styled-components';
+import { theme } from '../Layout/theme';
+import { PureHeading } from './Component';
 
-describe('Navigation', () => {
+describe('Heading', () => {
+	const data = {
+		site: {
+			siteMetadata: {
+				title: `Jam`,
+				description: 'Milk',
+			},
+		},
+	};
+
 	it('renders correctly', () => {
-		const tree = renderer.create(<Component />).toJSON();
+		const tree = renderer
+			.create(
+				<ThemeProvider theme={theme}>
+					<PureHeading data={data} />
+				</ThemeProvider>,
+			)
+			.toJSON();
 		expect(tree).toMatchSnapshot();
 	});
 });

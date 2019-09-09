@@ -1,9 +1,41 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Navigation renders correctly 1`] = `
-<div
-  className="sc-bdVaJa gQtVwq"
+exports[`Heading renders correctly 1`] = `
+.c0 {
+  text-align: center;
+  background-color: #FAFAFF;
+}
+
+.c1 {
+  font-family: palatino;
+  font-size: 40px;
+  font-weight: 600;
+  color: #262626;
+  margin-bottom: 10px;
+  margin-top: 0;
+}
+
+.c2 {
+  font-family: palatino;
+  font-size: 30px;
+  font-weight: 400;
+  color: #262626;
+  margin-bottom: 10px;
+  margin-top: 0;
+}
+
+<header
+  className="c0"
 >
-  Some text
-</div>
+  <h1
+    className="c1"
+  >
+    Jam
+  </h1>
+  <h2
+    className="c2"
+  >
+    Milk
+  </h2>
+</header>
 `;

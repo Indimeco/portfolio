@@ -2,10 +2,10 @@
 
 exports[`Portfolio renders correctly 1`] = `
 <div
-  className="sc-bdVaJa bDWFJH"
+  className=""
 >
   <div
-    className="sc-bwzfXH uTxCW"
+    className=""
   >
     <button
       onClick={[Function]}
@@ -23,7 +23,7 @@ exports[`Portfolio renders correctly 1`] = `
     />
   </div>
   <div
-    className="sc-bwzfXH uTxCW"
+    className=""
   >
     <button
       onClick={[Function]}
