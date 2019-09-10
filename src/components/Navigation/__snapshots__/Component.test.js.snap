@@ -3,14 +3,41 @@
 exports[`Navigation renders correctly 1`] = `
 .c0 {
   padding: 20px;
-  color: white;
-  background-color: blue;
-  margin-bottom: 30px;
+  background-color: #003B7A;
+  text-align: right;
 }
 
-<div
+.c1 {
+  padding: 0 10px;
+  color: #FAFAFF;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c1:hover {
+  color: #CAE5FF;
+}
+
+<nav
   className="c0"
 >
-  Some text
-</div>
+  <a
+    className="c1"
+    href="#About"
+  >
+    About
+  </a>
+  <a
+    className="c1"
+    href="#Portfolio"
+  >
+    Portfolio
+  </a>
+  <a
+    className="c1"
+    href="#Contact"
+  >
+    Contact
+  </a>
+</nav>
 `;

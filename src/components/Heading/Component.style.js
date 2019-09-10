@@ -2,7 +2,6 @@ import styled from 'styled-components';
 
 export const HeaderWrapper = styled.header`
 	text-align: center;
-	background-color: ${({ theme }) => theme.colors.root.bg};
 `;
 export const Title = styled.h1`
 	font-family: ${({ theme }) => theme.fonts.fontFamily};
