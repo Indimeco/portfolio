@@ -1,18 +1,10 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
+import { renderWithTheme } from '../../utils/tests/renderWithTheme';
 import Component from './Component';
-import { ThemeProvider } from 'styled-components';
-import { theme } from '../Layout/theme';
 
 describe('Navigation', () => {
 	it('renders correctly', () => {
-		const tree = renderer
-			.create(
-				<ThemeProvider theme={theme}>
-					<Component />
-				</ThemeProvider>,
-			)
-			.toJSON();
+		const tree = renderWithTheme(<Component />).toJSON();
 		expect(tree).toMatchSnapshot();
 	});
 });

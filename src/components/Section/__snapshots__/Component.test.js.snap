@@ -2,7 +2,7 @@
 
 exports[`Section renders correctly 1`] = `
 .c0 {
-  height: 80vh;
+  min-height: 80vh;
   background-color: #FAFAFF;
   padding-left: 25px;
   padding-right: 25px;

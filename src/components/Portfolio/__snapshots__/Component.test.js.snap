@@ -1,44 +1,93 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Portfolio renders correctly 1`] = `
+.c0 {
+  padding: 20px 0;
+}
+
+.c1 {
+  height: 30vh;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-column-gap: 20px;
+}
+
+.c3 {
+  width: 100%;
+  background-color: transparent;
+  font-weight: unset;
+  border: none;
+  text-align: left;
+}
+
+.c2 {
+  background-color: black;
+  width: 100%;
+  height: 100%;
+}
+
+.c2 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 <div
   className=""
 >
   <div
-    className=""
+    className="c0"
   >
-    <button
-      onClick={[Function]}
+    <div
+      className="c1"
     >
-      <h3>
-        QRPG
-      </h3>
-      <p>
-        QRPG is a Steam Workshop mod that provides UI and Data Management solutions for playing Role Playing Games within the physics sandbox game Tabletop Simulator.
-      </p>
-    </button>
-    <img
-      alt="alt"
-      src="sample.png"
-    />
+      <div
+        className="c2"
+      >
+        <img
+          alt="alt"
+          src="sample.png"
+        />
+      </div>
+      <button
+        className="c3"
+        onClick={[Function]}
+      >
+        <h3>
+          QRPG
+        </h3>
+        <p>
+          QRPG is a Steam Workshop mod that provides UI and Data Management solutions for playing Role Playing Games within the physics sandbox game Tabletop Simulator.
+        </p>
+      </button>
+    </div>
   </div>
   <div
-    className=""
+    className="c0"
   >
-    <button
-      onClick={[Function]}
+    <div
+      className="c1"
     >
-      <h3>
-        My Little Charlotte
-      </h3>
-      <p>
-        My Little Charlotte is a data scraping and data analysis tool, built using Puppeteer and Node JS.
-      </p>
-    </button>
-    <img
-      alt="alt"
-      src="sample.png"
-    />
+      <div
+        className="c2"
+      >
+        <img
+          alt="alt"
+          src="sample.png"
+        />
+      </div>
+      <button
+        className="c3"
+        onClick={[Function]}
+      >
+        <h3>
+          My Little Charlotte
+        </h3>
+        <p>
+          My Little Charlotte is a data scraping and data analysis tool, built using Puppeteer and Node JS.
+        </p>
+      </button>
+    </div>
   </div>
 </div>
 `;

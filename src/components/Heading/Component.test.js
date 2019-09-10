@@ -1,7 +1,5 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
-import { ThemeProvider } from 'styled-components';
-import { theme } from '../Layout/theme';
+import { renderWithTheme } from '../../utils/tests/renderWithTheme';
 import { PureHeading } from './Component';
 
 describe('Heading', () => {
@@ -15,13 +13,7 @@ describe('Heading', () => {
 	};
 
 	it('renders correctly', () => {
-		const tree = renderer
-			.create(
-				<ThemeProvider theme={theme}>
-					<PureHeading data={data} />
-				</ThemeProvider>,
-			)
-			.toJSON();
+		const tree = renderWithTheme(<PureHeading data={data} />).toJSON();
 		expect(tree).toMatchSnapshot();
 	});
 });

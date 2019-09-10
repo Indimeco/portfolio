@@ -1,11 +1,10 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
+import { renderWithTheme } from '../../utils/tests/renderWithTheme';
 import Component from './Component';
-import 'jest-styled-components';
 
 describe('Portfolio', () => {
 	it('renders correctly', () => {
-		const tree = renderer.create(<Component />).toJSON();
+		const tree = renderWithTheme(<Component />).toJSON();
 		expect(tree).toMatchSnapshot();
 	});
 });
