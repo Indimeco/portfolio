@@ -23,7 +23,7 @@ const Portfolio = () => {
 	const [active, setActive] = useState(null);
 
 	return (
-		<PortfolioList>
+		<PortfolioList data-test="portfolio">
 			{data.map(item => (
 				<PortfolioEntry
 					item={item}

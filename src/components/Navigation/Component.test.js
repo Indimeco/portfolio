@@ -1,18 +1,10 @@
-import React from 'react';
-import renderer from 'react-test-renderer';
 import Component from './Component';
-import { ThemeProvider } from 'styled-components';
-import { theme } from '../Layout/theme';
+import { mount } from '../../utils/tests/withTheme';
+import { findByTestAttr } from '../../utils/tests/findByTestAttr';
 
 describe('Navigation', () => {
-	it('renders correctly', () => {
-		const tree = renderer
-			.create(
-				<ThemeProvider theme={theme}>
-					<Component />
-				</ThemeProvider>,
-			)
-			.toJSON();
-		expect(tree).toMatchSnapshot();
+	it('renders', () => {
+		const wrapper = mount(Component);
+		expect(findByTestAttr(wrapper, 'navigation')).toHaveLength(1);
 	});
 });

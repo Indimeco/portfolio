@@ -11,7 +11,11 @@ module.exports = {
 	globals: {
 		__PATH_PREFIX__: ``,
 	},
+	testEnvironment: 'enzyme',
+	testEnvironmentOptions: {
+		enzymeAdapter: 'react16',
+	},
 	testURL: `http://localhost`,
 	setupFiles: ['<rootDir>/loadershim.js'],
-	setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
+	setupFilesAfterEnv: ['jest-enzyme', '<rootDir>/jest.setup.js'],
 };

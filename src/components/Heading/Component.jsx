@@ -4,7 +4,7 @@ import { graphql, useStaticQuery } from 'gatsby';
 
 export const PureHeading = ({ data }) => {
 	return (
-		<HeaderWrapper>
+		<HeaderWrapper data-test="heading">
 			<Title>{data.site.siteMetadata.title}</Title>
 			<Subtitle>{data.site.siteMetadata.description}</Subtitle>
 		</HeaderWrapper>

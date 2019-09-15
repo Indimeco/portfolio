@@ -1,11 +1,10 @@
-import React from 'react';
-import renderer from 'react-test-renderer';
 import Component from './Component';
-import 'jest-styled-components';
+import { mount } from '../../utils/tests/withTheme';
+import { findByTestAttr } from '../../utils/tests/findByTestAttr';
 
 describe('Portfolio', () => {
-	it('renders correctly', () => {
-		const tree = renderer.create(<Component />).toJSON();
-		expect(tree).toMatchSnapshot();
+	it('renders', () => {
+		const wrapper = mount(Component);
+		expect(findByTestAttr(wrapper, 'portfolio')).toHaveLength(1);
 	});
 });
