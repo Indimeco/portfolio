@@ -1,10 +1,10 @@
-import React from 'react';
-import { renderWithTheme } from '../../utils/tests/renderWithTheme';
 import Component from './Component';
+import { mount } from '../../utils/tests/withTheme';
+import { findByTestAttr } from '../../utils/tests/findByTestAttr';
 
 describe('Section', () => {
-	it('renders correctly', () => {
-		const tree = renderWithTheme(<Component />).toJSON();
-		expect(tree).toMatchSnapshot();
+	it('renders', () => {
+		const wrapper = mount(Component);
+		expect(findByTestAttr(wrapper, 'section')).toHaveLength(1);
 	});
 });

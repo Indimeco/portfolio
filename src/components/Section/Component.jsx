@@ -3,7 +3,7 @@ import { Sect } from './Component.style';
 
 const Section = ({ name, alternate, children }) => {
 	return (
-		<Sect id={name} alternate={alternate}>
+		<Sect id={name} alternate={alternate} data-test="section">
 			{children}
 		</Sect>
 	);
