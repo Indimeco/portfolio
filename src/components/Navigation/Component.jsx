@@ -1,8 +1,17 @@
 import React from 'react';
-import { NavigationWrapper } from './Component.style';
+import { NavigationWrapper, NavigationItem } from './Component.style';
+
+// TODO Consolidate elsewhere
+const sections = ['About', 'Portfolio', 'Contact'];
 
 const Navigation = () => (
-	<NavigationWrapper data-test="navigation">Some text</NavigationWrapper>
+	<NavigationWrapper data-test="navigation">
+		{sections.map(section => (
+			<NavigationItem key={section} href={`#${section}`}>
+				{section}
+			</NavigationItem>
+		))}
+	</NavigationWrapper>
 );
 
 export default Navigation;

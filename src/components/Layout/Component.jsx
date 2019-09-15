@@ -1,17 +1,20 @@
-import React from 'react';
+// TODO Outsource theme implementation to separate file with test utilities
 
+import React from 'react';
 import PropTypes from 'prop-types';
 import { ThemeProvider } from 'styled-components';
 import { theme } from './theme';
-import { Root } from './Component.style.js';
+import { Main } from './Component.style.js';
+import Navigation from '../Navigation';
 import './base.css';
 
 const Layout = ({ children }) => {
 	return (
 		<ThemeProvider theme={theme}>
-			<Root>
-				<main>{children}</main>
-			</Root>
+			<>
+				<Navigation />
+				<Main>{children}</Main>
+			</>
 		</ThemeProvider>
 	);
 };

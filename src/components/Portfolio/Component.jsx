@@ -1,14 +1,25 @@
 import React, { useState } from 'react';
-import { PortfolioList, PortfolioItem } from './Component.style';
+import {
+	PortfolioList,
+	PortfolioItem,
+	PortfolioPreview,
+	PortfolioControl,
+	Thumbnail,
+} from './Component.style';
 import { data } from './data';
 
 const PortfolioEntry = ({ item, isActive, onChange }) => (
 	<PortfolioItem>
-		<button onClick={onChange}>
-			<h3>{item.name}</h3>
-			<p>{item.description}</p>
-		</button>
-		<img src={item.image} alt="alt"></img>
+		<PortfolioPreview>
+			<Thumbnail>
+				<img src={item.image} alt="alt" />
+			</Thumbnail>
+
+			<PortfolioControl onClick={onChange}>
+				<h3>{item.name}</h3>
+				<p>{item.description}</p>
+			</PortfolioControl>
+		</PortfolioPreview>
 		{isActive &&
 			item.content.map((content, index) => (
 				<div key={item.name + index}>

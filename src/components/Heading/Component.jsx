@@ -22,7 +22,7 @@ const Heading = () => {
 			}
 		}
 	`);
-	return <PureHeading data />;
+	return <PureHeading data={data} />;
 };
 
 export default Heading;

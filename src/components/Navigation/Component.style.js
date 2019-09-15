@@ -1,8 +1,16 @@
 import styled from 'styled-components';
 
-export const NavigationWrapper = styled.div`
+export const NavigationWrapper = styled.nav`
 	padding: 20px;
-	color: white;
-	background-color: blue;
-	margin-bottom: ${({ theme }) => theme.spacing.large};
+	background-color: ${({ theme }) => theme.colors.main.bg};
+	text-align: right;
+`;
+
+export const NavigationItem = styled.a`
+	padding: 0 ${({ theme }) => theme.spacing.small};
+	color: ${({ theme }) => theme.colors.main.fg};
+	text-decoration: none;
+	&:hover {
+		color: ${({ theme }) => theme.colors.main.fgAccent};
+	}
 `;
