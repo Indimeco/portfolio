@@ -1,13 +1,21 @@
 import React from 'react';
 import { NavigationWrapper, NavigationItem } from './Component.style';
 
-// TODO Consolidate elsewhere
-const sections = ['About', 'Portfolio', 'Contact'];
+const scroll = location => () => {
+	const target = document.querySelector(`#${location}`);
+	if (target) {
+		target.scrollIntoView({ behavior: 'smooth' });
+	}
+};
 
-const Navigation = () => (
+const Navigation = ({ sections }) => (
 	<NavigationWrapper data-test="navigation">
 		{sections.map(section => (
-			<NavigationItem key={section} href={`#${section}`}>
+			<NavigationItem
+				key={section}
+				data-test="navigation-item"
+				onClick={scroll(section)}
+			>
 				{section}
 			</NavigationItem>
 		))}

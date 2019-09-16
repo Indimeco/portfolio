@@ -6,13 +6,14 @@ import { ThemeProvider } from 'styled-components';
 import { theme } from './theme';
 import { Main } from './Component.style.js';
 import Navigation from '../Navigation';
+import { sections } from '../../content';
 import './base.css';
 
 const Layout = ({ children }) => {
 	return (
 		<ThemeProvider theme={theme}>
 			<>
-				<Navigation />
+				<Navigation sections={sections} />
 				<Main>{children}</Main>
 			</>
 		</ThemeProvider>
