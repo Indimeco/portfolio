@@ -1,16 +1,15 @@
 import React from 'react';
 
-import Layout from '../components/Layout';
-import SEO from '../components/seo';
-import Heading from '../components/Heading';
-import Portfolio from '../components/Portfolio';
-import Section from '../components/Section';
+import Layout from './components/Layout';
+import Heading from './components/Heading';
+import Portfolio from './components/Portfolio';
+import Section from './components/Section';
+import { title, description } from './content';
 
 const IndexPage = () => (
 	<Layout>
-		<SEO title="Jacob Lawrence | Web Developer" />
 		<Section name="About">
-			<Heading />
+			<Heading title={title} description={description} />
 			<p>
 				Lorem ipsum dolor sit amet consectetur adipiscing elit pretium, cursus
 				nunc nascetur suspendisse litora justo congue eget tincidunt, cum montes

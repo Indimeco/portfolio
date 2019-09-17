@@ -1,61 +1,61 @@
 {
-  "name": "portfolio-2019",
-  "private": true,
-  "description": "Indimeco's portfolio created in 2019",
-  "version": "0.0.0",
-  "author": "Indimeco",
-  "dependencies": {
-    "gatsby": "^2.13.73",
-    "gatsby-image": "^2.2.10",
-    "gatsby-plugin-manifest": "^2.2.6",
-    "gatsby-plugin-offline": "^2.2.7",
-    "gatsby-plugin-react-helmet": "^3.1.4",
-    "gatsby-plugin-sharp": "^2.2.13",
-    "gatsby-source-filesystem": "^2.1.11",
-    "gatsby-transformer-sharp": "^2.2.7",
-    "prop-types": "^15.7.2",
-    "react": "^16.9.0",
-    "react-dom": "^16.9.0",
-    "react-helmet": "^5.2.1",
-    "styled-components": "^4.3.2"
-  },
-  "devDependencies": {
-    "@commitlint/cli": "^8.1.0",
-    "@commitlint/config-conventional": "^8.1.0",
-    "@commitlint/prompt-cli": "^8.1.0",
-    "babel-jest": "^24.9.0",
-    "babel-preset-gatsby": "^0.2.11",
-    "enzyme": "^3.10.0",
-    "enzyme-adapter-react-16": "^1.14.0",
-    "gh-pages": "^2.1.1",
-    "husky": "^3.0.4",
-    "identity-obj-proxy": "^3.0.0",
-    "jest": "^24.9.0",
-    "jest-environment-enzyme": "^7.1.1",
-    "jest-enzyme": "^7.1.1",
-    "jest-styled-components": "^6.3.3",
-    "prettier": "^1.18.2",
-    "pretty-quick": "^1.11.1",
-    "react-test-renderer": "^16.9.0"
-  },
-  "keywords": [
-    "portfolio",
-    "Indimeco"
-  ],
-  "license": "ISC",
-  "scripts": {
-    "build": "gatsby build",
-    "develop": "gatsby develop",
-    "deploy": "gatsby build --prefix-paths && gh-pages -d public",
-    "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
-    "start": "npm run develop",
-    "serve": "gatsby serve",
-    "test": "jest",
-    "tdd": "jest --watch",
-    "commit": "commit"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/indimeco/portfolio-2019"
-  }
+	"name": "portfolio-2019",
+	"homepage": "http://indimeco.github.io/portfolio-2019",
+	"version": "0.1.0",
+	"private": true,
+	"dependencies": {
+		"react": "^16.9.0",
+		"react-dom": "^16.9.0",
+		"react-scripts": "3.1.1",
+		"styled-components": "^4.3.2"
+	},
+	"devDependencies": {
+		"@commitlint/cli": "^8.1.0",
+		"@commitlint/config-conventional": "^8.1.0",
+		"@commitlint/prompt-cli": "^8.1.0",
+		"babel-jest": "^24.9.0",
+		"enzyme": "^3.10.0",
+		"enzyme-adapter-react-16": "^1.14.0",
+		"gh-pages": "^2.1.1",
+		"husky": "^3.0.4",
+		"jest-environment-enzyme": "^7.1.1",
+		"jest-enzyme": "^7.1.1",
+		"jest-styled-components": "^6.3.3",
+		"prettier": "^1.18.2",
+		"pretty-quick": "^1.11.1"
+	},
+	"keywords": [
+		"portfolio",
+		"Indimeco"
+	],
+	"license": "ISC",
+	"scripts": {
+		"start": "react-scripts start",
+		"build": "react-scripts build",
+		"test": "set CI=true&&react-scripts test",
+		"predeploy": "npm run build",
+		"deploy": "gh-pages -d build",
+		"eject": "react-scripts eject",
+		"tdd": "react-scripts test",
+		"commit": "commit"
+	},
+	"eslintConfig": {
+		"extends": "react-app"
+	},
+	"browserslist": {
+		"production": [
+			">0.2%",
+			"not dead",
+			"not op_mini all"
+		],
+		"development": [
+			"last 1 chrome version",
+			"last 1 firefox version",
+			"last 1 safari version"
+		]
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/indimeco/portfolio-2019"
+	}
 }
