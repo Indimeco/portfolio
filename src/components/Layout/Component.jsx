@@ -4,14 +4,15 @@ import { ThemeProvider } from 'styled-components';
 import { theme } from './theme';
 import { Main } from './Component.style.js';
 import Navigation from '../Navigation';
-import { sections } from '../../content';
+import Footer from '../Footer';
 
 const Layout = ({ children }) => {
 	return (
 		<ThemeProvider theme={theme}>
 			<>
-				<Navigation sections={sections} />
+				<Navigation />
 				<Main>{children}</Main>
+				<Footer />
 			</>
 		</ThemeProvider>
 	);

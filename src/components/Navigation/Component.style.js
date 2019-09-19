@@ -1,9 +1,11 @@
 import styled from 'styled-components';
 
 export const NavigationWrapper = styled.nav`
-	padding: 20px;
+	padding: ${({ theme }) => theme.spacing.medium};
 	background-color: ${({ theme }) => theme.colors.main.bg};
 	text-align: right;
+	position: sticky;
+	top: 0;
 `;
 
 export const NavigationItem = styled.button`
