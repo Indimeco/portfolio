@@ -4,6 +4,7 @@ import Layout from './components/Layout';
 import Heading from './components/Heading';
 import Portfolio from './components/Portfolio';
 import Section from './components/Section';
+import Social from './components/Social';
 import { title, description } from './content';
 
 const IndexPage = () => (
@@ -25,6 +26,9 @@ const IndexPage = () => (
 		</Section>
 		<Section name="Portfolio" alternate={true}>
 			<Portfolio />
+		</Section>
+		<Section name="Contact">
+			<Social />
 		</Section>
 	</Layout>
 );
