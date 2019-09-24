@@ -14,7 +14,7 @@ export const NavigationItem = styled.button`
 	color: ${({ theme }) => theme.colors.main.fg};
 	cursor: pointer;
 	font-size: ${({ theme }) => theme.fonts.small};
-	font-family: ${({ theme }) => theme.fonts.fontFamily};
+	font-family: ${({ theme }) => theme.fontFamilies.content};
 	margin: 0;
 	padding: 0 ${({ theme }) => theme.spacing.small};
 	text-decoration: none;

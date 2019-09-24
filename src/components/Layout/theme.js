@@ -43,7 +43,10 @@ export const theme = {
 		large: '18px',
 		huge: '30px',
 		hero: '40px',
-		fontFamily: 'palatino',
+	},
+	fontFamilies: {
+		content: 'monospace',
+		heading: 'palatino',
 	},
 };
 

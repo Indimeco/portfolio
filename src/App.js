@@ -9,8 +9,8 @@ import { title, description } from './content';
 
 const IndexPage = () => (
 	<Layout>
+		<Heading title={title} description={description} />
 		<Section name="About">
-			<Heading title={title} description={description} />
 			<p>
 				Lorem ipsum dolor sit amet consectetur adipiscing elit pretium, cursus
 				nunc nascetur suspendisse litora justo congue eget tincidunt, cum montes

@@ -4,7 +4,7 @@ export const HeaderWrapper = styled.header`
 	text-align: center;
 `;
 export const Title = styled.h1`
-	font-family: ${({ theme }) => theme.fonts.fontFamily};
+	font-family: ${({ theme }) => theme.fontFamilies.heading};
 	font-size: ${({ theme }) => theme.fonts.hero};
 	font-weight: 600;
 	color: ${({ theme }) => theme.colors.root.fg};
@@ -12,8 +12,8 @@ export const Title = styled.h1`
 	margin-top: 0;
 `;
 
-export const Subtitle = styled.h2`
-	font-family: ${({ theme }) => theme.fonts.fontFamily};
+export const Subtitle = styled.span`
+	font-family: ${({ theme }) => theme.fontFamilies.heading};
 	font-size: ${({ theme }) => theme.fonts.huge};
 	font-weight: 400;
 	color: ${({ theme }) => theme.colors.root.fg};

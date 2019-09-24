@@ -12,7 +12,7 @@ export const SocialLink = styled.a`
 	color: ${({ theme }) => theme.colors.root.fg};
 	cursor: pointer;
 	font-size: ${({ theme }) => theme.fonts.hero};
-	font-family: ${({ theme }) => theme.fonts.fontFamily};
+	font-family: ${({ theme }) => theme.fontFamilies.content};
 	margin: 0;
 	padding: 0 ${({ theme }) => theme.spacing.small};
 	text-decoration: none;
