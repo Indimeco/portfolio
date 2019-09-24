@@ -1,7 +1,8 @@
-export const data = [
+export default [
 	{
 		name: 'QRPG',
 		image: 'sample.png',
+		href: 'https://steamcommunity.com/sharedfiles/filedetails/?id=902748466',
 		description:
 			'QRPG is a Steam Workshop mod that provides UI and Data Management solutions for playing Role Playing Games within the physics sandbox game Tabletop Simulator.',
 		content: [
@@ -20,6 +21,7 @@ export const data = [
 	{
 		name: 'My Little Charlotte',
 		image: 'sample.png',
+		href: 'https://github.com/Indimeco/my-little-charlotte',
 		description:
 			'My Little Charlotte is a data scraping and data analysis tool, built using Puppeteer and Node JS.',
 		content: [

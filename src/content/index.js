@@ -1,10 +1,12 @@
+import Portfolio from './portfolio';
+
 const {
 	faGithub,
 	faSteam,
 	faLinkedinIn,
 } = require('@fortawesome/free-brands-svg-icons');
 
-module.exports = {
+const data = {
 	sections: ['About', 'Portfolio', 'Contact'],
 	title: 'Jacob Lawrence',
 	description: 'Web Developer',
@@ -17,4 +19,7 @@ module.exports = {
 		},
 		{ href: 'https://github.com/Indimeco', icon: faGithub },
 	],
+	portfolio: Portfolio,
 };
+
+export default data;

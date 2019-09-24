@@ -7,4 +7,68 @@ describe('Portfolio', () => {
 		const wrapper = mount(Component);
 		expect(findByTestAttr(wrapper, 'portfolio')).toHaveLength(1);
 	});
+
+	describe('Portfolio Item', () => {
+		it('renders', () => {
+			const wrapper = mount(Component);
+			expect(findByTestAttr(wrapper, 'portfolio-item').length).toBeGreaterThan(
+				0,
+			);
+		});
+
+		it('has a control and a preview image', () => {
+			const wrapper = findByTestAttr(
+				mount(Component),
+				'portfolio-item',
+			).first();
+			expect(wrapper.find('button')).toHaveLength(1);
+			expect(wrapper.find('a img')).toHaveLength(1);
+			expect(wrapper.find('a').instance()).toHaveProperty('href');
+		});
+
+		it('is closed by default', () => {
+			const wrapper = findByTestAttr(
+				mount(Component),
+				'portfolio-item',
+			).first();
+			expect(findByTestAttr(wrapper, 'portfolio-content')).toHaveLength(0);
+		});
+
+		it('opens when clicked and then is visible', () => {
+			const wrapper = mount(Component);
+
+			findByTestAttr(wrapper, 'portfolio-item')
+				.at(0)
+				.find('button')
+				.simulate('click');
+
+			expect(
+				findByTestAttr(
+					findByTestAttr(wrapper, 'portfolio-item').at(0),
+					'portfolio-item-content',
+				).length,
+			).toBeGreaterThan(0);
+		});
+
+		it('closes other accordions when a new one is opened', () => {
+			const wrapper = mount(Component);
+
+			findByTestAttr(wrapper, 'portfolio-item')
+				.at(0)
+				.find('button')
+				.simulate('click');
+
+			findByTestAttr(wrapper, 'portfolio-item')
+				.at(1)
+				.find('button')
+				.simulate('click');
+
+			expect(
+				findByTestAttr(
+					findByTestAttr(wrapper, 'portfolio-item').at(0),
+					'portfolio-item-content',
+				),
+			).toHaveLength(0);
+		});
+	});
 });

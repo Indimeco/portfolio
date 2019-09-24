@@ -6,14 +6,16 @@ import {
 	PortfolioControl,
 	Thumbnail,
 } from './Component.style';
-import { data } from './data';
+import { portfolio } from '../../content';
 
 const PortfolioEntry = ({ item, isActive, onChange }) => (
-	<PortfolioItem>
+	<PortfolioItem data-test="portfolio-item">
 		<PortfolioPreview>
-			<Thumbnail>
-				<img src={item.image} alt="alt" />
-			</Thumbnail>
+			<a href={item.href}>
+				<Thumbnail>
+					<img src={item.image} alt="alt" />
+				</Thumbnail>
+			</a>
 
 			<PortfolioControl onClick={onChange}>
 				<h3>{item.name}</h3>
@@ -22,7 +24,7 @@ const PortfolioEntry = ({ item, isActive, onChange }) => (
 		</PortfolioPreview>
 		{isActive &&
 			item.content.map((content, index) => (
-				<div key={item.name + index}>
+				<div key={item.name + index} data-test="portfolio-item-content">
 					<div>{content.blurb}</div>
 					<p>{content.paragraph}</p>
 				</div>
@@ -35,7 +37,7 @@ const Portfolio = () => {
 
 	return (
 		<PortfolioList data-test="portfolio">
-			{data.map(item => (
+			{portfolio.map(item => (
 				<PortfolioEntry
 					item={item}
 					isActive={active === item.name}
