@@ -1,25 +1,9 @@
 import Portfolio from './portfolio';
+import Social from './social';
 
-const {
-	faGithub,
-	faSteam,
-	faLinkedinIn,
-} = require('@fortawesome/free-brands-svg-icons');
-
-const data = {
-	sections: ['About', 'Portfolio', 'Contact'],
-	title: 'Jacob Lawrence',
-	description: 'Web Developer',
-	github: 'https://github.com/Indimeco/portfolio-2019',
-	social: [
-		{ href: 'https://www.linkedin.com/in/indimeco/', icon: faLinkedinIn },
-		{
-			href: 'http://steamcommunity.com/id/PancakeEngineering/myworkshopfiles/',
-			icon: faSteam,
-		},
-		{ href: 'https://github.com/Indimeco', icon: faGithub },
-	],
-	portfolio: Portfolio,
-};
-
-export default data;
+export const description = 'Web Developer';
+export const github = 'https://github.com/Indimeco/portfolio-2019';
+export const portfolio = Portfolio;
+export const sections = ['About', 'Portfolio', 'Contact'];
+export const social = Social;
+export const title = 'Jacob Lawrence';
