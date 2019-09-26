@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Heading } from '../UI/Heading';
 
 export const Sect = styled.section`
 	min-height: 80vh;
@@ -10,7 +11,5 @@ export const Sect = styled.section`
 `;
 
 export const SectHeading = styled.h2`
-	margin: 0 0 ${({ theme }) => theme.spacing.large} 0;
-	font-size: ${({ theme }) => theme.fonts.huge};
-	font-family: ${({ theme }) => theme.fontFamilies.heading};
+	${Heading}
 `;
