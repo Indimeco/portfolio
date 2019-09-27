@@ -7,9 +7,8 @@ export const Figure = styled.figure`
 `;
 
 export const ImageWrapper = styled.div`
-	width: 100%;
-	height: 100%;
 	object-fit: cover;
 	background-color: black;
 	grid-area: image;
+	margin-bottom: ${({ theme }) => theme.spacing.small};
 `;

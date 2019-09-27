@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Text } from '../UI/Text';
+import { text } from '../UI/snippets/text';
 
 export const PortfolioList = styled.div``;
 
@@ -16,7 +16,7 @@ export const PortfolioPreview = styled.div`
 `;
 
 export const PortfolioControl = styled.button`
-	${Text}
+	${text}
 	width: 100%;
 	background-color: transparent;
 	font-weight: unset;

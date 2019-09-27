@@ -7,6 +7,7 @@ import {
 } from './Component.style';
 import { title, description } from '../../content';
 import { ImageWrapper, Figure } from '../UI/Images';
+import { FadeLine } from '../UI/Decorative';
 
 export const Heading = () => {
 	return (
@@ -18,6 +19,7 @@ export const Heading = () => {
 			<ImageWrapper>
 				<Figure src="todo" alt="Jacob's Headshot" />
 			</ImageWrapper>
+			<FadeLine />
 		</HeaderWrapper>
 	);
 };

@@ -1,6 +1,6 @@
 import { css } from 'styled-components';
 
-export const Heading = ({ theme }) => css`
+export const heading = ({ theme }) => css`
 	color: ${theme.colors.root.fg};
 	font-size: ${theme.fonts.huge};
 	font-family: ${theme.fontFamilies.headings};

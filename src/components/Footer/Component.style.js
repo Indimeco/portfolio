@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Text } from '../UI/Text';
+import { text } from '../UI/snippets/text';
 
 export const FooterWrapper = styled.footer`
 	padding: ${({ theme }) => theme.spacing.medium};
@@ -8,7 +8,7 @@ export const FooterWrapper = styled.footer`
 `;
 
 export const FooterContent = styled.a`
-	${Text}
+	${text}
 	background-color: transparent;
 	border: none;
 	color: ${({ theme }) => theme.colors.aux.fg};

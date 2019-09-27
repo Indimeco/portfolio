@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Text } from '../UI/Text';
+import { text } from '../UI/snippets/text';
 
 export const NavigationWrapper = styled.nav`
 	padding: ${({ theme }) => theme.spacing.medium};
@@ -10,7 +10,7 @@ export const NavigationWrapper = styled.nav`
 `;
 
 export const NavigationItem = styled.button`
-	${Text}
+	${text}
 	background-color: transparent;
 	border: none;
 	color: ${({ theme }) => theme.colors.aux.fg};

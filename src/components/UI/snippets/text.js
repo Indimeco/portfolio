@@ -1,6 +1,6 @@
 import { css } from 'styled-components';
 
-export const Text = ({ theme }) => css`
+export const text = ({ theme }) => css`
 	color: ${theme.colors.root.fg};
 	font-size: ${theme.fonts.medium};
 	font-family: ${theme.fontFamilies.content};
