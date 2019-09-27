@@ -1,5 +1,6 @@
 import styled, { css } from 'styled-components';
 import { indent } from '../UI/Spacing';
+import { Heading } from '../UI/Heading';
 
 const sectoinGradient = ({
 	theme: {
@@ -26,7 +27,5 @@ export const SectContent = styled.div`
 `;
 
 export const SectHeading = styled.h2`
-	margin: 0 0 ${({ theme }) => theme.spacing.large} 0;
-	font-size: ${({ theme }) => theme.fonts.huge};
-	font-family: ${({ theme }) => theme.fontFamilies.heading};
+	${Heading}
 `;
