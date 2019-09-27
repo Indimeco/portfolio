@@ -36,6 +36,7 @@ export const theme = {
 		small: '10px',
 		medium: '20px',
 		large: '30px',
+		huge: '60px',
 	},
 	fonts: {
 		small: '14px',

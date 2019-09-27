@@ -1,12 +1,23 @@
 import React from 'react';
-import { HeaderWrapper, Title, Subtitle } from './Component.style';
+import {
+	HeaderWrapper,
+	TitleWrapper,
+	Title,
+	Subtitle,
+} from './Component.style';
 import { title, description } from '../../content';
+import { ImageWrapper, Figure } from '../UI/Images';
 
 export const Heading = () => {
 	return (
 		<HeaderWrapper data-test="heading">
-			<Title>{title}</Title>
-			<Subtitle>{description}</Subtitle>
+			<TitleWrapper>
+				<Title>{title}</Title>
+				<Subtitle>{description}</Subtitle>
+			</TitleWrapper>
+			<ImageWrapper>
+				<Figure src="todo" alt="Jacob's Headshot" />
+			</ImageWrapper>
 		</HeaderWrapper>
 	);
 };

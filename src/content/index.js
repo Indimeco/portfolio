@@ -6,4 +6,4 @@ export const github = 'https://github.com/Indimeco/portfolio-2019';
 export const portfolio = Portfolio;
 export const sections = ['About', 'Portfolio', 'Contact'];
 export const social = Social;
-export const title = 'Jacob Lawrence';
+export const title = 'Loren Ipsum';

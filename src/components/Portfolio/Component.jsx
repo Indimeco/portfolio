@@ -11,11 +11,11 @@ import { portfolio } from '../../content';
 const PortfolioEntry = ({ item, isActive, onChange }) => (
 	<PortfolioItem data-test="portfolio-item">
 		<PortfolioPreview>
-			<a href={item.href}>
-				<Thumbnail>
+			<Thumbnail>
+				<a href={item.href}>
 					<img src={item.image} alt="alt" />
-				</Thumbnail>
-			</a>
+				</a>
+			</Thumbnail>
 
 			<PortfolioControl onClick={onChange}>
 				<h3>{item.name}</h3>
