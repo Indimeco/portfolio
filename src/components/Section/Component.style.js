@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+import { indent } from '../UI/Spacing';
 
 const sectoinGradient = ({
 	theme: {
@@ -15,10 +16,13 @@ const sectoinGradient = ({
 
 export const Sect = styled.section`
 	min-height: 80vh;
-	${({ theme }) => theme.spacing.indent}
 	padding-top: ${({ theme }) => theme.spacing.large};
 	padding-bottom: ${({ theme }) => theme.spacing.large};
 	${sectoinGradient}
+`;
+
+export const SectContent = styled.div`
+	${indent}
 `;
 
 export const SectHeading = styled.h2`
