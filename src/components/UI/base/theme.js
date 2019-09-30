@@ -18,11 +18,11 @@ export const theme = {
 		medium: '16px',
 		large: '18px',
 		huge: '30px',
-		hero: '40px',
+		hero: '80px',
 	},
 	fontFamilies: {
 		content: 'monospace',
-		heading: 'palatino',
+		heading: 'monospace',
 	},
 };
 

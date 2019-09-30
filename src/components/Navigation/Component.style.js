@@ -2,11 +2,14 @@ import styled from 'styled-components';
 import { text } from '../UI/snippets/text';
 
 export const NavigationWrapper = styled.nav`
-	padding: ${({ theme }) => theme.spacing.medium};
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
 	background-color: ${({ theme }) => theme.colors.aux.bg};
-	text-align: right;
 	position: sticky;
 	top: 0;
+	min-height: 7vh;
+	margin-bottom: 0;
 `;
 
 export const NavigationItem = styled.button`

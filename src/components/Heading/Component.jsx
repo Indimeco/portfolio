@@ -4,10 +4,9 @@ import {
 	TitleWrapper,
 	Title,
 	Subtitle,
+	HeaderImage,
 } from './Component.style';
 import { title, description } from '../../content';
-import { ImageWrapper, Figure } from '../UI/Images';
-import { FadeLine } from '../UI/Decorative';
 
 export const Heading = () => {
 	return (
@@ -16,10 +15,7 @@ export const Heading = () => {
 				<Title>{title}</Title>
 				<Subtitle>{description}</Subtitle>
 			</TitleWrapper>
-			<ImageWrapper>
-				<Figure src="todo" alt="Jacob's Headshot" />
-			</ImageWrapper>
-			<FadeLine />
+			<HeaderImage src="/images/icon.png" alt="Jacob's Headshot" />
 		</HeaderWrapper>
 	);
 };

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
-export const Figure = styled.figure`
-	width: 100%;
+export const Image = styled.img`
+	width: ${({ width }) => width || '100%'};
 	height: 100%;
 	margin: 0;
 `;

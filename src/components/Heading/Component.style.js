@@ -1,36 +1,48 @@
 import styled from 'styled-components';
 import { indent } from '../UI/Spacing';
 import { heading } from '../UI/snippets/heading';
+import { MEDIA_1 } from '../UI/base/media';
+import { FONT_HERO } from '../UI/base/font';
+import { SPACE_SMALL } from '../UI/base/space';
 
 export const HeaderWrapper = styled.header`
 	${indent}
-	display: grid;
-	grid-template-columns: 2fr 1fr;
-	grid-template-areas: 'title image';
-	grid-column-gap: ${({ theme }) => theme.spacing.tiny};
+	min-height: 100vh;
 
-	@media only screen and (min-width: 768px) {
-		grid-template-columns: 2fr 2fr 1fr;
-		grid-template-areas:
-			'offset title image'
-			'decor decor decor';
-		grid-column-gap: ${({ theme }) => theme.spacing.small};
+	display: flex;
+	align-items: center;
+
+	@media only screen and (min-width: ${MEDIA_1}) {
+		justify-content: space-around;
 	}
 `;
 
 export const Title = styled.h1`
 	${heading}
-	font-size: ${({ theme }) => theme.fonts.hero};
+	font-size: ${FONT_HERO};
 	font-weight: 600;
-	margin-bottom: ${({ theme }) => theme.spacing.small};
+	margin-bottom: ${SPACE_SMALL};
 	margin-top: 0;
+
+	@media only screen and (min-width: ${MEDIA_1}) {
+		text-align: center;
+	}
 `;
 
 export const Subtitle = styled.div`
 	${heading}
-	margin-bottom: ${({ theme }) => theme.spacing.small};
+	margin-bottom: ${SPACE_SMALL};
+
+	@media only screen and (min-width: ${MEDIA_1}) {
+		text-align: center;
+	}
 `;
 
 export const TitleWrapper = styled.div`
-	grid-area: title;
+	margin-right: 10vw;
+`;
+
+export const HeaderImage = styled.img`
+	width: calc(10vw + 10vh + 0.5vmin);
+	border-radius: 50%;
 `;
