@@ -18,6 +18,8 @@
 		"@commitlint/cli": "^8.1.0",
 		"@commitlint/config-conventional": "^8.1.0",
 		"@commitlint/prompt-cli": "^8.1.0",
+		"@testing-library/jest-dom": "^4.1.0",
+		"@testing-library/react": "^9.2.0",
 		"babel-jest": "^24.9.0",
 		"enzyme": "^3.10.0",
 		"enzyme-adapter-react-16": "^1.14.0",
