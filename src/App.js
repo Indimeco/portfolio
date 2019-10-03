@@ -15,10 +15,10 @@ const IndexPage = () => (
 		<Section name="About">
 			<About />
 		</Section>
-		<Section name="Portfolio" alternate={true}>
+		<Section title="Check out my projects" name="Portfolio" alternate={true}>
 			<Portfolio />
 		</Section>
-		<Section name="Contact">
+		<Section title="Find me online" name="Contact">
 			<Social />
 		</Section>
 	</Layout>

@@ -1,7 +1,7 @@
 import Component from './Component';
-import { mount, render } from '../../utils/tests/withTheme';
-import { findByTestAttr } from '../../utils/tests/findByTestAttr';
-import { rotary } from '../../content';
+import { mount, render } from '../../../utils/tests/withTheme';
+import { findByTestAttr } from '../../../utils/tests/findByTestAttr';
+import { rotary } from '../../../content';
 import {
 	waitForDomChange,
 	waitForElementToBeRemoved,

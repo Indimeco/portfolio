@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { SPACE_SMALL } from './base/space';
 
 export const Image = styled.img`
 	width: ${({ width }) => width || '100%'};
@@ -10,5 +11,5 @@ export const ImageWrapper = styled.div`
 	object-fit: cover;
 	background-color: black;
 	grid-area: image;
-	margin-bottom: ${({ theme }) => theme.spacing.small};
+	margin-bottom: ${SPACE_SMALL};
 `;
