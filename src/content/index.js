@@ -1,5 +1,6 @@
 import Portfolio from './portfolio';
 import Social from './social';
+import About from './About';
 
 export const description = 'Web Developer';
 export const github = 'https://github.com/Indimeco/portfolio-2019';
@@ -11,3 +12,4 @@ export const rotary = {
 	text: 'Great work is born of',
 	words: ['sustainability', 'communication', 'extensibility'],
 };
+export const about = About;

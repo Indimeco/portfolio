@@ -1,12 +1,16 @@
 import styled from 'styled-components';
 import { text } from '../UI/snippets/text';
 import { FONT_LARGE, FONT_HUGE } from '../UI/base/font';
+import PropTypes from 'prop-types';
+
 import { SPACE_MEGA, SPACE_MEDIUM } from '../UI/base/space';
 
 export const Blurb = styled.div`
 	text-align: ${({ alt }) => (alt ? 'right' : 'left')};
 	margin-bottom: ${SPACE_MEGA};
 `;
+
+Blurb.propTypes = { alt: PropTypes.bool };
 
 export const BlurbText = styled.span`
 	${text};

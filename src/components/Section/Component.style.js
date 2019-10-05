@@ -16,7 +16,6 @@ const sectoinGradient = ({
 };
 
 export const Sect = styled.section`
-	min-height: 80vh;
 	padding-top: ${({ theme }) => theme.spacing.large};
 	padding-bottom: ${({ theme }) => theme.spacing.large};
 	${sectoinGradient}

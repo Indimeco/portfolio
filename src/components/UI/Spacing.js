@@ -18,8 +18,12 @@ const ViewBox = styled.div`
 	align-items: center;
 	justify-content: center;
 `;
+
+const ViewContent = styled.div`
+	width: 100%;
+`;
 export const View = ({ children }) => (
 	<ViewBox>
-		<div>{children}</div>
+		<ViewContent>{children}</ViewContent>
 	</ViewBox>
 );
