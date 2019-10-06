@@ -1,10 +1,11 @@
-import { root, main, aux } from './palette';
+import { root } from './palette';
 
 export const theme = {
 	colors: {
-		root,
-		main,
-		aux,
+		fg: root.fg,
+		fgAccent: root.fgAccent,
+		bg: root.bg,
+		bgAccent: root.bgAccent,
 	},
 	spacing: {
 		tiny: '5px',

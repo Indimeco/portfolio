@@ -1,22 +1,32 @@
 import styled from 'styled-components';
 import { text } from '../UI/snippets/text';
+import { heading } from '../UI/snippets/heading';
+import { FONT_MEDIUM } from '../UI/base/font';
+import { SPACE_MEDIUM } from '../UI/base/space';
 
 export const PortfolioList = styled.div``;
+export const PortfolioAccordion = styled.div``;
+export const PortfolioItemContent = styled.div``;
+export const PortfolioItemContentArea = styled.div``;
+export const PortfolioButton = styled.button``;
 
-export const PortfolioItem = styled.div`
-	padding: ${({ theme }) => theme.spacing.medium} 0;
+export const PortfolioItemName = styled.h3`
+	${heading};
+	font-size: ${FONT_MEDIUM};
+`;
+export const PortfolioItemDescription = styled.p`
+	${text};
 `;
 
-export const PortfolioPreview = styled.div`
-	height: 30vh;
+export const PortfolioItem = styled.div`
+	padding: ${SPACE_MEDIUM} 0;
 	display: grid;
-	align-items: flex-start;
 	grid-template-columns: 1fr 2fr;
-	grid-column-gap: ${({ theme }) => theme.spacing.medium};
+	grid-column-gap: ${SPACE_MEDIUM};
 `;
 
 export const PortfolioControl = styled.button`
-	${text}
+	${text};
 	width: 100%;
 	background-color: transparent;
 	font-weight: unset;
@@ -27,13 +37,13 @@ export const PortfolioControl = styled.button`
 `;
 
 export const Thumbnail = styled.div`
-	background-color: black;
+	height: 30vh;
 
 	&,
 	a,
 	img {
 		width: 100%;
-		height: 100%;
+		max-height: 100%;
 	}
 
 	img {

@@ -1,6 +1,6 @@
 import Portfolio from './portfolio';
 import Social from './social';
-import About from './About';
+import About from './about';
 
 export const description = 'Web Developer';
 export const github = 'https://github.com/Indimeco/portfolio-2019';

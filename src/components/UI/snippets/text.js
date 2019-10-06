@@ -1,8 +1,10 @@
 import { css } from 'styled-components';
+import { FONT_SMALL, FONT_CONTENT } from '../base/font';
+import { SPACE_SMALL } from '../base/space';
 
 export const text = ({ theme }) => css`
-	color: ${theme.colors.root.fg};
-	font-size: ${theme.fonts.medium};
-	font-family: ${theme.fontFamilies.content};
-	margin: 0 0 ${theme.spacing.small} 0;
+	color: ${theme.colors.fg};
+	font-size: ${FONT_SMALL};
+	font-family: ${FONT_CONTENT};
+	margin: 0 0 ${SPACE_SMALL} 0;
 `;

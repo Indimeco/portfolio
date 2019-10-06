@@ -1,4 +1,6 @@
 import styled from 'styled-components';
+import { FONT_HERO } from '../UI/base/font';
+import { SPACE_SMALL } from '../UI/base/space';
 
 export const SocialWrapper = styled.div`
 	display: flex;
@@ -9,14 +11,13 @@ export const SocialWrapper = styled.div`
 export const SocialLink = styled.a`
 	background-color: transparent;
 	border: none;
-	color: ${({ theme }) => theme.colors.root.fg};
+	color: ${({ theme }) => theme.colors.fg};
 	cursor: pointer;
-	font-size: ${({ theme }) => theme.fonts.hero};
-	font-family: ${({ theme }) => theme.fontFamilies.content};
+	font-size: ${FONT_HERO};
 	margin: 0;
-	padding: 0 ${({ theme }) => theme.spacing.small};
+	padding: 0 ${SPACE_SMALL};
 	text-decoration: none;
 	&:hover {
-		color: ${({ theme }) => theme.colors.root.fgAccent};
+		color: ${({ theme }) => theme.colors.fgAccent};
 	}
 `;

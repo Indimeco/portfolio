@@ -2,33 +2,51 @@ import React, { useState } from 'react';
 import {
 	PortfolioList,
 	PortfolioItem,
-	PortfolioPreview,
-	PortfolioControl,
+	PortfolioItemName,
+	PortfolioItemDescription,
+	PortfolioItemContentArea,
+	PortfolioItemContent,
+	PortfolioAccordion,
+	PortfolioButton,
 	Thumbnail,
 } from './Component.style';
 import { portfolio } from '../../content';
 
+const PortfolioItemDetailsButton = ({ onChange }) => (
+	<PortfolioButton onClick={onChange}>View details</PortfolioButton>
+);
+
+const PortfolioItemPreview = ({ name, description }) => (
+	<React.Fragment>
+		<PortfolioItemName>{name}</PortfolioItemName>
+		<PortfolioItemDescription>{description}</PortfolioItemDescription>
+	</React.Fragment>
+);
+
 const PortfolioEntry = ({ item, isActive, onChange }) => (
 	<PortfolioItem data-test="portfolio-item">
-		<PortfolioPreview>
-			<Thumbnail>
-				<a href={item.href}>
-					<img src={item.image} alt="alt" />
-				</a>
-			</Thumbnail>
+		<Thumbnail>
+			<a href={item.href}>
+				<img src={item.image} alt="alt" />
+			</a>
+		</Thumbnail>
 
-			<PortfolioControl onClick={onChange}>
-				<h3>{item.name}</h3>
-				<p>{item.description}</p>
-			</PortfolioControl>
-		</PortfolioPreview>
-		{isActive &&
-			item.content.map((content, index) => (
-				<div key={item.name + index} data-test="portfolio-item-content">
-					<div>{content.blurb}</div>
-					<p>{content.paragraph}</p>
-				</div>
-			))}
+		<PortfolioAccordion>
+			<PortfolioItemPreview name={item.name} description={item.description} />
+			<PortfolioItemDetailsButton onChange={onChange} />
+			<PortfolioItemContentArea>
+				{isActive &&
+					item.content.map((content, index) => (
+						<PortfolioItemContent
+							key={item.name + index}
+							data-test="portfolio-item-content"
+						>
+							<div>{content.blurb}</div>
+							<p>{content.paragraph}</p>
+						</PortfolioItemContent>
+					))}
+			</PortfolioItemContentArea>
+		</PortfolioAccordion>
 	</PortfolioItem>
 );
 
