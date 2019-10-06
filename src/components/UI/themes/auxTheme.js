@@ -1,6 +1,6 @@
 import { aux } from '../base/palette';
 
-export const theme = {
+export const auxTheme = {
 	colors: {
 		fg: aux.fg,
 		fgAccent: aux.fgAccent,
@@ -9,4 +9,4 @@ export const theme = {
 	},
 };
 
-export default theme;
+export default auxTheme;

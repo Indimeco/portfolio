@@ -1,9 +1,9 @@
 import styled from 'styled-components';
-import { text } from '../../UI/snippets/text';
-import { FONT_LARGE, FONT_HUGE } from '../../UI/base/font';
+import { heading } from '../../UI/snippets';
+import { FONT_LARGE } from '../../UI/base';
 import PropTypes from 'prop-types';
 
-import { SPACE_MEGA, SPACE_MEDIUM } from '../../UI/base/space';
+import { SPACE_MEGA, SPACE_MEDIUM } from '../../UI/base';
 
 export const Entry = styled.div`
 	text-align: ${({ altStyle }) => (altStyle ? 'right' : 'left')};
@@ -13,14 +13,13 @@ export const Entry = styled.div`
 Entry.propTypes = { alt: PropTypes.bool };
 
 export const EntryText = styled.span`
-	${text};
+	${heading};
 	font-size: ${FONT_LARGE};
 `;
 
 export const EntryIcon = styled.span`
-	${text};
+	${heading};
 	margin: 0 ${SPACE_MEDIUM};
-	font-size: ${FONT_HUGE};
 `;
 
 export const Blink = styled.span``;

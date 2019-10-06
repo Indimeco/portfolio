@@ -1,6 +1,6 @@
 import { main } from '../base/palette';
 
-export const theme = {
+export const mainTheme = {
 	colors: {
 		fg: main.fg,
 		fgAccent: main.fgAccent,
@@ -9,4 +9,4 @@ export const theme = {
 	},
 };
 
-export default theme;
+export default mainTheme;

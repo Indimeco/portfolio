@@ -1,8 +1,6 @@
 import styled from 'styled-components';
-import { text } from '../UI/snippets/text';
-import { heading } from '../UI/snippets/heading';
-import { FONT_MEDIUM } from '../UI/base/font';
-import { SPACE_MEDIUM } from '../UI/base/space';
+import { heading, text } from '../UI/snippets';
+import { FONT_LARGE, SPACE_MEDIUM } from '../UI/base';
 
 export const PortfolioList = styled.div``;
 export const PortfolioAccordion = styled.div``;
@@ -12,7 +10,8 @@ export const PortfolioButton = styled.button``;
 
 export const PortfolioItemName = styled.h3`
 	${heading};
-	font-size: ${FONT_MEDIUM};
+	font-size: ${FONT_LARGE};
+	margin-bottom: ${SPACE_MEDIUM};
 `;
 export const PortfolioItemDescription = styled.p`
 	${text};

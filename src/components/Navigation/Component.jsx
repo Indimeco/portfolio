@@ -2,7 +2,7 @@ import React from 'react';
 import { NavigationWrapper, NavigationItem } from './Component.style';
 import { sections } from '../../content';
 import { ThemeProvider } from 'styled-components';
-import theme from '../UI/themes/auxTheme';
+import { auxTheme } from '../UI/themes';
 
 const scroll = location => () => {
 	const target = document.querySelector(`#${location}`);
@@ -12,7 +12,7 @@ const scroll = location => () => {
 };
 
 const Navigation = () => (
-	<ThemeProvider theme={theme}>
+	<ThemeProvider theme={auxTheme}>
 		<NavigationWrapper data-test="navigation">
 			{sections.map(section => (
 				<NavigationItem

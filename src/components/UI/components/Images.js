@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { SPACE_SMALL } from './base/space';
+import { SPACE_SMALL } from '../base';
 
 export const Image = styled.img`
 	width: ${({ width }) => width || '100%'};

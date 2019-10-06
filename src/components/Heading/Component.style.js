@@ -1,13 +1,9 @@
 import styled from 'styled-components';
-import { indent } from '../UI/Spacing';
-import { heading } from '../UI/snippets/heading';
-import { MEDIA_1 } from '../UI/base/media';
-import { FONT_HERO } from '../UI/base/font';
-import { SPACE_SMALL } from '../UI/base/space';
+import { heading, indent } from '../UI/snippets';
+import { MEDIA_1, FONT_HERO, SPACE_SMALL } from '../UI/base';
 
 export const HeaderWrapper = styled.header`
-	${indent}
-	min-height: 100vh;
+	${indent} min-height: 100vh;
 
 	display: flex;
 	align-items: center;
@@ -18,8 +14,7 @@ export const HeaderWrapper = styled.header`
 `;
 
 export const Title = styled.h1`
-	${heading}
-	font-size: ${FONT_HERO};
+	${heading} font-size: ${FONT_HERO};
 	font-weight: 600;
 	margin-bottom: ${SPACE_SMALL};
 	margin-top: 0;
@@ -30,8 +25,7 @@ export const Title = styled.h1`
 `;
 
 export const Subtitle = styled.div`
-	${heading}
-	margin-bottom: ${SPACE_SMALL};
+	${heading} margin-bottom: ${SPACE_SMALL};
 
 	@media only screen and (min-width: ${MEDIA_1}) {
 		text-align: center;

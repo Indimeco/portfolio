@@ -1,6 +1,6 @@
 import React from 'react';
 import { Sect, SectContent, SectHeading } from './Component.style';
-import { View } from '../UI/Spacing';
+import { View } from '../UI/components';
 
 const Section = ({ name, title, alternate, children }) => {
 	return (

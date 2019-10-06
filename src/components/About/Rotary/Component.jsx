@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { CSSTransition } from 'react-transition-group';
 import { RotaryWrapper, RotaryText, RotaryWord } from './Component.style';
 import { rotary } from '../../../content';
-import { WATERFALL_2 } from '../../UI/base/animations';
-import { View } from '../../UI/Spacing';
+import { WATERFALL_2 } from '../../UI/base';
+import { View } from '../../UI/components/View';
 const { words, text } = rotary;
 
 export const Rotary = () => {

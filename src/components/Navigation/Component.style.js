@@ -1,7 +1,6 @@
 import styled from 'styled-components';
-import { text } from '../UI/snippets/text';
-import { FONT_SMALL } from '../UI/base/font';
-import { SPACE_SMALL } from '../UI/base/space';
+import { text } from '../UI/snippets';
+import { FONT_SMALL, SPACE_SMALL } from '../UI/base';
 
 export const NavigationWrapper = styled.nav`
 	display: flex;

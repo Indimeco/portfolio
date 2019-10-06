@@ -1,7 +1,6 @@
 import styled, { css } from 'styled-components';
-import { indent } from '../UI/Spacing';
-import { heading } from '../UI/snippets/heading';
-import { SPACE_LARGE } from '../UI/base/space';
+import { heading, indent } from '../UI/snippets';
+import { SPACE_LARGE } from '../UI/base';
 
 const sectionGradient = ({ theme: { colors }, alternate }) => {
 	const start = alternate ? colors.bg : colors.bgAccent;
@@ -14,13 +13,13 @@ const sectionGradient = ({ theme: { colors }, alternate }) => {
 export const Sect = styled.section`
 	padding-top: ${SPACE_LARGE};
 	padding-bottom: ${SPACE_LARGE};
-	${sectionGradient}
+	${sectionGradient};
 `;
 
 export const SectContent = styled.div`
-	${indent}
+	${indent};
 `;
 
 export const SectHeading = styled.h2`
-	${heading}
+	${heading};
 `;

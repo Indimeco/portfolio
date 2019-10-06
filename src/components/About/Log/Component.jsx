@@ -1,7 +1,7 @@
 import React from 'react';
 import { Entry, EntryText, EntryIcon, Blink } from './Component.style';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { View } from '../../UI/Spacing';
+import { View } from '../../UI/components';
 import { about } from '../../../content';
 
 const BlinkRunner = () => (

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import { heading } from '../../UI/snippets/heading';
-import { WATERFALL_1 } from '../../UI/base/animations';
+import { heading } from '../../UI/snippets';
+import { WATERFALL_1 } from '../../UI/base';
 
 export const RotaryWrapper = styled.div``;
 
