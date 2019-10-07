@@ -15,7 +15,7 @@ export const Heading = () => {
 				<Title>{title}</Title>
 				<Subtitle>{description}</Subtitle>
 			</TitleWrapper>
-			<HeaderImage src="/images/icon.png" alt="Jacob's Headshot" />
+			<HeaderImage src="images/icon.png" alt="Jacob's Headshot" />
 		</HeaderWrapper>
 	);
 };
