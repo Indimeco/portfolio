@@ -1,51 +1,42 @@
 import styled from 'styled-components';
 import { heading, text } from '../UI/snippets';
-import { FONT_LARGE, SPACE_MEDIUM } from '../UI/base';
-
-export const PortfolioList = styled.div``;
-export const PortfolioAccordion = styled.div``;
-export const PortfolioItemContent = styled.div``;
-export const PortfolioItemContentArea = styled.div``;
-export const PortfolioButton = styled.button``;
+import {
+	FONT_LARGE,
+	SPACE_MEDIUM,
+	SPACE_SMALL,
+	MEDIA_1,
+	SPACE_HUGE,
+} from '../UI/base';
 
 export const PortfolioItemName = styled.h3`
 	${heading};
 	font-size: ${FONT_LARGE};
 	margin-bottom: ${SPACE_MEDIUM};
 `;
+
 export const PortfolioItemDescription = styled.p`
 	${text};
+	margin-bottom: ${SPACE_MEDIUM};
 `;
 
-export const PortfolioItem = styled.div`
-	padding: ${SPACE_MEDIUM} 0;
-	display: grid;
-	grid-template-columns: 1fr 2fr;
-	grid-column-gap: ${SPACE_MEDIUM};
-`;
-
-export const PortfolioControl = styled.button`
+export const PortfolioButton = styled.button`
 	${text};
-	width: 100%;
+	display: block;
+	border: 3px solid ${({ theme }) => theme.colors.fgAccent};
 	background-color: transparent;
-	font-weight: unset;
-	border: none;
-	text-align: left;
-	padding: 0;
-	margin: 0;
-`;
+	color: ${({ theme }) => theme.colors.fgAccent};
+	padding: ${SPACE_SMALL};
+	margin: ${SPACE_MEDIUM} 0;
+	cursor: pointer;
 
-export const Thumbnail = styled.div`
-	height: 30vh;
-
-	&,
-	a,
-	img {
-		width: 100%;
-		max-height: 100%;
+	&:hover,
+	&:focus {
+		border: 3px solid ${({ theme }) => theme.colors.fgAccent};
+		background-color: ${({ theme }) => theme.colors.bgAccent};
+		color: ${({ theme }) => theme.colors.fgAccent};
 	}
 
-	img {
-		object-fit: cover;
+	@media only screen and (min-width: ${MEDIA_1}) {
+		margin: ${SPACE_HUGE} auto;
 	}
 `;

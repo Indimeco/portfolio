@@ -43,32 +43,10 @@ describe('Portfolio', () => {
 				.simulate('click');
 
 			expect(
-				findByTestAttr(
-					findByTestAttr(wrapper, 'portfolio-item').at(0),
-					'portfolio-item-content',
-				).length,
+				findByTestAttr(wrapper, 'portfolio-item-content').length,
 			).toBeGreaterThan(0);
 		});
 
-		it('closes other accordions when a new one is opened', () => {
-			const wrapper = mount(Component);
-
-			findByTestAttr(wrapper, 'portfolio-item')
-				.at(0)
-				.find('button')
-				.simulate('click');
-
-			findByTestAttr(wrapper, 'portfolio-item')
-				.at(1)
-				.find('button')
-				.simulate('click');
-
-			expect(
-				findByTestAttr(
-					findByTestAttr(wrapper, 'portfolio-item').at(0),
-					'portfolio-item-content',
-				),
-			).toHaveLength(0);
-		});
+		// TODO test go back button
 	});
 });
