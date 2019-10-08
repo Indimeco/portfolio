@@ -7,8 +7,21 @@ import {
 import {
 	PortfolioItemContentArea,
 	PortfolioItemContent,
-	PortfolioItemContentGrid,
+	PortfolioItemContentHeader,
+	PortfolioItemBlurb,
 } from './Component.style';
+
+// TODO tests
+const PortfolioContentGenerator = ({ type, value }) => {
+	switch (type) {
+		case 'paragraph':
+			return <PortfolioItemDescription>{value}</PortfolioItemDescription>;
+		case 'blurb':
+			return <PortfolioItemBlurb>{value}</PortfolioItemBlurb>;
+		default:
+			return null;
+	}
+};
 
 const PortfolioEntryDetails = ({
 	item: { name, description, content },
@@ -16,20 +29,17 @@ const PortfolioEntryDetails = ({
 	...restProps
 }) => (
 	<PortfolioItemContentArea>
-		<PortfolioItemContentGrid>
-			<div>
-				<PortfolioItemName>{name}</PortfolioItemName>
-				<PortfolioItemDescription>{description}</PortfolioItemDescription>
-			</div>
+		<PortfolioItemContentHeader>
+			<PortfolioItemName>{name}</PortfolioItemName>
 			<PortfolioButton onClick={() => onChange(null)}>Go back</PortfolioButton>
-		</PortfolioItemContentGrid>
-		{content.map(({ blurb, paragraph }, index) => (
+		</PortfolioItemContentHeader>
+		<PortfolioItemDescription>{description}</PortfolioItemDescription>
+		{content.map(({ type, value }, index) => (
 			<PortfolioItemContent
 				key={name + index}
 				data-test="portfolio-item-content"
 			>
-				<PortfolioItemDescription>{blurb}</PortfolioItemDescription>
-				<PortfolioItemDescription>{paragraph}</PortfolioItemDescription>
+				{PortfolioContentGenerator({ type, value })}
 			</PortfolioItemContent>
 		))}
 	</PortfolioItemContentArea>

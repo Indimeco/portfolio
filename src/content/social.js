@@ -4,7 +4,7 @@ import {
 	faLinkedinIn,
 } from '@fortawesome/free-brands-svg-icons';
 
-export default [
+export const social = [
 	{ href: 'https://www.linkedin.com/in/indimeco/', icon: faLinkedinIn },
 	{
 		href: 'http://steamcommunity.com/id/PancakeEngineering/myworkshopfiles/',
