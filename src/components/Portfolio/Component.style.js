@@ -16,8 +16,8 @@ export const PortfolioItemDescription = styled.p`
 export const PortfolioButton = styled.button`
 	${text};
 	display: block;
-	border: 3px solid ${({ theme }) => theme.colors.fgAccent};
-	background-color: transparent;
+	border: 3px solid ${({ theme }) => theme.colors.bgAccent};
+	background-color: ${({ theme }) => theme.colors.bg};
 	color: ${({ theme }) => theme.colors.fgAccent};
 	padding: ${SPACE_SMALL};
 	margin: 0;
@@ -25,9 +25,8 @@ export const PortfolioButton = styled.button`
 
 	&:hover,
 	&:focus {
-		border: 3px solid ${({ theme }) => theme.colors.fgAccent};
-		background-color: ${({ theme }) => theme.colors.bgAccent};
-		color: ${({ theme }) => theme.colors.fgAccent};
+		color: ${({ theme }) => theme.colors.fg};
+		box-shadow: 0 0 4px -2px ${({ theme }) => theme.colors.fgAccent};
 	}
 
 	@media only screen and (min-width: ${MEDIA_1}) {

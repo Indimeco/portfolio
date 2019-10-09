@@ -1,12 +1,12 @@
 import React from 'react';
 import { FooterWrapper, FooterContent } from './Component.style';
 import { github } from '../../content';
-import { auxTheme } from '../UI/themes';
+import { mainTheme } from '../UI/themes';
 import { ThemeProvider } from 'styled-components';
 
 export const Footer = () => {
 	return (
-		<ThemeProvider theme={auxTheme}>
+		<ThemeProvider theme={mainTheme}>
 			<FooterWrapper data-test="footer">
 				<FooterContent href={github}>
 					View this page's source code

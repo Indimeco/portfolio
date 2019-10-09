@@ -5,19 +5,26 @@ import {
 	PortfolioButton,
 } from '../Component.style';
 import {
-	PortfolioItemContentArea,
-	PortfolioItemContent,
 	PortfolioItemContentHeader,
 	PortfolioItemBlurb,
+	PortfolioContentArea,
 } from './Component.style';
 
 // TODO tests
 const PortfolioContentGenerator = ({ type, value }) => {
 	switch (type) {
 		case 'paragraph':
-			return <PortfolioItemDescription>{value}</PortfolioItemDescription>;
+			return (
+				<PortfolioItemDescription data-test="portfolio-item-content">
+					{value}
+				</PortfolioItemDescription>
+			);
 		case 'blurb':
-			return <PortfolioItemBlurb>{value}</PortfolioItemBlurb>;
+			return (
+				<PortfolioItemBlurb data-test="portfolio-item-content">
+					{value}
+				</PortfolioItemBlurb>
+			);
 		default:
 			return null;
 	}
@@ -28,21 +35,20 @@ const PortfolioEntryDetails = ({
 	onChange,
 	...restProps
 }) => (
-	<PortfolioItemContentArea>
+	<div>
 		<PortfolioItemContentHeader>
 			<PortfolioItemName>{name}</PortfolioItemName>
 			<PortfolioButton onClick={() => onChange(null)}>Go back</PortfolioButton>
 		</PortfolioItemContentHeader>
-		<PortfolioItemDescription>{description}</PortfolioItemDescription>
-		{content.map(({ type, value }, index) => (
-			<PortfolioItemContent
-				key={name + index}
-				data-test="portfolio-item-content"
-			>
-				{PortfolioContentGenerator({ type, value })}
-			</PortfolioItemContent>
-		))}
-	</PortfolioItemContentArea>
+		<PortfolioContentArea>
+			<PortfolioItemDescription>{description}</PortfolioItemDescription>
+			{content.map(({ type, value }, index) => (
+				<React.Fragment key={name + index}>
+					{PortfolioContentGenerator({ type, value })}
+				</React.Fragment>
+			))}
+		</PortfolioContentArea>
+	</div>
 );
 
 export default PortfolioEntryDetails;

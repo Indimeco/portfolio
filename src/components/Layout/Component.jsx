@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { ThemeProvider } from 'styled-components';
-import theme from '../UI/themes/rootTheme';
+import theme from '../UI/themes/auxTheme';
 import { Main } from './Component.style.js';
 import Navigation from '../Navigation';
 import Footer from '../Footer';
