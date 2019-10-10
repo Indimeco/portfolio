@@ -6,7 +6,6 @@ import {
 } from '../Component.style';
 import { PortfolioItem, PortfolioThumbnail } from './Component.style';
 
-// TODO add alt to image
 // TODO update CRA to 2.0 to use <> syntax
 const PortfolioItemDetailsButton = ({ onChange }) => (
 	<PortfolioButton onClick={onChange}>View details</PortfolioButton>
@@ -23,7 +22,7 @@ const PortfolioListItem = ({ item, onChange }) => (
 	<PortfolioItem data-test="portfolio-item">
 		<PortfolioThumbnail>
 			<a href={item.href}>
-				<img src={item.image} alt="alt" />
+				<img src={item.image} alt={item.alt} />
 			</a>
 		</PortfolioThumbnail>
 

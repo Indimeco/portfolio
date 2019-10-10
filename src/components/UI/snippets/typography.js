@@ -21,3 +21,14 @@ export const text = ({ theme }) => css`
 	font-family: ${FONT_CONTENT};
 	margin: 0 0 ${SPACE_SMALL} 0;
 `;
+
+export const link = ({ theme }) => css`
+	cursor: pointer;
+	background-color: transparent;
+	color: ${theme.colors.fgAccent};
+	border: none;
+	text-decoration: none;
+	&:hover {
+		color: ${theme.colors.fg};
+	}
+`;
