@@ -1,9 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { CSSTransition } from 'react-transition-group';
-import { RotaryWrapper, RotaryText, RotaryWord } from './Component.style';
+import {
+	RotaryView,
+	RotaryWrapper,
+	RotaryText,
+	RotaryWord,
+} from './Component.style';
 import { rotary } from '../../../content';
 import { WATERFALL_2 } from '../../UI/base';
-import { View } from '../../UI/components/View';
 const { words, text } = rotary;
 
 export const Rotary = () => {
@@ -27,7 +31,7 @@ export const Rotary = () => {
 	}
 
 	return (
-		<View>
+		<RotaryView>
 			<RotaryWrapper data-test="rotary">
 				<RotaryText>{text}</RotaryText>
 				<CSSTransition
@@ -40,7 +44,7 @@ export const Rotary = () => {
 					<RotaryWord>{word}</RotaryWord>
 				</CSSTransition>
 			</RotaryWrapper>
-		</View>
+		</RotaryView>
 	);
 };
 

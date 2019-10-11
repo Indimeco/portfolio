@@ -10,3 +10,12 @@ export const indent = () => css`
 		margin-right: ${SPACE_MEGA};
 	}
 `;
+
+export const center = () => css`
+	display: flex;
+	align-items: center;
+`;
+
+export const view = () => css`
+	min-height: 100vh;
+`;

@@ -4,7 +4,6 @@ import { ThemeProvider } from 'styled-components';
 import theme from '../UI/themes/auxTheme';
 import { Main } from './Component.style.js';
 import Navigation from '../Navigation';
-import Footer from '../Footer';
 
 const Layout = ({ children }) => {
 	return (
@@ -12,7 +11,6 @@ const Layout = ({ children }) => {
 			<>
 				<Navigation />
 				<Main>{children}</Main>
-				<Footer />
 			</>
 		</ThemeProvider>
 	);

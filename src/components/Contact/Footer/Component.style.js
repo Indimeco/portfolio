@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import { text, link } from '../UI/snippets';
-import { FONT_SMALL, SPACE_MEDIUM, SPACE_SMALL } from '../UI/base';
+import { text, link } from '../../UI/snippets';
+import { FONT_SMALL, SPACE_MEDIUM, SPACE_SMALL } from '../../UI/base';
 
 export const FooterWrapper = styled.footer`
 	padding: ${SPACE_MEDIUM};

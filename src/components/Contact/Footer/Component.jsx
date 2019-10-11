@@ -1,7 +1,7 @@
 import React from 'react';
 import { FooterWrapper, FooterContent } from './Component.style';
-import { github } from '../../content';
-import { mainTheme } from '../UI/themes';
+import { github } from '../../../content';
+import { mainTheme } from '../../UI/themes';
 import { ThemeProvider } from 'styled-components';
 
 export const Footer = () => {

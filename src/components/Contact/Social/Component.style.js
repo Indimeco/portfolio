@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import { FONT_HERO, SPACE_SMALL } from '../UI/base';
-import { link } from '../UI/snippets';
+import { FONT_HERO, SPACE_SMALL } from '../../UI/base';
+import { link } from '../../UI/snippets';
 
 export const SocialWrapper = styled.div`
 	display: flex;

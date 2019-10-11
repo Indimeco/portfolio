@@ -1,9 +1,13 @@
 import styled from 'styled-components';
-import { heading } from '../../UI/snippets';
+import { heading, view, center } from '../../UI/snippets';
 import { FONT_LARGE } from '../../UI/base';
 import PropTypes from 'prop-types';
-
 import { SPACE_MEGA, SPACE_MEDIUM } from '../../UI/base';
+
+export const LogView = styled.div`
+	${view};
+	${center};
+`;
 
 export const Entry = styled.div`
 	text-align: ${({ altStyle }) => (altStyle ? 'right' : 'left')};

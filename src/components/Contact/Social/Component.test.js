@@ -1,7 +1,7 @@
 import Component from './Component';
-import { mount } from '../../utils/tests/withTheme';
-import { findByTestAttr } from '../../utils/tests/findByTestAttr';
-import { social } from '../../content';
+import { mount } from '../../../utils/tests/withTheme';
+import { findByTestAttr } from '../../../utils/tests/findByTestAttr';
+import { social } from '../../../content';
 
 describe('Social', () => {
 	it('renders', () => {

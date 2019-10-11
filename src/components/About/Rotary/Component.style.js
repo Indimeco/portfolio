@@ -1,6 +1,12 @@
 import styled from 'styled-components';
-import { heading } from '../../UI/snippets';
+import { heading, view, center } from '../../UI/snippets';
 import { WATERFALL_1 } from '../../UI/base';
+
+export const RotaryView = styled.div`
+	${view};
+	${center};
+	justify-content: center;
+`;
 
 export const RotaryWrapper = styled.div``;
 

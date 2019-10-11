@@ -1,9 +1,11 @@
 import styled from 'styled-components';
-import { heading, indent } from '../UI/snippets';
+import { heading, indent, center } from '../UI/snippets';
 import { MEDIA_1, FONT_HERO, SPACE_SMALL } from '../UI/base';
 
 export const HeaderWrapper = styled.header`
-	${indent} min-height: 100vh;
+	${indent};
+	${center};
+	min-height: 100vh;
 
 	display: flex;
 	align-items: center;

@@ -1,7 +1,7 @@
 import React from 'react';
 import { SocialWrapper, SocialLink } from './Component.style';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { social } from '../../content';
+import { social } from '../../../content';
 
 //TODO aria label the icons
 

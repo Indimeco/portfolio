@@ -4,7 +4,7 @@ import Layout from './components/Layout';
 import Heading from './components/Heading';
 import Portfolio from './components/Portfolio';
 import Section from './components/Section';
-import Social from './components/Social';
+import Contact from './components/Contact';
 import About from './components/About';
 
 import { title, description } from './content';
@@ -19,7 +19,7 @@ const IndexPage = () => (
 			<Portfolio />
 		</Section>
 		<Section title="Find me online" name="Contact">
-			<Social />
+			<Contact />
 		</Section>
 	</Layout>
 );

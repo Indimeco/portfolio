@@ -1,6 +1,18 @@
 import styled from 'styled-components';
-import { heading, text } from '../UI/snippets';
+import { heading, text, view, indent } from '../UI/snippets';
 import { FONT_LARGE, SPACE_MEDIUM, SPACE_SMALL, MEDIA_1 } from '../UI/base';
+
+export const PortfolioView = styled.div`
+	${view}
+`;
+
+export const PortfolioWrapper = styled.div`
+	${indent}
+`;
+
+export const PortfolioHeading = styled.h2`
+	${heading}
+`;
 
 export const PortfolioItemName = styled.h3`
 	${heading};
