@@ -25,7 +25,7 @@ export const text = ({ theme }) => css`
 export const link = ({ theme }) => css`
 	cursor: pointer;
 	background-color: transparent;
-	color: ${theme.colors.fgAccent};
+	color: ${theme.colors.brand};
 	border: none;
 	text-decoration: none;
 	&:hover {

@@ -12,13 +12,13 @@ import { title, description } from './content';
 const IndexPage = () => (
 	<Layout>
 		<Heading title={title} description={description} />
-		<Section name="About">
+		<Section name="About" alternate>
 			<About />
 		</Section>
-		<Section title="Check out my projects" name="Portfolio" alternate={true}>
+		<Section title="Check out my projects" name="Portfolio">
 			<Portfolio />
 		</Section>
-		<Section title="Find me online" name="Contact">
+		<Section title="Find me online" name="Contact" alternate>
 			<Contact />
 		</Section>
 	</Layout>

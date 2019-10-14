@@ -14,7 +14,7 @@ export const PortfolioItemBlurb = styled.h4`
 	color: ${({ theme }) => theme.colors.fgAccent};
 	margin: ${SPACE_HUGE} 0 ${SPACE_LARGE} auto;
 
-	@media only screen and (min-width${MEDIA_1}) {
+	@media only screen and (min-width: ${MEDIA_1}) {
 		text-align: right;
 	}
 `;
@@ -23,14 +23,14 @@ export const PortfolioContentArea = styled.div`
 	display: flex;
 	justify-content: flex-start;
 	flex-direction: column;
+	margin-bottom: ${SPACE_LARGE};
 	& > * {
-		width: 100%
+		width: 100%;
 	}
-	
 
-	@media only screen and (min-width${MEDIA_1}) {
+	@media only screen and (min-width: ${MEDIA_1}) {
 		& > * {
-		width: 65%;
-	}
+			width: 65%;
+		}
 	}
 `;

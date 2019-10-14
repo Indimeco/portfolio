@@ -15,6 +15,7 @@ export const NavigationWrapper = styled.nav`
 export const NavigationItem = styled.button`
 	${text};
 	${link};
+	color: ${({ theme }) => theme.colors.brand};
 	font-size: ${FONT_SMALL};
 	margin: 0;
 	padding: 0 ${SPACE_SMALL};

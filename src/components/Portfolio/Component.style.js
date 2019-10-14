@@ -1,6 +1,12 @@
 import styled from 'styled-components';
 import { heading, text, view, indent } from '../UI/snippets';
-import { FONT_LARGE, SPACE_MEDIUM, SPACE_SMALL, MEDIA_1 } from '../UI/base';
+import {
+	FONT_LARGE,
+	SPACE_MEDIUM,
+	SPACE_HUGE,
+	SPACE_SMALL,
+	MEDIA_1,
+} from '../UI/base';
 
 export const PortfolioView = styled.div`
 	${view}
@@ -11,7 +17,8 @@ export const PortfolioWrapper = styled.div`
 `;
 
 export const PortfolioHeading = styled.h2`
-	${heading}
+	${heading};
+	margin-top: ${SPACE_HUGE};
 `;
 
 export const PortfolioItemName = styled.h3`
@@ -28,9 +35,9 @@ export const PortfolioItemDescription = styled.p`
 export const PortfolioButton = styled.button`
 	${text};
 	display: block;
-	border: 3px solid ${({ theme }) => theme.colors.bgAccent};
-	background-color: ${({ theme }) => theme.colors.bg};
-	color: ${({ theme }) => theme.colors.fgAccent};
+	border: 3px solid ${({ theme }) => theme.colors.bg};
+	background-color: ${({ theme }) => theme.colors.bgAccent};
+	color: ${({ theme }) => theme.colors.brand};
 	padding: ${SPACE_SMALL};
 	margin: 0;
 	cursor: pointer;

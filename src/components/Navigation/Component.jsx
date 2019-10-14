@@ -1,8 +1,6 @@
 import React from 'react';
 import { NavigationWrapper, NavigationItem } from './Component.style';
 import { sections } from '../../content';
-import { ThemeProvider } from 'styled-components';
-import { auxTheme } from '../UI/themes';
 
 const scroll = location => () => {
 	const target = document.querySelector(`#${location}`);
@@ -12,19 +10,17 @@ const scroll = location => () => {
 };
 
 const Navigation = () => (
-	<ThemeProvider theme={auxTheme}>
-		<NavigationWrapper data-test="navigation">
-			{sections.map(section => (
-				<NavigationItem
-					key={section}
-					data-test="navigation-item"
-					onClick={scroll(section)}
-				>
-					{section}
-				</NavigationItem>
-			))}
-		</NavigationWrapper>
-	</ThemeProvider>
+	<NavigationWrapper data-test="navigation">
+		{sections.map(section => (
+			<NavigationItem
+				key={section}
+				data-test="navigation-item"
+				onClick={scroll(section)}
+			>
+				{section}
+			</NavigationItem>
+		))}
+	</NavigationWrapper>
 );
 
 export default Navigation;

@@ -16,7 +16,8 @@ export const HeaderWrapper = styled.header`
 `;
 
 export const Title = styled.h1`
-	${heading} font-size: ${FONT_HERO};
+	${heading};
+	font-size: ${FONT_HERO};
 	font-weight: 600;
 	margin-bottom: ${SPACE_SMALL};
 	margin-top: 0;
