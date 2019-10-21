@@ -18,7 +18,8 @@ export const PortfolioWrapper = styled.div`
 
 export const PortfolioHeading = styled.h2`
 	${heading};
-	margin-top: ${SPACE_HUGE};
+	padding-top: ${SPACE_HUGE};
+	margin-bottom: 0;
 `;
 
 export const PortfolioItemName = styled.h3`
@@ -45,7 +46,7 @@ export const PortfolioButton = styled.button`
 	&:hover,
 	&:focus {
 		color: ${({ theme }) => theme.colors.fg};
-		box-shadow: 0 0 4px -2px ${({ theme }) => theme.colors.fgAccent};
+		box-shadow: 0 0 4px -2px ${({ theme }) => theme.colors.brand};
 	}
 
 	@media only screen and (min-width: ${MEDIA_1}) {

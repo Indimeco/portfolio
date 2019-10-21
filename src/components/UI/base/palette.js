@@ -1,7 +1,6 @@
 export const palette = {
-	darkCerulean: '#003B7A',
-	absoluteZero: '#0056B3',
-	periwinkle: '#CAE5FF',
+	pumpkin: '#f58d0c',
+	meadow: '#a15a01',
 	raisinBlack: '#262626',
 	gunMetal: '#30343F',
 	ghostWhite: '#FAFAFF',

@@ -6,12 +6,13 @@ export const PortfolioItemContentHeader = styled.div`
 	display: flex;
 	justify-content: space-between;
 	margin-bottom: ${SPACE_LARGE};
+	padding-top: ${SPACE_HUGE};
 `;
 
 export const PortfolioItemBlurb = styled.h4`
 	${text}
 	text-align: center;
-	color: ${({ theme }) => theme.colors.fgAccent};
+	color: ${({ theme }) => theme.colors.aux};
 	margin: ${SPACE_HUGE} 0 ${SPACE_LARGE} auto;
 
 	@media only screen and (min-width: ${MEDIA_1}) {

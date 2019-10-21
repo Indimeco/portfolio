@@ -35,6 +35,8 @@ describe('Portfolio', () => {
 		});
 
 		it('opens when clicked and then is visible', () => {
+			window.HTMLElement.prototype.scrollIntoView = function() {};
+
 			const wrapper = mount(Component);
 
 			findByTestAttr(wrapper, 'portfolio-item')

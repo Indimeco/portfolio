@@ -4,8 +4,9 @@ export const theme = {
 	colors: {
 		fg: palette.ghostWhite,
 		bg: palette.raisinBlack,
-		fgAccent: palette.absoluteZero,
 		bgAccent: palette.gunMetal,
+		aux: palette.pumpkin,
+		auxAccent: palette.meadow,
 		brand: palette.paleMalachite,
 	},
 };

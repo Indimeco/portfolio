@@ -15,5 +15,6 @@ export const ContactWrapper = styled.div`
 
 export const ContactHeading = styled.h2`
 	${heading};
-	margin-top: ${SPACE_HUGE};
+	padding-top: ${SPACE_HUGE};
+	margin-bottom: ${SPACE_HUGE};
 `;
