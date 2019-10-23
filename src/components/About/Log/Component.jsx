@@ -17,12 +17,8 @@ const Log = () => {
 		<LogView data-test="log">
 			<div>
 				{about.map((entry, index) => (
-					<FadeOnScroll>
-						<Entry
-							key={`entry${index}`}
-							data-test="log-entry"
-							altStyle={index % 2 !== 0}
-						>
+					<FadeOnScroll key={`entry${index}`}>
+						<Entry data-test="log-entry" altStyle={index % 2 !== 0}>
 							<Terminal />
 							{entry.map((item, itemIndex) =>
 								typeof item === 'string' ? (
