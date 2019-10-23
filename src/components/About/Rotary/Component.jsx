@@ -8,6 +8,7 @@ import {
 } from './Component.style';
 import { rotary } from '../../../content';
 import { WATERFALL_2 } from '../../UI/base';
+import { FadeOnScroll } from '../../UI/snippets';
 const { words, text } = rotary;
 
 export const Rotary = () => {
@@ -33,16 +34,18 @@ export const Rotary = () => {
 	return (
 		<RotaryView>
 			<RotaryWrapper data-test="rotary">
-				<RotaryText>{text}</RotaryText>
-				<CSSTransition
-					in={showWord}
-					classNames="fade"
-					timeout={WATERFALL_2}
-					onEntered={hideWord}
-					onExited={changeWord}
-				>
-					<RotaryWord>{word}</RotaryWord>
-				</CSSTransition>
+				<FadeOnScroll>
+					<RotaryText>{text}</RotaryText>
+					<CSSTransition
+						in={showWord}
+						classNames="fade"
+						timeout={WATERFALL_2}
+						onEntered={hideWord}
+						onExited={changeWord}
+					>
+						<RotaryWord>{word}</RotaryWord>
+					</CSSTransition>
+				</FadeOnScroll>
 			</RotaryWrapper>
 		</RotaryView>
 	);

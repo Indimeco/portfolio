@@ -7,6 +7,7 @@ import {
 	PortfolioWrapper,
 	PortfolioHeading,
 } from './Component.style';
+import { FadeOnScroll } from '../UI/snippets';
 
 const Portfolio = () => {
 	const [active, setActive] = useState(null);
@@ -14,15 +15,18 @@ const Portfolio = () => {
 	return (
 		<PortfolioView data-test="portfolio">
 			<PortfolioWrapper>
-				<PortfolioHeading as="h2">Check out my projects</PortfolioHeading>
+				<PortfolioHeading as="h2">
+					<FadeOnScroll>Check out my projects</FadeOnScroll>
+				</PortfolioHeading>
 				{!active ? (
 					<div>
 						{portfolio.map(item => (
-							<PortfolioListItem
-								item={item}
-								onChange={() => setActive(item)}
-								key={item.name}
-							/>
+							<FadeOnScroll key={item.name}>
+								<PortfolioListItem
+									item={item}
+									onChange={() => setActive(item)}
+								/>
+							</FadeOnScroll>
 						))}
 					</div>
 				) : (

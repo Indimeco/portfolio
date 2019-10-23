@@ -6,13 +6,16 @@ import {
 	ContactWrapper,
 	ContactHeading,
 } from './Component.style.js';
+import { FadeOnScroll } from '../UI/snippets';
 
 export const Contact = () => {
 	return (
 		<ContactView>
 			<ContactWrapper>
-				<ContactHeading as="h2">Find me online</ContactHeading>
-				<Social />
+				<FadeOnScroll>
+					<ContactHeading as="h2">Find me online</ContactHeading>
+					<Social />
+				</FadeOnScroll>
 			</ContactWrapper>
 			<Footer />
 		</ContactView>
