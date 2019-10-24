@@ -13,7 +13,7 @@ const Portfolio = () => {
 	const [active, setActive] = useState(null);
 
 	return (
-		<PortfolioView data-test="portfolio">
+		<PortfolioView data-testid="portfolio">
 			<PortfolioWrapper>
 				<PortfolioHeading as="h2">
 					<FadeOnScroll>Check out my projects</FadeOnScroll>

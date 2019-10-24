@@ -4,7 +4,7 @@ import { github } from '../../../content';
 
 export const Footer = () => {
 	return (
-		<FooterWrapper data-test="footer">
+		<FooterWrapper data-testid="footer">
 			<FooterContent href={github}>View this page's source code</FooterContent>
 		</FooterWrapper>
 	);

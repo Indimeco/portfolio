@@ -5,7 +5,7 @@ import { AboutWrapper } from './Component.style';
 
 export const About = () => {
 	return (
-		<AboutWrapper data-test="about">
+		<AboutWrapper data-testid="about">
 			<Rotary />
 			<Log />
 		</AboutWrapper>

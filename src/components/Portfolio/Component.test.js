@@ -1,54 +1,58 @@
 import Component from './Component';
-import { mount } from '../../utils/tests/withTheme';
-import { findByTestAttr } from '../../utils/tests/findByTestAttr';
+import { render } from '../../utils/tests/withTheme';
 
 describe('Portfolio', () => {
 	it('renders', () => {
-		const wrapper = mount(Component);
-		expect(findByTestAttr(wrapper, 'portfolio')).toHaveLength(1);
+		const { getByTestId } = render(Component);
+		expect(getByTestId('portfolio')).toBeInTheDocument();
 	});
 
 	describe('Portfolio Item', () => {
 		it('renders', () => {
-			const wrapper = mount(Component);
-			expect(findByTestAttr(wrapper, 'portfolio-item').length).toBeGreaterThan(
-				0,
-			);
+			const { getAllByTestId } = render(Component);
+			expect(getAllByTestId('portfolio-list-item').length).toBeGreaterThan(0);
 		});
 
 		it('has a control and a preview image', () => {
-			const wrapper = findByTestAttr(
-				mount(Component),
-				'portfolio-item',
-			).first();
-			expect(wrapper.find('button')).toHaveLength(1);
-			expect(wrapper.find('a img')).toHaveLength(1);
-			expect(wrapper.find('a').instance()).toHaveProperty('href');
+			const { getAllByTestId } = render(Component);
+			const container = getAllByTestId('portfolio-list-item')[0];
+
+			expect(container.querySelector('button')).toHaveProperty('onclick');
+			expect(container.querySelector('a img')).toHaveProperty('src');
+			expect(container.querySelector('a')).toHaveProperty('href');
 		});
 
 		it('is closed by default', () => {
-			const wrapper = findByTestAttr(
-				mount(Component),
-				'portfolio-item',
-			).first();
-			expect(findByTestAttr(wrapper, 'portfolio-content')).toHaveLength(0);
+			const { queryByTestId } = render(Component);
+			expect(queryByTestId('portfolio-content')).not.toBeInTheDocument();
 		});
 
 		it('opens when clicked and then is visible', () => {
 			window.HTMLElement.prototype.scrollIntoView = function() {};
 
-			const wrapper = mount(Component);
+			const { getAllByText, getAllByTestId } = render(Component);
 
-			findByTestAttr(wrapper, 'portfolio-item')
-				.at(0)
-				.find('button')
-				.simulate('click');
+			getAllByText('View details')[0].click();
 
-			expect(
-				findByTestAttr(wrapper, 'portfolio-item-content').length,
-			).toBeGreaterThan(0);
+			expect(getAllByTestId('portfolio-item-content').length).toBeGreaterThan(
+				0,
+			);
 		});
 
-		// TODO test go back button
+		it('returns to main view when go back is clicked', () => {
+			window.HTMLElement.prototype.scrollIntoView = function() {};
+
+			const { getAllByText, getAllByTestId, getByText } = render(Component);
+
+			getAllByText('View details')[0].click();
+
+			expect(getAllByTestId('portfolio-item-content').length).toBeGreaterThan(
+				0,
+			);
+
+			getByText('Go back').click();
+
+			expect(getAllByTestId('portfolio-list-item').length).toBeGreaterThan(0);
+		});
 	});
 });

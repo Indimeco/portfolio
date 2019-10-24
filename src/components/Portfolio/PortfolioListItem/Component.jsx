@@ -19,7 +19,7 @@ const PortfolioItemContentPreview = ({ name, description }) => (
 );
 
 const PortfolioListItem = ({ item, onChange }) => (
-	<PortfolioItem data-test="portfolio-item">
+	<PortfolioItem data-testid="portfolio-list-item">
 		<PortfolioThumbnail>
 			<a href={item.href}>
 				<img src={item.image} alt={item.alt} />

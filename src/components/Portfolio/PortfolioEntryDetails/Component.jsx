@@ -15,13 +15,13 @@ const PortfolioContentGenerator = ({ type, value }) => {
 	switch (type) {
 		case 'paragraph':
 			return (
-				<PortfolioItemDescription data-test="portfolio-item-content">
+				<PortfolioItemDescription data-testid="portfolio-item-content">
 					{value}
 				</PortfolioItemDescription>
 			);
 		case 'blurb':
 			return (
-				<PortfolioItemBlurb data-test="portfolio-item-content">
+				<PortfolioItemBlurb data-testid="portfolio-item-content">
 					{value}
 				</PortfolioItemBlurb>
 			);

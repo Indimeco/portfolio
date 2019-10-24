@@ -19,14 +19,12 @@ describe('Rotary', () => {
 		expect(wrapper.text()).toContain(rotary.words[0]);
 	});
 
-	// TODO Test animation functionality, something like this:
-	// it('renders second item after timeout', async () => {
-	// 	const { getByText } = render(Component);
-	// 	const nextWord = rotary.words[1];
+	it('renders second item after delay', async () => {
+		const { queryByText } = render(Component);
+		const nextWord = rotary.words[1];
 
-	// 	await waitForElementToBeRemoved(() => getByText(rotary.words[0]));
-	// 	expect(await getByText(nextWord)).toBeFalsy();
-	// 	await waitForElement(() => getByText(rotary.words[1]));
-	// 	expect(await getByText(nextWord)).toBeTruthy();
-	// });
+		expect(await queryByText(nextWord)).toBeFalsy();
+		await waitForElement(() => queryByText(rotary.words[1]));
+		expect(await queryByText(nextWord)).toBeTruthy();
+	});
 });

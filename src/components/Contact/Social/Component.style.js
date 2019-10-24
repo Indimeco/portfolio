@@ -7,7 +7,6 @@ export const SocialWrapper = styled.div`
 	justify-content: space-evenly;
 `;
 
-// TODO Consolidate into link component. Very similar between footer and navigation and content links
 export const SocialLink = styled.a`
 	${link};
 	font-size: ${FONT_HERO};

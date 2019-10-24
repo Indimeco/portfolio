@@ -1,2 +1,2 @@
 export const findByTestAttr = (wrapper, attr) =>
-	wrapper.find(`[data-test="${attr}"]`).hostNodes();
+	wrapper.find(`[data-testid="${attr}"]`).hostNodes();

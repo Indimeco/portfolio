@@ -14,11 +14,11 @@ const Terminal = () => <EntryText>> </EntryText>;
 
 const Log = () => {
 	return (
-		<LogView data-test="log">
+		<LogView data-testid="log">
 			<div>
 				{about.map((entry, index) => (
 					<FadeOnScroll key={`entry${index}`}>
-						<Entry data-test="log-entry" altStyle={index % 2 !== 0}>
+						<Entry data-testid="log-entry" altStyle={index % 2 !== 0}>
 							<Terminal />
 							{entry.map((item, itemIndex) =>
 								typeof item === 'string' ? (
@@ -28,7 +28,7 @@ const Log = () => {
 								) : (
 									<EntryIcon
 										key={`entry-icon${index}-${itemIndex}`}
-										data-test="log-entry-icon"
+										data-testid="log-entry-icon"
 									>
 										<FontAwesomeIcon icon={item}></FontAwesomeIcon>
 									</EntryIcon>

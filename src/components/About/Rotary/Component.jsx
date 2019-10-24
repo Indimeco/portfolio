@@ -33,7 +33,7 @@ export const Rotary = () => {
 
 	return (
 		<RotaryView>
-			<RotaryWrapper data-test="rotary">
+			<RotaryWrapper data-testid="rotary">
 				<FadeOnScroll>
 					<RotaryText>{text}</RotaryText>
 					<CSSTransition

@@ -10,11 +10,11 @@ const scroll = location => () => {
 };
 
 const Navigation = () => (
-	<NavigationWrapper data-test="navigation">
+	<NavigationWrapper data-testid="navigation">
 		{sections.map(section => (
 			<NavigationItem
 				key={section}
-				data-test="navigation-item"
+				data-testid="navigation-item"
 				onClick={scroll(section)}
 			>
 				{section}

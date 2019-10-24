@@ -10,7 +10,7 @@ import { title, description } from '../../content';
 
 export const Heading = () => {
 	return (
-		<HeaderWrapper data-test="heading">
+		<HeaderWrapper data-testid="heading">
 			<TitleWrapper>
 				<Title>{title}</Title>
 				<Subtitle>{description}</Subtitle>
