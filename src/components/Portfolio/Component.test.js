@@ -30,25 +30,29 @@ describe('Portfolio', () => {
 		it('opens when clicked and then is visible', () => {
 			window.HTMLElement.prototype.scrollIntoView = function() {};
 
-			const { getAllByText, getAllByTestId } = render(Component);
+			const { getAllByText, getByTestId, getAllByTestId } = render(Component);
 
 			getAllByText('View details')[0].click();
 
-			expect(getAllByTestId('portfolio-item-content').length).toBeGreaterThan(
-				0,
-			);
+			expect(getByTestId('portfolio-item-content')).toBeInTheDocument();
+			expect(
+				getAllByTestId('portfolio-item-content-desc').length,
+			).toBeGreaterThan(0);
+			expect(
+				getAllByTestId('portfolio-item-content-blurb').length,
+			).toBeGreaterThan(0);
 		});
 
 		it('returns to main view when go back is clicked', () => {
 			window.HTMLElement.prototype.scrollIntoView = function() {};
 
-			const { getAllByText, getAllByTestId, getByText } = render(Component);
+			const { getAllByText, getByTestId, getAllByTestId, getByText } = render(
+				Component,
+			);
 
 			getAllByText('View details')[0].click();
 
-			expect(getAllByTestId('portfolio-item-content').length).toBeGreaterThan(
-				0,
-			);
+			expect(getByTestId('portfolio-item-content')).toBeInTheDocument();
 
 			getByText('Go back').click();
 

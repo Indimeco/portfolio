@@ -10,18 +10,17 @@ import {
 	PortfolioContentArea,
 } from './Component.style';
 
-// TODO tests
 const PortfolioContentGenerator = ({ type, value }) => {
 	switch (type) {
 		case 'paragraph':
 			return (
-				<PortfolioItemDescription data-testid="portfolio-item-content">
+				<PortfolioItemDescription data-testid="portfolio-item-content-desc">
 					{value}
 				</PortfolioItemDescription>
 			);
 		case 'blurb':
 			return (
-				<PortfolioItemBlurb data-testid="portfolio-item-content">
+				<PortfolioItemBlurb data-testid="portfolio-item-content-blurb">
 					{value}
 				</PortfolioItemBlurb>
 			);
@@ -47,7 +46,7 @@ const PortfolioEntryDetails = ({
 					Go back
 				</PortfolioButton>
 			</PortfolioItemContentHeader>
-			<PortfolioContentArea>
+			<PortfolioContentArea data-testid="portfolio-item-content">
 				<PortfolioItemDescription>{description}</PortfolioItemDescription>
 				{content.map(({ type, value }, index) => (
 					<React.Fragment key={name + index}>
