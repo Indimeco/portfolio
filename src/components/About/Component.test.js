@@ -1,11 +1,9 @@
 import Component from './Component';
-import { mount } from '../../utils/tests/withTheme';
-import { findByTestAttr } from '../../utils/tests/findByTestAttr';
-import { social } from '../../content';
+import { render } from '../../utils/tests/withTheme';
 
 describe('About', () => {
 	it('renders', () => {
-		const wrapper = mount(Component);
-		expect(findByTestAttr(wrapper, 'about')).toHaveLength(1);
+		const { getByTestId } = render(Component);
+		expect(getByTestId('about')).toBeInTheDocument();
 	});
 });

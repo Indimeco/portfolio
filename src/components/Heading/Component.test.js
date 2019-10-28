@@ -1,16 +1,15 @@
 import Component from './Component';
-import { mount } from '../../utils/tests/withTheme';
-import { findByTestAttr } from '../../utils/tests/findByTestAttr';
+import { render } from '../../utils/tests/withTheme';
 import { title } from '../../content';
 
 describe('Heading', () => {
 	it('renders', () => {
-		const wrapper = mount(Component);
-		expect(findByTestAttr(wrapper, 'heading')).toHaveLength(1);
+		const { getByTestId } = render(Component);
+		expect(getByTestId('heading')).toBeInTheDocument();
 	});
 
 	it('displays given title as h1', () => {
-		const wrapper = mount(Component);
-		expect(wrapper.find('h1').text()).toEqual(title);
+		const { getByText } = render(Component);
+		expect(getByText(title)).toBeInTheDocument();
 	});
 });

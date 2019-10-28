@@ -1,21 +1,20 @@
 import Component from './Component';
-import { mount } from '../../../utils/tests/withTheme';
-import { findByTestAttr } from '../../../utils/tests/findByTestAttr';
+import { render } from '../../../utils/tests/withTheme';
 import { about } from '../../../content';
 
 describe('About', () => {
 	it('renders', () => {
-		const wrapper = mount(Component);
-		expect(findByTestAttr(wrapper, 'log')).toHaveLength(1);
+		const { getByTestId } = render(Component);
+		expect(getByTestId('log')).toBeInTheDocument();
 	});
 
 	it('renders entries', () => {
-		const wrapper = mount(Component);
-		expect(findByTestAttr(wrapper, 'log-entry')).toHaveLength(about.length);
+		const { getAllByTestId } = render(Component);
+		expect(getAllByTestId('log-entry')).toHaveLength(about.length);
 	});
 
 	it('renders icons', () => {
-		const wrapper = mount(Component);
-		expect(findByTestAttr(wrapper, 'log-entry-icon').length).toBeTruthy();
+		const { getAllByTestId } = render(Component);
+		expect(getAllByTestId('log-entry-icon').length).toBeGreaterThan(0);
 	});
 });
