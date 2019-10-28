@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { heading, indent, center } from '../UI/snippets';
+import { heading, indent, center } from '../UI/utils';
 import { MEDIA_1, FONT_HERO, SPACE_SMALL } from '../UI/base';
 
 export const HeaderWrapper = styled.header`

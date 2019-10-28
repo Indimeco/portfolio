@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { SPACE_LARGE, SPACE_HUGE, MEDIA_1 } from '../../UI/base';
-import { text } from '../../UI/snippets';
+import { text } from '../../UI/utils';
 
 export const PortfolioItemContentHeader = styled.div`
 	display: flex;

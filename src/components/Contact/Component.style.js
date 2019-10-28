@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { view, indent, heading } from '../UI/snippets';
+import { view, indent, heading } from '../UI/utils';
 import { SPACE_HUGE } from '../UI/base';
 
 export const ContactView = styled.div`

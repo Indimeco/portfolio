@@ -6,7 +6,7 @@ import {
 	ContactWrapper,
 	ContactHeading,
 } from './Component.style.js';
-import { FadeOnScroll } from '../UI/snippets';
+import { FadeOnScroll } from '../UI/utils';
 
 export const Contact = () => {
 	return (

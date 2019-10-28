@@ -7,7 +7,7 @@ import {
 	PortfolioWrapper,
 	PortfolioHeading,
 } from './Component.style';
-import { FadeOnScroll } from '../UI/snippets';
+import { FadeOnScroll } from '../UI/utils';
 
 const Portfolio = () => {
 	const [active, setActive] = useState(null);

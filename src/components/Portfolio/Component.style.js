@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { heading, text, view, indent } from '../UI/snippets';
+import { heading, text, view, indent } from '../UI/utils';
 import {
 	FONT_LARGE,
 	SPACE_MEDIUM,

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { text, link } from '../UI/snippets';
+import { text, link } from '../UI/utils';
 import { FONT_SMALL, SPACE_SMALL } from '../UI/base';
 
 export const NavigationWrapper = styled.nav`
