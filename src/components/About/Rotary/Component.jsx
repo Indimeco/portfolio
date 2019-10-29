@@ -8,7 +8,7 @@ import {
 } from './Component.style';
 import { rotary } from '../../../content';
 import { WATERFALL_2 } from '../../UI/base';
-import { FadeOnScroll } from '../../UI/snippets';
+import { FadeOnScroll } from '../../UI/utils';
 const { words, text } = rotary;
 
 export const Rotary = () => {

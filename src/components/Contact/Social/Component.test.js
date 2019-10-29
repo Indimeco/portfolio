@@ -1,23 +1,22 @@
 import Component from './Component';
-import { mount } from '../../../utils/tests/withTheme';
-import { findByTestAttr } from '../../../utils/tests/findByTestAttr';
+import { render } from '../../../utils/tests/withTheme';
 import { social } from '../../../content';
 
 describe('Social', () => {
 	it('renders', () => {
-		const wrapper = mount(Component);
-		expect(findByTestAttr(wrapper, 'social')).toHaveLength(1);
+		const { getByTestId } = render(Component);
+		expect(getByTestId('social')).toBeInTheDocument();
 	});
 
 	it('renders social media links', () => {
-		const wrapper = mount(Component);
-		expect(wrapper.find('a')).toHaveLength(social.length);
-		expect(
-			wrapper
-				.find('a')
-				.first()
-				.props().href,
-		).toMatch(/^https?:\/\/\w/);
-		expect(wrapper.find('svg')).toHaveLength(social.length);
+		const { getByTestId } = render(Component);
+		const container = getByTestId('social');
+
+		expect(container.querySelectorAll('a')).toHaveLength(social.length);
+		container.querySelectorAll('a').forEach(element => {
+			expect(element.href).toMatch(/^https?:\/\/\w/);
+		});
+
+		expect(container.querySelectorAll('svg')).toHaveLength(social.length);
 	});
 });

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { heading, view, center } from '../../UI/snippets';
+import { heading, view, center } from '../../UI/utils';
 import { WATERFALL_1 } from '../../UI/base';
 
 export const RotaryView = styled.div`

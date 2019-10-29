@@ -22,6 +22,7 @@ export const text = ({ theme }) => css`
 	margin: 0 0 ${SPACE_SMALL} 0;
 `;
 
+// TODO create nice ui for all links
 export const link = ({ theme }) => css`
 	cursor: pointer;
 	background-color: transparent;

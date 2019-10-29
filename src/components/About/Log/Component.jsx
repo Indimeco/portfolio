@@ -2,7 +2,7 @@ import React from 'react';
 import { LogView, Entry, EntryText, EntryIcon, Blink } from './Component.style';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { about } from '../../../content';
-import { FadeOnScroll } from '../../UI/snippets';
+import { FadeOnScroll } from '../../UI/utils';
 
 const BlinkRunner = () => (
 	<EntryText>

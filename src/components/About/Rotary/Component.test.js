@@ -1,22 +1,17 @@
 import Component from './Component';
-import { mount, render } from '../../../utils/tests/withTheme';
-import { findByTestAttr } from '../../../utils/tests/findByTestAttr';
+import { render } from '../../../utils/tests/withTheme';
 import { rotary } from '../../../content';
-import {
-	waitForDomChange,
-	waitForElementToBeRemoved,
-	waitForElement,
-} from '@testing-library/dom';
+import { waitForElement } from '@testing-library/dom';
 
 describe('Rotary', () => {
 	it('renders', () => {
-		const wrapper = mount(Component);
-		expect(findByTestAttr(wrapper, 'rotary')).toHaveLength(1);
+		const { getByTestId } = render(Component);
+		expect(getByTestId('rotary')).toBeInTheDocument();
 	});
 
 	it('renders first item before timeout', () => {
-		const wrapper = mount(Component);
-		expect(wrapper.text()).toContain(rotary.words[0]);
+		const { getByText } = render(Component);
+		expect(getByText(rotary.words[0])).toBeInTheDocument();
 	});
 
 	it('renders second item after delay', async () => {

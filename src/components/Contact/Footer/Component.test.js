@@ -1,15 +1,9 @@
 import Component from './Component';
-import { mount } from '../../../utils/tests/withTheme';
-import { findByTestAttr } from '../../../utils/tests/findByTestAttr';
-import { social } from '../../../content';
+import { render } from '../../../utils/tests/withTheme';
 
 describe('Footer', () => {
-	const props = {
-		social: social,
-	};
-
 	it('renders', () => {
-		const wrapper = mount(Component, props);
-		expect(findByTestAttr(wrapper, 'footer')).toHaveLength(1);
+		const { getByTestId } = render(Component);
+		expect(getByTestId('footer')).toBeInTheDocument();
 	});
 });

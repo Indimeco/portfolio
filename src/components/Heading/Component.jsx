@@ -7,6 +7,7 @@ import {
 	HeaderImage,
 } from './Component.style';
 import { title, description } from '../../content';
+// TODO animate entry of content
 
 export const Heading = () => {
 	return (

@@ -1,17 +1,14 @@
 import Component from './Component';
-import { mount } from '../../utils/tests/withTheme';
-import { findByTestAttr } from '../../utils/tests/findByTestAttr';
-
-const defaultProps = { sections: ['About', 'Portfolio', 'Contact'] };
+import { render } from '../../utils/tests/withTheme';
 
 describe('Navigation', () => {
 	it('renders', () => {
-		const wrapper = mount(Component, defaultProps);
-		expect(findByTestAttr(wrapper, 'navigation')).toHaveLength(1);
+		const { getByTestId } = render(Component);
+		expect(getByTestId('navigation')).toBeInTheDocument();
 	});
 
 	it('creates navigation links', () => {
-		const wrapper = mount(Component, defaultProps);
-		expect(findByTestAttr(wrapper, 'navigation-item')).toHaveLength(3);
+		const { getAllByTestId } = render(Component);
+		expect(getAllByTestId('navigation-item')).toHaveLength(3);
 	});
 });

@@ -1,5 +1,5 @@
 import styled, { keyframes } from 'styled-components';
-import { heading, view, center } from '../../UI/snippets';
+import { heading, view, center } from '../../UI/utils';
 import { FONT_LARGE } from '../../UI/base';
 import PropTypes from 'prop-types';
 import { SPACE_MEGA, SPACE_MEDIUM } from '../../UI/base';
