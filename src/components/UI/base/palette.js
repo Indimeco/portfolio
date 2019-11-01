@@ -1,6 +1,6 @@
 export const palette = {
 	pumpkin: '#f58d0c',
-	meadow: '#a15a01',
+	meadow: '#442702',
 	raisinBlack: '#262626',
 	gunMetal: '#30343F',
 	ghostWhite: '#FAFAFF',
