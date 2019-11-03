@@ -12,7 +12,6 @@ export const PortfolioThumbnail = styled.div`
 	height: 30vh;
 
 	&,
-	a,
 	img {
 		width: 100%;
 		max-height: 100%;

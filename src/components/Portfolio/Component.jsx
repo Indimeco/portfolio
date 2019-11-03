@@ -2,13 +2,8 @@ import React, { useState } from 'react';
 import { portfolio } from '../../content';
 import PortfolioEntryDetails from './PortfolioEntryDetails';
 import PortfolioListItem from './PortfolioListItem';
-import {
-	PortfolioView,
-	PortfolioWrapper,
-	PortfolioHeading,
-} from './Component.style';
+import { PortfolioView, PortfolioWrapper, PortfolioHeading } from './Component.style';
 import { FadeOnScroll } from '../UI/utils';
-// TODO animate entry of portfolio content
 
 const Portfolio = () => {
 	const [active, setActive] = useState(null);
@@ -23,10 +18,7 @@ const Portfolio = () => {
 					<div>
 						{portfolio.map(item => (
 							<FadeOnScroll key={item.name}>
-								<PortfolioListItem
-									item={item}
-									onChange={() => setActive(item)}
-								/>
+								<PortfolioListItem item={item} onChange={() => setActive(item)} />
 							</FadeOnScroll>
 						))}
 					</div>

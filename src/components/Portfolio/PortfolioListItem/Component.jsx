@@ -1,9 +1,5 @@
 import React from 'react';
-import {
-	PortfolioItemName,
-	PortfolioItemDescription,
-	PortfolioButton,
-} from '../Component.style';
+import { PortfolioItemName, PortfolioItemDescription, PortfolioButton } from '../Component.style';
 import { PortfolioItem, PortfolioThumbnail } from './Component.style';
 
 // TODO update CRA to 2.0 to use <> syntax
@@ -21,16 +17,11 @@ const PortfolioItemContentPreview = ({ name, description }) => (
 const PortfolioListItem = ({ item, onChange }) => (
 	<PortfolioItem data-testid="portfolio-list-item">
 		<PortfolioThumbnail>
-			<a href={item.href}>
-				<img src={item.image} alt={item.alt} />
-			</a>
+			<img src={item.image} alt={item.alt} />
 		</PortfolioThumbnail>
 
 		<div>
-			<PortfolioItemContentPreview
-				name={item.name}
-				description={item.description}
-			/>
+			<PortfolioItemContentPreview name={item.name} description={item.description} />
 			<PortfolioItemDetailsButton onChange={onChange} />
 		</div>
 	</PortfolioItem>

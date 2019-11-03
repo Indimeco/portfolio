@@ -1,10 +1,8 @@
-// TODO decide if links are neeeded and where they should go
 export const portfolio = [
 	{
 		name: 'Web UI Toolkit',
 		image: 'images/icon.png',
-		alt: '',
-		href: 'https://github.com/Indimeco/my-little-charlotte',
+		alt: 'Web UI Toolkit',
 		description:
 			'The Web UI Toolkit is a React component library designed to help development teams deliver quality and consistency at velocity.',
 		content: [
@@ -38,9 +36,8 @@ export const portfolio = [
 	},
 	{
 		name: 'My Little Charlotte',
-		image: 'images/icon.png',
-		alt: '',
-		href: 'https://github.com/Indimeco/my-little-charlotte',
+		image: 'images/my-little-charlotte.jpg',
+		alt: 'My Little Charlotte terminal preview',
 		description:
 			'My Little Charlotte is a data scraping and data analysis tool, built using Puppeteer and Node JS.',
 		content: [
@@ -54,6 +51,13 @@ export const portfolio = [
 					'In the fall of 2018 the organization I was working for wanted to move massive amounts of content from one CMS to another. They had no technical solution for this and planned to test it all using a force of QAs and editors. This was unacceptable to me so I took it upon myself to prototype a tool on my personal github that would collect and analyze the data across our different CMS. The prototype was a success and I continued to develop My Little Charlotte within the company until it reached production quality and was feature complete.',
 			},
 			{
+				type: 'link',
+				value: {
+					href: 'https://github.com/Indimeco/my-little-charlotte',
+					text: 'Check out the POC source code',
+				},
+			},
+			{
 				type: 'blurb',
 				value: 'Data driven solutions shape our industry',
 			},
@@ -65,10 +69,50 @@ export const portfolio = [
 		],
 	},
 	{
+		name: 'My Portfolio (2018)',
+		image: 'images/2018-portfolio.png',
+		alt: 'Old 2018 portfolio preview',
+		description:
+			'After I taught myself Front End development I constructed a portfolio which showcased some of my preliminary work.',
+		content: [
+			{
+				type: 'blurb',
+				value: 'The most valuable skill is the aptitude to learn',
+			},
+			{
+				type: 'paragraph',
+				value: `There are so many unknowns and half-truths which glimmer only dimly; a good developer is a person who can find the lights in the darkness. Many of the techniques and solutions I empoyed in the construction of the 2018 portfolio I now know to be dangerous or primitive, but it took trialing them to gain that depth of technological and strategic understanding.`,
+			},
+			{
+				type: 'link',
+				value: {
+					href: '',
+					text: 'View the full 2018 portfolio',
+				},
+			},
+			{
+				type: 'blurb',
+
+				value: 'Technology stops for no one',
+			},
+			{
+				type: 'paragraph',
+				value:
+					'In the field of web development it is necessary to be able to adapt to extreme circumstances. Between monitoring browser capabilities, evolving with third party vendors and maintaining technical excellence there is little allowance for idleness. My 2018 portfolio looks to me now like a dusty relic of an age long passed. Going forward, we must ensure we are building sustainable software and not focusing on the shining edge of new technology. Afterall, they say no one can stay on the edge forever.',
+			},
+			{
+				type: 'link',
+				value: {
+					href: 'https://github.com/Indimeco/portfolio-2018',
+					text: 'View the 2018 portfolio source code',
+				},
+			},
+		],
+	},
+	{
 		name: 'QRPG',
-		image: 'images/icon.png',
-		alt: '',
-		href: 'https://steamcommunity.com/sharedfiles/filedetails/?id=902748466',
+		image: 'images/QRPG_Logo.png',
+		alt: 'Quality RPG logo',
 		description:
 			'QRPG is a Steam Workshop mod that provides UI and Data Management solutions for playing Role Playing Games within the physics sandbox Tabletop Simulator.',
 		content: [
@@ -80,6 +124,13 @@ export const portfolio = [
 				type: 'paragraph',
 				value:
 					'QRPG was my first taste of working with other developers to create a product. It was a product we were all passionate about and wanted and share with the community. Despite our inexperience and the limitations of our environment this was a wonderful experience.',
+			},
+			{
+				type: 'link',
+				value: {
+					href: 'https://steamcommunity.com/sharedfiles/filedetails/?id=902748466',
+					text: 'Check out the project on the Steam Workshop',
+				},
 			},
 			{
 				type: 'blurb',

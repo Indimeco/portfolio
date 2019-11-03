@@ -7,7 +7,7 @@ export const Social = () => {
 	return (
 		<SocialWrapper data-testid="social">
 			{social.map(({ href, icon, name }) => (
-				<SocialLink key={'social' + href} href={href} aria-label={name}>
+				<SocialLink key={'social' + href} href={href} aria-label={name} target="_blank">
 					<FontAwesomeIcon icon={icon} />
 				</SocialLink>
 			))}

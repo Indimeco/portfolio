@@ -18,8 +18,7 @@ describe('Portfolio', () => {
 			const container = getAllByTestId('portfolio-list-item')[0];
 
 			expect(container.querySelector('button')).toHaveProperty('onclick');
-			expect(container.querySelector('a img')).toHaveProperty('src');
-			expect(container.querySelector('a')).toHaveProperty('href');
+			expect(container.querySelector('img')).toHaveProperty('src');
 		});
 
 		it('is closed by default', () => {
@@ -35,20 +34,14 @@ describe('Portfolio', () => {
 			getAllByText('View details')[0].click();
 
 			expect(getByTestId('portfolio-item-content')).toBeInTheDocument();
-			expect(
-				getAllByTestId('portfolio-item-content-desc').length,
-			).toBeGreaterThan(0);
-			expect(
-				getAllByTestId('portfolio-item-content-blurb').length,
-			).toBeGreaterThan(0);
+			expect(getAllByTestId('portfolio-item-content-desc').length).toBeGreaterThan(0);
+			expect(getAllByTestId('portfolio-item-content-blurb').length).toBeGreaterThan(0);
 		});
 
 		it('returns to main view when go back is clicked', () => {
 			window.HTMLElement.prototype.scrollIntoView = function() {};
 
-			const { getAllByText, getByTestId, getAllByTestId, getByText } = render(
-				Component,
-			);
+			const { getAllByText, getByTestId, getAllByTestId, getByText } = render(Component);
 
 			getAllByText('View details')[0].click();
 

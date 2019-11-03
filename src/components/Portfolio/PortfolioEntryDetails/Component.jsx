@@ -1,6 +1,11 @@
 import React, { useEffect, useRef } from 'react';
 import { PortfolioItemName, PortfolioItemDescription, PortfolioButton } from '../Component.style';
-import { PortfolioItemContentHeader, PortfolioItemBlurb, PortfolioContentArea } from './Component.style';
+import {
+	PortfolioItemContentHeader,
+	PortfolioItemBlurb,
+	PortfolioItemLink,
+	PortfolioContentArea,
+} from './Component.style';
 import { FadeOnScroll, useDyingLight } from '../../UI/utils';
 
 const PortfolioLight = ({ children }) => {
@@ -20,6 +25,8 @@ const PortfolioContentGenerator = ({ type, value }) => {
 			);
 		case 'blurb':
 			return <PortfolioLight>{value}</PortfolioLight>;
+		case 'link':
+			return <PortfolioItemLink href={value.href}>{value.text}</PortfolioItemLink>;
 		default:
 			return null;
 	}

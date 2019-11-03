@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { SPACE_LARGE, SPACE_HUGE, MEDIA_1 } from '../../UI/base';
-import { text, dyingLightStyles } from '../../UI/utils';
+import { text, link, dyingLightStyles } from '../../UI/utils';
 
 export const PortfolioItemContentHeader = styled.div`
 	display: flex;
@@ -18,6 +18,13 @@ export const PortfolioItemBlurb = styled.h4`
 	@media only screen and (min-width: ${MEDIA_1}) {
 		text-align: right;
 	}
+`;
+
+export const PortfolioItemLink = styled.h4`
+	${text};
+	${link};
+	margin: ${SPACE_HUGE} 0 ${SPACE_LARGE} 0;
+	text-align: center;
 `;
 
 export const PortfolioContentArea = styled.div`
