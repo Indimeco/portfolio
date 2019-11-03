@@ -1,12 +1,6 @@
 import styled from 'styled-components';
 import { heading, text, view, indent } from '../UI/utils';
-import {
-	FONT_LARGE,
-	SPACE_MEDIUM,
-	SPACE_HUGE,
-	SPACE_SMALL,
-	MEDIA_1,
-} from '../UI/base';
+import { FONT_LARGE, SPACE_MEDIUM, SPACE_HUGE, SPACE_SMALL, MEDIA_1 } from '../UI/base';
 
 export const PortfolioView = styled.div`
 	${view}
@@ -39,6 +33,7 @@ export const PortfolioButton = styled.button`
 	border: 3px solid ${({ theme }) => theme.colors.bg};
 	background-color: ${({ theme }) => theme.colors.bgAccent};
 	color: ${({ theme }) => theme.colors.brand};
+	transition: box-shadow 0.2s ease-in, color 0.2s ease-in;
 	padding: ${SPACE_SMALL};
 	margin: 0;
 	cursor: pointer;

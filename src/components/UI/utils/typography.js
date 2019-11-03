@@ -1,12 +1,5 @@
 import { css } from 'styled-components';
-import {
-	FONT_MEDIUM,
-	FONT_CONTENT,
-	FONT_HEADING,
-	FONT_HUGE,
-	SPACE_SMALL,
-	SPACE_HUGE,
-} from '../base';
+import { FONT_MEDIUM, FONT_CONTENT, FONT_HEADING, FONT_HUGE, SPACE_SMALL, SPACE_HUGE } from '../base';
 
 export const heading = ({ theme }) => css`
 	color: ${theme.colors.fg};
@@ -29,9 +22,28 @@ export const link = ({ theme }) => css`
 	color: ${theme.colors.brand};
 	border: none;
 	text-decoration: none;
+	transition: color 0.2s ease-in;
+
 	&:hover {
 		color: ${theme.colors.fg};
 	}
+
+	&::after {
+		content: '';
+		display: block;
+		width: 0;
+		height: 0.1px;
+		box-shadow: 0 6px 6px ${theme.colors.brand};
+		background-color: transparent;
+		transition: box-shadow 0.2s ease-in, width 0.2s ease-in;
+	}
+
+	&:hover::after {
+		width: 100%;
+		box-shadow: 0 6px 6px 1px ${theme.colors.fg};
+	}
+`;
+
 export const offLight = ({ theme }) => css`
 	text-shadow: 2px 2px 1px rgba(0, 0, 0, 0.3), 0 0px 15px ${theme.colors.bg}, 0 0 16px ${theme.colors.bg},
 		0 0 50px ${theme.colors.bg};
