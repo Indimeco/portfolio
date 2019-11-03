@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useInView } from 'react-intersection-observer';
 import { useSpring, animated } from 'react-spring';
+import { keyframes, css } from 'styled-components';
+import { offLight, onLight } from './typography';
 
 export const FadeOnScroll = ({ children, ...restProps }) => {
 	const [debouncedInView, setDebouncedInView] = useState(false);
@@ -31,4 +33,76 @@ export const FadeOnScroll = ({ children, ...restProps }) => {
 			{children}
 		</animated.div>
 	);
+};
+
+export const sputterAnimation = ({ theme }) => {
+	const onStyle = onLight({ theme });
+	const offStyle = offLight({ theme });
+
+	return keyframes`
+		40% {
+			${onStyle};
+		}
+		41% {	
+			${offStyle};
+		}
+		42% {
+			${onStyle};
+		}
+		43% {
+			${offStyle};
+		}
+		44% {
+			${onStyle};
+		}
+	`;
+};
+
+export const dieAnimation = ({ theme }) => {
+	const onStyle = onLight({ theme });
+	const offStyle = offLight({ theme });
+
+	return keyframes`
+		69% {
+			${onStyle};
+		}
+		70% {
+			${offStyle};
+		}
+		97% {
+			${offStyle};
+		}
+		98% {
+			${onStyle};
+		}
+		99% {
+			${offStyle};
+		}
+		100% {
+			${onStyle};
+		}
+	`;
+};
+
+export const dyingLightStyles = ({ theme, animation, seed }) => css`
+	text-shadow: 2px 2px 1px rgba(0, 0, 0, 0.3), 0 0px 15px black,
+		0 0 16px ${({ theme }) => theme.colors.auxAccent + 'D0'},
+		0 0 50px ${({ theme }) => theme.colors.auxAccent + '80'};
+	animation: ${({ seed }) => seed}s ${({ animation }) => animation} linear infinite;
+	color: ${({ theme }) => theme.colors.aux};
+`;
+
+export const useDyingLight = () => {
+	const [driver, setDriver] = useState(0);
+	const [seed] = useState(Math.random() * 5 + 2);
+
+	useEffect(() => {
+		const interval = setInterval(() => setDriver(driver + 1), 5000);
+		return () => clearInterval(interval);
+	}, [driver]);
+
+	return {
+		animation: driver % seed > 1 && Math.random() > 0.5 ? dieAnimation : sputterAnimation,
+		seed: seed,
+	};
 };

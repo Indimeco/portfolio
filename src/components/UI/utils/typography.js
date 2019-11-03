@@ -32,4 +32,14 @@ export const link = ({ theme }) => css`
 	&:hover {
 		color: ${theme.colors.fg};
 	}
+export const offLight = ({ theme }) => css`
+	text-shadow: 2px 2px 1px rgba(0, 0, 0, 0.3), 0 0px 15px ${theme.colors.bg}, 0 0 16px ${theme.colors.bg},
+		0 0 50px ${theme.colors.bg};
+	color: ${theme.colors.auxAccent};
+`;
+
+export const onLight = ({ theme }) => css`
+	text-shadow: 2px 2px 1px rgba(0, 0, 0, 0.3), 0 0px 15px black, 0 0 30px ${theme.colors.auxAccent},
+		0 0 50px ${theme.colors.auxAccent};
+	color: ${theme.colors.aux};
 `;

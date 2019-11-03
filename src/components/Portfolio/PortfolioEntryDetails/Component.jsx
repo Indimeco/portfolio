@@ -1,29 +1,12 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { PortfolioItemName, PortfolioItemDescription, PortfolioButton } from '../Component.style';
-import {
-	PortfolioItemContentHeader,
-	PortfolioItemBlurb,
-	PortfolioContentArea,
-	sputterAnimation,
-	dieAnimation,
-} from './Component.style';
-import { FadeOnScroll } from '../../UI/utils';
+import { PortfolioItemContentHeader, PortfolioItemBlurb, PortfolioContentArea } from './Component.style';
+import { FadeOnScroll, useDyingLight } from '../../UI/utils';
 
 const PortfolioLight = ({ children }) => {
-	const [driver, setDriver] = useState(0);
-	const [seed] = useState(Math.random() * 5 + 2);
-
-	useEffect(() => {
-		const interval = setInterval(() => setDriver(driver + 1), 5000);
-		return () => clearInterval(interval);
-	}, [driver]);
-
+	const dyingLightProps = useDyingLight();
 	return (
-		<PortfolioItemBlurb
-			data-testid="portfolio-item-content-blurb"
-			animation={driver % seed > 1 && Math.random() > 0.5 ? dieAnimation : sputterAnimation}
-			seed={seed}
-		>
+		<PortfolioItemBlurb data-testid="portfolio-item-content-blurb" {...dyingLightProps}>
 			{children}
 		</PortfolioItemBlurb>
 	);
