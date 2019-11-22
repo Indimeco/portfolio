@@ -22,14 +22,9 @@ const Log = () => {
 							<Terminal />
 							{entry.map((item, itemIndex) =>
 								typeof item === 'string' ? (
-									<EntryText key={`entry-text${index}-${itemIndex}`}>
-										{item}
-									</EntryText>
+									<EntryText key={`entry-text${index}-${itemIndex}`}>{item}</EntryText>
 								) : (
-									<EntryIcon
-										key={`entry-icon${index}-${itemIndex}`}
-										data-testid="log-entry-icon"
-									>
+									<EntryIcon key={`entry-icon${index}-${itemIndex}`} data-testid="log-entry-icon">
 										<FontAwesomeIcon icon={item}></FontAwesomeIcon>
 									</EntryIcon>
 								),

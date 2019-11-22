@@ -1,1 +1,1 @@
-export const MEDIA_1 = '768px';
+export const MEDIA_1 = '769px';

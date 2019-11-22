@@ -1,17 +1,14 @@
 import styled from 'styled-components';
-import { heading, view, center } from '../../UI/utils';
-import { WATERFALL_1 } from '../../UI/base';
+import { heading } from '../../UI/utils';
+import { WATERFALL_1, SPACE_MEGA, SPACE_LARGE } from '../../UI/base';
 
-export const RotaryView = styled.div`
-	${view};
-	${center};
-	justify-content: center;
+export const RotaryWrapper = styled.div`
+	margin: ${SPACE_MEGA} 0;
 `;
-
-export const RotaryWrapper = styled.div``;
 
 export const RotaryText = styled.div`
 	${heading}
+	margin-bottom: ${SPACE_LARGE}
 	text-align: center;
 `;
 

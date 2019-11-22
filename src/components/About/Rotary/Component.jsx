@@ -1,11 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { CSSTransition } from 'react-transition-group';
-import {
-	RotaryView,
-	RotaryWrapper,
-	RotaryText,
-	RotaryWord,
-} from './Component.style';
+import { RotaryWrapper, RotaryText, RotaryWord } from './Component.style';
 import { rotary } from '../../../content';
 import { WATERFALL_2 } from '../../UI/base';
 import { FadeOnScroll } from '../../UI/utils';
@@ -32,22 +27,20 @@ export const Rotary = () => {
 	}
 
 	return (
-		<RotaryView>
-			<RotaryWrapper data-testid="rotary">
-				<FadeOnScroll>
-					<RotaryText>{text}</RotaryText>
-					<CSSTransition
-						in={showWord}
-						classNames="fade"
-						timeout={WATERFALL_2}
-						onEntered={hideWord}
-						onExited={changeWord}
-					>
-						<RotaryWord>{word}</RotaryWord>
-					</CSSTransition>
-				</FadeOnScroll>
-			</RotaryWrapper>
-		</RotaryView>
+		<RotaryWrapper data-testid="rotary">
+			<FadeOnScroll>
+				<RotaryText>{text}</RotaryText>
+				<CSSTransition
+					in={showWord}
+					classNames="fade"
+					timeout={WATERFALL_2}
+					onEntered={hideWord}
+					onExited={changeWord}
+				>
+					<RotaryWord>{word}</RotaryWord>
+				</CSSTransition>
+			</FadeOnScroll>
+		</RotaryWrapper>
 	);
 };
 

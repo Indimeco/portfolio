@@ -1,6 +1,6 @@
-export const SPACE_TINY = '5px';
-export const SPACE_SMALL = '10px';
-export const SPACE_MEDIUM = '20px';
-export const SPACE_LARGE = '30px';
-export const SPACE_HUGE = '60px';
-export const SPACE_MEGA = '120px';
+export const SPACE_TINY = '0.85vh';
+export const SPACE_SMALL = '1.7vh';
+export const SPACE_MEDIUM = '3.9vh';
+export const SPACE_LARGE = '5vh';
+export const SPACE_HUGE = '10vh';
+export const SPACE_MEGA = '20vh';
