@@ -4,7 +4,7 @@ import { SPACE_HUGE } from '../../UI/base';
 export const PortfolioItem = styled.div`
 	padding: ${SPACE_HUGE} 0;
 	display: grid;
-	grid-template-columns: 1fr 2fr;
+	grid-template-columns: 2fr 5fr;
 	grid-column-gap: 5vw;
 `;
 

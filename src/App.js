@@ -10,7 +10,6 @@ import About from './components/About';
 import { title, description } from './content';
 
 // TODO orange color too orange, match with green?
-// TODO Image cropping
 // TODO Radial glow on links? Backstage light kind of effect
 // TODO Spellcheck & review content
 const IndexPage = () => (
