@@ -21,25 +21,13 @@ export const link = ({ theme }) => css`
 	color: ${theme.colors.brand};
 	border: none;
 	text-decoration: none;
-	transition: color 0.2s ease-in;
+	transform: scale(1);
+	transition: color 0.1s ease-in, transform 0.1s ease-in;
 
-	&:hover {
-		color: ${theme.colors.fg};
-	}
-
-	&::after {
-		content: '';
-		display: block;
-		width: 0;
-		height: 0.1px;
-		box-shadow: 0 6px 6px ${theme.colors.brand};
-		background-color: transparent;
-		transition: box-shadow 0.2s ease-in, width 0.2s ease-in;
-	}
-
-	&:hover::after {
-		width: 100%;
-		box-shadow: 0 6px 6px 1px ${theme.colors.fg};
+	&:hover,
+	&:focus {
+		color: ${theme.colors.aux};
+		transform: scale(1.1);
 	}
 `;
 

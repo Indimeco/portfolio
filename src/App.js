@@ -8,7 +8,6 @@ import Contact from './components/Contact';
 import About from './components/About';
 import { sections } from './content';
 
-// TODO Radial glow on links? Backstage light kind of effect
 // TODO Spellcheck & review content
 const IndexPage = () => (
 	<Layout>

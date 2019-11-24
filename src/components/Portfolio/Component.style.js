@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { heading, text, view, indent } from '../UI/utils';
+import { heading, text, view, indent, link } from '../UI/utils';
 import { FONT_LARGE, SPACE_MEDIUM, SPACE_HUGE, SPACE_SMALL, MEDIA_1 } from '../UI/base';
 
 export const PortfolioView = styled.div`
@@ -29,18 +29,19 @@ export const PortfolioItemDescription = styled.p`
 
 export const PortfolioButton = styled.button`
 	${text};
+	${link}
 	display: block;
-	border: 3px solid ${({ theme }) => theme.colors.bg};
-	background-color: ${({ theme }) => theme.colors.bgAccent};
-	color: ${({ theme }) => theme.colors.brand};
-	transition: box-shadow 0.2s ease-in, color 0.2s ease-in;
 	padding: ${SPACE_SMALL};
 	margin: 0;
 	cursor: pointer;
 
+	background-color: ${({ theme }) => theme.colors.bgAccent};
+	border: 3px solid;
+	border-color: ${({ theme }) => theme.colors.brand};
+
 	&:hover,
 	&:focus {
-		color: ${({ theme }) => theme.colors.fg};
+		border-color: ${({ theme }) => theme.colors.aux};
 		box-shadow: 0 0 4px -2px ${({ theme }) => theme.colors.brand};
 	}
 
