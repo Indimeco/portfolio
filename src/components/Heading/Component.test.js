@@ -1,6 +1,6 @@
 import Component from './Component';
 import { render } from '../../utils/tests/withTheme';
-import { title } from '../../content';
+import { heading } from '../../content';
 
 describe('Heading', () => {
 	it('renders', () => {
@@ -10,6 +10,6 @@ describe('Heading', () => {
 
 	it('displays given title as h1', () => {
 		const { getByText } = render(Component);
-		expect(getByText(title)).toBeInTheDocument();
+		expect(getByText(heading.title)).toBeInTheDocument();
 	});
 });

@@ -6,22 +6,20 @@ import Portfolio from './components/Portfolio';
 import Section from './components/Section';
 import Contact from './components/Contact';
 import About from './components/About';
+import { sections } from './content';
 
-import { title, description } from './content';
-
-// TODO orange color too orange, match with green?
 // TODO Radial glow on links? Backstage light kind of effect
 // TODO Spellcheck & review content
 const IndexPage = () => (
 	<Layout>
-		<Heading title={title} description={description} />
-		<Section name="About" alternate>
+		<Heading />
+		<Section name={sections.links[0]} title={sections.titles[0]} alternate>
 			<About />
 		</Section>
-		<Section title="Check out my projects" name="Portfolio">
+		<Section name={sections.links[1]} title={sections.titles[1]}>
 			<Portfolio />
 		</Section>
-		<Section title="Find me online" name="Contact" alternate>
+		<Section name={sections.links[2]} title={sections.titles[2]} alternate>
 			<Contact />
 		</Section>
 	</Layout>

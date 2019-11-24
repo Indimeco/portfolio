@@ -50,7 +50,7 @@ export const offLight = ({ theme }) => css`
 `;
 
 export const onLight = ({ theme }) => css`
-	text-shadow: 2px 2px 1px rgba(0, 0, 0, 0.3), 0 0px 15px black, 0 0 30px ${theme.colors.auxAccent},
+	text-shadow: 2px 2px 1px rgba(0, 0, 0, 0.3), 0 0px 15px black, 0 0 30px ${theme.colors.aux},
 		0 0 50px ${theme.colors.auxAccent};
 	color: ${theme.colors.aux};
 `;

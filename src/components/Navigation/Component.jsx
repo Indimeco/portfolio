@@ -1,6 +1,7 @@
 import React from 'react';
 import { NavigationWrapper, NavigationItem } from './Component.style';
 import { sections } from '../../content';
+const { links } = sections;
 
 const scroll = location => () => {
 	const target = document.querySelector(`#${location}`);
@@ -11,13 +12,9 @@ const scroll = location => () => {
 
 const Navigation = () => (
 	<NavigationWrapper data-testid="navigation">
-		{sections.map(section => (
-			<NavigationItem
-				key={section}
-				data-testid="navigation-item"
-				onClick={scroll(section)}
-			>
-				{section}
+		{links.map(link => (
+			<NavigationItem key={link} data-testid="navigation-item" onClick={scroll(link)}>
+				{link}
 			</NavigationItem>
 		))}
 	</NavigationWrapper>

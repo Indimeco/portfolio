@@ -84,11 +84,9 @@ export const dieAnimation = ({ theme }) => {
 	`;
 };
 
-export const dyingLightStyles = ({ theme, animation, seed }) => css`
-	text-shadow: 2px 2px 1px rgba(0, 0, 0, 0.3), 0 0px 15px black,
-		0 0 16px ${({ theme }) => theme.colors.auxAccent + 'D0'},
-		0 0 50px ${({ theme }) => theme.colors.auxAccent + '80'};
-	animation: ${({ seed }) => seed}s ${({ animation }) => animation} linear infinite;
+export const dyingLightStyles = ({ theme }) => css`
+	${onLight({ theme })};
+	animation: ${({ seed }) => seed}s ${({ animation }) => animation} step-end infinite;
 	color: ${({ theme }) => theme.colors.aux};
 `;
 

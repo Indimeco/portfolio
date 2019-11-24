@@ -8,9 +8,13 @@ export const HeaderWrapper = styled.header`
 	min-height: 100vh;
 
 	display: flex;
-	align-items: center;
+	align-items: flex-start;
+	flex-direction: column-reverse;
+	justify-content: center;
 
 	@media only screen and (min-width: ${MEDIA_1}) {
+		flex-direction: row;
+		align-items: center;
 		justify-content: space-around;
 	}
 `;
@@ -39,7 +43,7 @@ export const Subtitle = styled.div`
 `;
 
 export const TitleWrapper = styled.div`
-	margin-right: 10vw;
+	margin-right: 5vw;
 `;
 
 export const HeaderImage = styled.img`
