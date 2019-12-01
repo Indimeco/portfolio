@@ -1,6 +1,6 @@
 {
-	"name": "portfolio-2019",
-	"homepage": "http://indimeco.github.io/portfolio-2019",
+	"name": "portfolio",
+	"homepage": "http://indimeco.github.io/portfolio",
 	"version": "0.1.0",
 	"private": true,
 	"dependencies": {
@@ -61,6 +61,6 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/indimeco/portfolio-2019"
+		"url": "https://github.com/indimeco/portfolio"
 	}
 }
