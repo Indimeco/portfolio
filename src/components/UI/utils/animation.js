@@ -22,7 +22,7 @@ export const FadeOnScroll = ({ children, ...restProps }) => {
 	});
 
 	useEffect(() => {
-		const inViewDelay = inView === true ? 0 : 3000; // only debounce fades, not appears
+		const inViewDelay = inView === true ? 200 : 3000; // debounce fades more than appears
 		const timeo = setTimeout(() => setDebouncedInView(inView), inViewDelay);
 
 		return () => clearTimeout(timeo);

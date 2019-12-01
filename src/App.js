@@ -8,7 +8,9 @@ import Contact from './components/Contact';
 import About from './components/About';
 import { sections } from './content';
 
-// TODO Spellcheck & review content
+// TODO Web ui toolkit mock image
+// TODO better monospace font
+// TODO Lazy load images
 const IndexPage = () => (
 	<Layout>
 		<Heading />
