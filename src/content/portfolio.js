@@ -1,7 +1,7 @@
 export const portfolio = [
 	{
 		name: 'Web UI Toolkit',
-		image: 'images/icon.png',
+		image: 'images/investor-survey.png',
 		alt: 'Web UI Toolkit',
 		description:
 			'The Web UI Toolkit is a React component library designed to help development teams deliver quality and consistency at velocity.',

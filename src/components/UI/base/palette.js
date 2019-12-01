@@ -1,5 +1,5 @@
 export const palette = {
-	ghostBlue: '#abe1fc',
+	ghostBlue: '#c4ebff',
 	spectre: '#232f35',
 	raisinBlack: '#262626',
 	gunMetal: '#30343F',

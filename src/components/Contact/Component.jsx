@@ -1,19 +1,15 @@
 import React from 'react';
 import Social from './Social';
 import Footer from './Footer';
-import {
-	ContactView,
-	ContactWrapper,
-	ContactHeading,
-} from './Component.style.js';
+import { ContactView, ContactWrapper, ContactHeading } from './Component.style.js';
 import { FadeOnScroll } from '../UI/utils';
 
-export const Contact = () => {
+export const Contact = ({ title }) => {
 	return (
 		<ContactView>
 			<ContactWrapper>
 				<FadeOnScroll>
-					<ContactHeading as="h2">Find me online</ContactHeading>
+					<ContactHeading as="h2">{title}</ContactHeading>
 					<Social />
 				</FadeOnScroll>
 			</ContactWrapper>

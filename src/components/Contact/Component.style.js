@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { view, indent, heading } from '../UI/utils';
+import { view, indent, title } from '../UI/utils';
 import { SPACE_HUGE } from '../UI/base';
 
 export const ContactView = styled.div`
@@ -14,7 +14,7 @@ export const ContactWrapper = styled.div`
 `;
 
 export const ContactHeading = styled.h2`
-	${heading};
+	${title};
 	padding-top: ${SPACE_HUGE};
 	margin-bottom: ${SPACE_HUGE};
 `;

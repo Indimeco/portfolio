@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { heading, indent, center, dyingLightStyles, onLight } from '../UI/utils';
+import { heading, title, indent, center, dyingLightStyles, onLight } from '../UI/utils';
 import { MEDIA_1, FONT_HERO, SPACE_SMALL } from '../UI/base';
 
 export const HeaderWrapper = styled.header`
@@ -33,7 +33,7 @@ export const Title = styled.h1`
 `;
 
 export const Subtitle = styled.div`
-	${heading};
+	${title};
 	margin-bottom: ${SPACE_SMALL};
 	${dyingLightStyles};
 

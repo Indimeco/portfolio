@@ -3,6 +3,10 @@ import { render } from '../../../utils/tests/withTheme';
 import { rotary } from '../../../content';
 import { waitForElement } from '@testing-library/dom';
 
+// the rotary is divided by letters in order to animate, so we must concatenate the nodes to test
+const firstWord = (content, element) => element.textContent === rotary.words[0];
+const nextWord = (content, element) => element.textContent === rotary.words[1];
+
 describe('Rotary', () => {
 	it('renders', () => {
 		const { getByTestId } = render(Component);
@@ -11,15 +15,14 @@ describe('Rotary', () => {
 
 	it('renders first item before timeout', () => {
 		const { getByText } = render(Component);
-		expect(getByText(rotary.words[0])).toBeInTheDocument();
+		expect(getByText(firstWord)).toBeInTheDocument();
 	});
 
 	it('renders second item after delay', async () => {
 		const { queryByText } = render(Component);
-		const nextWord = rotary.words[1];
 
 		expect(await queryByText(nextWord)).toBeFalsy();
-		await waitForElement(() => queryByText(rotary.words[1]));
+		await waitForElement(() => queryByText(nextWord));
 		expect(await queryByText(nextWord)).toBeTruthy();
 	});
 });

@@ -8,20 +8,20 @@ import Contact from './components/Contact';
 import About from './components/About';
 import { sections } from './content';
 
-// TODO Web ui toolkit mock image
-// TODO better monospace font
+// REVIEW Web ui toolkit mock image for better thumbnail
 // TODO Lazy load images
+// TODO analytics implementation
 const IndexPage = () => (
 	<Layout>
 		<Heading />
-		<Section name={sections.links[0]} title={sections.titles[0]} alternate>
-			<About />
+		<Section name={sections.links[0]} alternate>
+			<About title={sections.titles[0]} />
 		</Section>
 		<Section name={sections.links[1]} title={sections.titles[1]}>
-			<Portfolio />
+			<Portfolio title={sections.titles[1]} />
 		</Section>
-		<Section name={sections.links[2]} title={sections.titles[2]} alternate>
-			<Contact />
+		<Section name={sections.links[2]} alternate>
+			<Contact title={sections.titles[2]} />
 		</Section>
 	</Layout>
 );

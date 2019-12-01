@@ -5,14 +5,14 @@ import PortfolioListItem from './PortfolioListItem';
 import { PortfolioView, PortfolioWrapper, PortfolioHeading } from './Component.style';
 import { FadeOnScroll } from '../UI/utils';
 
-const Portfolio = () => {
+const Portfolio = ({ title }) => {
 	const [active, setActive] = useState(null);
 
 	return (
 		<PortfolioView data-testid="portfolio">
 			<PortfolioWrapper>
 				<PortfolioHeading as="h2">
-					<FadeOnScroll>Check out my projects</FadeOnScroll>
+					<FadeOnScroll>{title}</FadeOnScroll>
 				</PortfolioHeading>
 				{!active ? (
 					<div>
