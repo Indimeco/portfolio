@@ -16,9 +16,9 @@ const Portfolio = ({ title }) => {
 				</PortfolioHeading>
 				{!active ? (
 					<div>
-						{portfolio.map(item => (
+						{portfolio.map((item, index) => (
 							<FadeOnScroll key={item.name}>
-								<PortfolioListItem item={item} onChange={() => setActive(item)} />
+								<PortfolioListItem item={item} onChange={() => setActive(item)} index={index} />
 							</FadeOnScroll>
 						))}
 					</div>

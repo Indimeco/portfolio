@@ -41,7 +41,9 @@ const PortfolioEntryDetails = ({ item: { name, description, content }, onChange,
 		<FadeOnScroll>
 			<PortfolioItemContentHeader ref={headingRef}>
 				<PortfolioItemName>{name}</PortfolioItemName>
-				<PortfolioButton onClick={() => onChange(null)}>Go back</PortfolioButton>
+				<PortfolioButton onClick={() => onChange(null)} id={`portfolio-entry-details-back`} data-ga={name}>
+					Go back
+				</PortfolioButton>
 			</PortfolioItemContentHeader>
 			<PortfolioContentArea data-testid="portfolio-item-content">
 				<PortfolioItemDescription>{description}</PortfolioItemDescription>
