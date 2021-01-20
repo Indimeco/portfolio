@@ -8,12 +8,6 @@ import Contact from './components/Contact';
 import About from './components/About';
 import { sections } from './content';
 
-// REVIEW Web ui toolkit mock image for better thumbnail
-// TODO Lazy load images
-// TODO analytics tagging implementation
-// TODO faster rotary animation (powerpointy)
-// TODO font scaling text on links looks wierd
-// TODO properly center header and headshot
 const IndexPage = () => (
 	<Layout>
 		<Heading />

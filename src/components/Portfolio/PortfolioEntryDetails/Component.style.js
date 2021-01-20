@@ -42,3 +42,9 @@ export const PortfolioContentArea = styled.div`
 		}
 	}
 `;
+
+export const PortfolioContentFooter = styled.div`
+	display: flex;
+	justify-content: flex-end;
+	margin-bottom: ${SPACE_LARGE};
+`;

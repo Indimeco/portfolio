@@ -41,13 +41,13 @@ describe('Portfolio', () => {
 		it('returns to main view when go back is clicked', () => {
 			window.HTMLElement.prototype.scrollIntoView = function() {};
 
-			const { getAllByText, getByTestId, getAllByTestId, getByText } = render(Component);
+			const { getAllByText, getByTestId, getAllByTestId } = render(Component);
 
 			getAllByText('View details')[0].click();
 
 			expect(getByTestId('portfolio-item-content')).toBeInTheDocument();
 
-			getByText('Go back').click();
+			getAllByText('Go back')[0].click();
 
 			expect(getAllByTestId('portfolio-list-item').length).toBeGreaterThan(0);
 		});

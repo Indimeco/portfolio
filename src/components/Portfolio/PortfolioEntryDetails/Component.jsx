@@ -5,6 +5,7 @@ import {
 	PortfolioItemBlurb,
 	PortfolioItemLink,
 	PortfolioContentArea,
+	PortfolioContentFooter,
 } from './Component.style';
 import { FadeOnScroll, useDyingLight } from '../../UI/utils';
 
@@ -32,7 +33,12 @@ const PortfolioContentGenerator = ({ type, value }) => {
 	}
 };
 
-const PortfolioEntryDetails = ({ item: { name, description, content }, onChange, ...restProps }) => {
+const PortfolioEntryDetails = ({
+	item: { name, description, content },
+	onChange,
+	portfolioRef,
+	...restProps
+}) => {
 	const headingRef = useRef(null);
 	useEffect(() => {
 		headingRef.current.scrollIntoView();
@@ -41,7 +47,7 @@ const PortfolioEntryDetails = ({ item: { name, description, content }, onChange,
 		<FadeOnScroll>
 			<PortfolioItemContentHeader ref={headingRef}>
 				<PortfolioItemName>{name}</PortfolioItemName>
-				<PortfolioButton onClick={() => onChange(null)} id={`portfolio-entry-details-back`} data-ga={name}>
+				<PortfolioButton onClick={() => onChange(false)} id={`portfolio-entry-details-back`} data-ga={name}>
 					Go back
 				</PortfolioButton>
 			</PortfolioItemContentHeader>
@@ -51,6 +57,18 @@ const PortfolioEntryDetails = ({ item: { name, description, content }, onChange,
 					<React.Fragment key={name + index}>{PortfolioContentGenerator({ type, value })}</React.Fragment>
 				))}
 			</PortfolioContentArea>
+			<PortfolioContentFooter>
+				<PortfolioButton
+					onClick={() => {
+						onChange(false);
+						portfolioRef.current.scrollIntoView();
+					}}
+					id={`portfolio-entry-details-back`}
+					data-ga={name}
+				>
+					Go back
+				</PortfolioButton>
+			</PortfolioContentFooter>
 		</FadeOnScroll>
 	);
 };
