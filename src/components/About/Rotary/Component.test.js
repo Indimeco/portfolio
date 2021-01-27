@@ -1,7 +1,9 @@
-import Component from './Component';
+import { waitForElement } from '@testing-library/dom';
+
 import { render } from '../../../utils/tests/withTheme';
 import { rotary } from '../../../content';
-import { waitForElement } from '@testing-library/dom';
+
+import Component from './Component';
 
 // the rotary is divided by letters in order to animate, so we must concatenate the nodes to test
 const firstWord = (content, element) => element.textContent === rotary.words[0];

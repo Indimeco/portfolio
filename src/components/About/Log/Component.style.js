@@ -1,8 +1,8 @@
 import styled, { keyframes } from 'styled-components';
-import { heading } from '../../UI/utils';
-import { FONT_LARGE } from '../../UI/base';
 import PropTypes from 'prop-types';
-import { SPACE_MEGA, SPACE_MEDIUM } from '../../UI/base';
+
+import { heading } from '../../UI/utils';
+import { FONT_LARGE, SPACE_MEGA, SPACE_MEDIUM } from '../../UI/base';
 
 export const LogView = styled.div`
 	margin: ${SPACE_MEGA} 0;

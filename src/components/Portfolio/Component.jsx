@@ -1,9 +1,11 @@
 import React, { useRef, useState } from 'react';
+
 import { portfolio } from '../../content';
+import { FadeOnScroll } from '../UI/utils';
+
 import PortfolioEntryDetails from './PortfolioEntryDetails';
 import PortfolioListItem from './PortfolioListItem';
 import { PortfolioView, PortfolioWrapper, PortfolioHeading } from './Component.style';
-import { FadeOnScroll } from '../UI/utils';
 
 const Portfolio = ({ title }) => {
 	const [active, setActive] = useState(null);

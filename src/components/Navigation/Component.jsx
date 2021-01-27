@@ -1,6 +1,9 @@
 import React from 'react';
-import { NavigationWrapper, NavigationItem } from './Component.style';
+
 import { sections } from '../../content';
+
+import { NavigationWrapper, NavigationItem } from './Component.style';
+
 const { links } = sections;
 
 const scroll = location => () => {

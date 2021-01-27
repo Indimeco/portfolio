@@ -1,6 +1,7 @@
-import Component from './Component';
 import { render } from '../../../utils/tests/withTheme';
 import { social } from '../../../content';
+
+import Component from './Component';
 
 describe('Social', () => {
 	it('renders', () => {

@@ -1,4 +1,5 @@
 import { css } from 'styled-components';
+
 import {
 	FONT_MEDIUM,
 	FONT_CONTENT,

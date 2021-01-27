@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+
 import { heading, title, text, view, indent, link } from '../UI/utils';
 import { FONT_LARGE, SPACE_MEDIUM, SPACE_HUGE, SPACE_SMALL, MEDIA_1 } from '../UI/base';
 

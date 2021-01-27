@@ -1,8 +1,4 @@
-import {
-	faGithub,
-	faSteam,
-	faLinkedinIn,
-} from '@fortawesome/free-brands-svg-icons';
+import { faGithub, faSteam, faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
 
 export const social = [
 	{

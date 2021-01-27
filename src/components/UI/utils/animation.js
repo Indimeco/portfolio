@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useInView } from 'react-intersection-observer';
 import { useSpring, animated } from 'react-spring';
 import { keyframes, css } from 'styled-components';
+
 import { offLight, onLight } from './typography';
 
 export const FadeOnScroll = ({ children, ...restProps }) => {
@@ -101,6 +102,6 @@ export const useDyingLight = () => {
 
 	return {
 		animation: driver % seed > 1 && Math.random() > 0.5 ? dieAnimation : sputterAnimation,
-		seed: seed,
+		seed,
 	};
 };

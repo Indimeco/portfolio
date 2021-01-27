@@ -1,6 +1,8 @@
 import React from 'react';
-import { FooterWrapper, FooterContent } from './Component.style';
+
 import { portfolioSourceCode } from '../../../content';
+
+import { FooterWrapper, FooterContent } from './Component.style';
 
 export const Footer = () => {
 	return (

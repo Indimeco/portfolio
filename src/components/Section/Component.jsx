@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { Sect } from './Component.style';
 
 const Section = ({ name, alternate, children }) => {

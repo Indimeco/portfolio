@@ -1,5 +1,8 @@
 import React, { useEffect, useRef } from 'react';
+
 import { PortfolioItemName, PortfolioItemDescription, PortfolioButton } from '../Component.style';
+import { FadeOnScroll, useDyingLight } from '../../UI/utils';
+
 import {
 	PortfolioItemContentHeader,
 	PortfolioItemBlurb,
@@ -7,7 +10,6 @@ import {
 	PortfolioContentArea,
 	PortfolioContentFooter,
 } from './Component.style';
-import { FadeOnScroll, useDyingLight } from '../../UI/utils';
 
 const PortfolioLight = ({ children }) => {
 	const dyingLightProps = useDyingLight();
@@ -47,7 +49,7 @@ const PortfolioEntryDetails = ({
 		<FadeOnScroll>
 			<PortfolioItemContentHeader ref={headingRef}>
 				<PortfolioItemName>{name}</PortfolioItemName>
-				<PortfolioButton onClick={() => onChange(false)} id={`portfolio-entry-details-back`} data-ga={name}>
+				<PortfolioButton onClick={() => onChange(false)} id="portfolio-entry-details-back" data-ga={name}>
 					Go back
 				</PortfolioButton>
 			</PortfolioItemContentHeader>
@@ -63,7 +65,7 @@ const PortfolioEntryDetails = ({
 						onChange(false);
 						portfolioRef.current.scrollIntoView();
 					}}
-					id={`portfolio-entry-details-back`}
+					id="portfolio-entry-details-back"
 					data-ga={name}
 				>
 					Go back

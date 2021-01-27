@@ -1,5 +1,6 @@
-import Component from './Component';
 import { render } from '../../../utils/tests/withTheme';
+
+import Component from './Component';
 
 describe('Footer', () => {
 	it('renders', () => {

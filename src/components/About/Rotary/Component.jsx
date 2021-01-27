@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { CSSTransition } from 'react-transition-group';
-import { RotaryWrapper, RotaryText, RotaryWord, RotaryWordBoundary } from './Component.style';
+
 import { rotary } from '../../../content';
 import { WATERFALL_1 } from '../../UI/base';
 import { FadeOnScroll } from '../../UI/utils';
+
+import { RotaryWrapper, RotaryText, RotaryWord, RotaryWordBoundary } from './Component.style';
+
 const { words, text } = rotary;
 
 const RotaryWordSplitter = ({ children, showWord, hideWord, changeWord }) => {
@@ -12,7 +15,7 @@ const RotaryWordSplitter = ({ children, showWord, hideWord, changeWord }) => {
 	const alternateTime = 100;
 	const letterTime = letters.length * delayTime + alternateTime;
 	return (
-		<React.Fragment>
+		<>
 			{letters.map((item, index) => (
 				<CSSTransition
 					in={showWord}
@@ -33,7 +36,7 @@ const RotaryWordSplitter = ({ children, showWord, hideWord, changeWord }) => {
 					</RotaryWord>
 				</CSSTransition>
 			))}
-		</React.Fragment>
+		</>
 	);
 };
 

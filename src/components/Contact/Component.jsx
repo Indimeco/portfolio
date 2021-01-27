@@ -1,8 +1,10 @@
 import React from 'react';
+
+import { FadeOnScroll } from '../UI/utils';
+
 import Social from './Social';
 import Footer from './Footer';
 import { ContactView, ContactWrapper, ContactHeading } from './Component.style.js';
-import { FadeOnScroll } from '../UI/utils';
 
 export const Contact = ({ title }) => {
 	return (

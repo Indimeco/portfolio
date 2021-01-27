@@ -1,4 +1,5 @@
 import React from 'react';
+
 import Rotary from './Rotary';
 import Log from './Log';
 import { AboutWrapper } from './Component.style';

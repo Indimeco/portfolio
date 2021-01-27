@@ -1,8 +1,10 @@
 import React from 'react';
-import { LogView, Entry, EntryText, EntryIcon, Blink } from './Component.style';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 import { about } from '../../../content';
 import { FadeOnScroll } from '../../UI/utils';
+
+import { LogView, Entry, EntryText, EntryIcon, Blink } from './Component.style';
 
 const BlinkRunner = () => (
 	<EntryText>
@@ -25,7 +27,7 @@ const Log = () => {
 									<EntryText key={`entry-text${index}-${itemIndex}`}>{item}</EntryText>
 								) : (
 									<EntryIcon key={`entry-icon${index}-${itemIndex}`} data-testid="log-entry-icon">
-										<FontAwesomeIcon icon={item}></FontAwesomeIcon>
+										<FontAwesomeIcon icon={item} />
 									</EntryIcon>
 								),
 							)}

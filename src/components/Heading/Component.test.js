@@ -1,6 +1,7 @@
-import Component from './Component';
 import { render } from '../../utils/tests/withTheme';
 import { heading } from '../../content';
+
+import Component from './Component';
 
 describe('Heading', () => {
 	it('renders', () => {

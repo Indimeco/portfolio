@@ -1,5 +1,7 @@
 import React from 'react';
+
 import { PortfolioItemName, PortfolioItemDescription, PortfolioButton } from '../Component.style';
+
 import { PortfolioItem, PortfolioThumbnail } from './Component.style';
 
 // TODO update CRA to 2.0 to use <> syntax
@@ -10,10 +12,10 @@ const PortfolioItemDetailsButton = ({ onChange, ...restProps }) => (
 );
 
 const PortfolioItemContentPreview = ({ name, description }) => (
-	<React.Fragment>
+	<>
 		<PortfolioItemName>{name}</PortfolioItemName>
 		<PortfolioItemDescription>{description}</PortfolioItemDescription>
-	</React.Fragment>
+	</>
 );
 
 const PortfolioListItem = ({ item, onChange, index }) => (

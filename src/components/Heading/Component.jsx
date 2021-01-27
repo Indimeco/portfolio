@@ -1,7 +1,9 @@
 import React from 'react';
-import { HeaderWrapper, TitleWrapper, Title, Subtitle, HeaderImage } from './Component.style';
+
 import { heading } from '../../content';
 import { useDyingLight, FadeOnScroll } from '../UI/utils';
+
+import { HeaderWrapper, TitleWrapper, Title, Subtitle, HeaderImage } from './Component.style';
 
 const { title, description, headshot } = heading;
 // TODO animate entry of content
