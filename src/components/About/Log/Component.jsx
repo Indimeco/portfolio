@@ -10,7 +10,7 @@ const BlinkRunner = () => (
 	</EntryText>
 );
 
-const Terminal = () => <EntryText>> </EntryText>;
+const Terminal = () => <EntryText>{'>'} </EntryText>;
 
 const Log = () => {
 	return (
