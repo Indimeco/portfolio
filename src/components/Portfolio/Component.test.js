@@ -28,7 +28,7 @@ describe('Portfolio', () => {
 		});
 
 		it('opens when clicked and then is visible', () => {
-			window.HTMLElement.prototype.scrollIntoView = function() {};
+			window.HTMLElement.prototype.scrollIntoView = function () {};
 
 			const { getAllByText, getByTestId, getAllByTestId } = render(Component);
 
@@ -40,7 +40,7 @@ describe('Portfolio', () => {
 		});
 
 		it('returns to main view when go back is clicked', () => {
-			window.HTMLElement.prototype.scrollIntoView = function() {};
+			window.HTMLElement.prototype.scrollIntoView = function () {};
 
 			const { getAllByText, getByTestId, getAllByTestId } = render(Component);
 

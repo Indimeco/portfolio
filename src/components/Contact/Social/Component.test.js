@@ -14,7 +14,7 @@ describe('Social', () => {
 		const container = getByTestId('social');
 
 		expect(container.querySelectorAll('a')).toHaveLength(social.length);
-		container.querySelectorAll('a').forEach(element => {
+		container.querySelectorAll('a').forEach((element) => {
 			expect(element.href).toMatch(/^https?:\/\/\w/);
 		});
 

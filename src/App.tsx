@@ -9,12 +9,12 @@ import About from './components/About';
 import { sections } from './content';
 
 const IndexPage = () => (
-	<Layout>
+	<Layout data-testid="app">
 		<Heading />
 		<Section name={sections.links[0]} alternate>
-			<About title={sections.titles[0]} />
+			<About />
 		</Section>
-		<Section name={sections.links[1]} title={sections.titles[1]}>
+		<Section name={sections.links[1]} alternate={false}>
 			<Portfolio title={sections.titles[1]} />
 		</Section>
 		<Section name={sections.links[2]} alternate>

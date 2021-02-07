@@ -1,5 +1,4 @@
 import styled, { keyframes } from 'styled-components';
-import PropTypes from 'prop-types';
 
 import { heading } from '../../UI/utils';
 import { FONT_LARGE, SPACE_MEGA, SPACE_MEDIUM } from '../../UI/base';
@@ -8,12 +7,10 @@ export const LogView = styled.div`
 	margin: ${SPACE_MEGA} 0;
 `;
 
-export const Entry = styled.div`
+export const Entry = styled.div<{ altStyle?: boolean }>`
 	text-align: ${({ altStyle }) => (altStyle ? 'right' : 'left')};
 	margin-bottom: ${SPACE_MEGA};
 `;
-
-Entry.propTypes = { alt: PropTypes.bool };
 
 export const EntryText = styled.span`
 	${heading};

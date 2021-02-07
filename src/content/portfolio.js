@@ -1,7 +1,12 @@
+import investorSurvey from './images/investor-survey.png';
+import charlotte from './images/my-little-charlotte.jpg';
+import portfolio2018 from './images/2018-portfolio.png';
+import qrpg from './images/QRPG_Logo.png';
+
 export const portfolio = [
 	{
 		name: 'Web UI Toolkit',
-		image: 'images/investor-survey.png',
+		image: investorSurvey,
 		alt: 'Web UI Toolkit',
 		description:
 			'The Web UI Toolkit is a React component library designed to help development teams deliver quality and consistency at velocity.',
@@ -36,7 +41,7 @@ export const portfolio = [
 	},
 	{
 		name: 'My Little Charlotte',
-		image: 'images/my-little-charlotte.jpg',
+		image: charlotte,
 		alt: 'My Little Charlotte terminal preview',
 		description:
 			'My Little Charlotte is a data scraping and data analysis tool, built using Puppeteer and Node JS.',
@@ -70,7 +75,7 @@ export const portfolio = [
 	},
 	{
 		name: 'My Portfolio (2018)',
-		image: 'images/2018-portfolio.png',
+		image: portfolio2018,
 		alt: 'Old 2018 portfolio preview',
 		description:
 			'After I taught myself Front End development I constructed a portfolio which showcased some of my preliminary work.',
@@ -111,7 +116,7 @@ export const portfolio = [
 	},
 	{
 		name: 'QRPG',
-		image: 'images/QRPG_Logo.png',
+		image: qrpg,
 		alt: 'Quality RPG logo',
 		description:
 			'QRPG is a Steam Workshop mod that provides UI and Data Management solutions for playing Role Playing Games within the physics sandbox Tabletop Simulator.',
