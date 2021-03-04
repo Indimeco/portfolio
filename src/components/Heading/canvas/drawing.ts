@@ -79,6 +79,29 @@ function convert3DCoordinateToPicturePlane(
 				(observerDistanceFromPicturePlane / (observerDistanceFromPicturePlane + coordinate.z)),
 	};
 }
+
+type CoordinateRelationX = 'left' | 'right' | 'same';
+type CoordinateRelationY = 'above' | 'below' | 'same';
+type CoordinateRelation = {
+	x: CoordinateRelationX;
+	y: CoordinateRelationY;
+};
+function compareCoordinateX(c1: Coordinate, c2: Coordinate): CoordinateRelationX {
+	if (c2.x > c1.x) return 'right';
+	if (c2.x === c1.x) return 'same';
+	return 'left';
+}
+function compareCoordinateY(c1: Coordinate, c2: Coordinate): CoordinateRelationY {
+	if (c2.y > c1.y) return 'above';
+	if (c2.y === c1.y) return 'same';
+	return 'below';
+}
+function compareCoordinateAgainst(c1: Coordinate, c2: Coordinate): CoordinateRelation {
+	return {
+		x: compareCoordinateX(c1, c2),
+		y: compareCoordinateY(c1, c2),
+	};
+}
 function drawRectangularPrism(
 	ctx: CanvasRenderingContext2D,
 	{ vanishingPoint, observerDistanceFromPicturePlane }: PicturePlane,
@@ -87,24 +110,39 @@ function drawRectangularPrism(
 ) {
 	// NOTE should curry many of these functions
 
-	tracePolygon(
-		ctx,
-		...getRectangularPlane({ origin: { x: origin.x, y: origin.y, z: origin.z }, width, height }).map((o) =>
-			convert3DCoordinateToPicturePlane(vanishingPoint, observerDistanceFromPicturePlane, o),
-		),
-	);
+	const p1 = getRectangularPlane({
+		origin: { x: origin.x, y: origin.y, z: origin.z },
+		width,
+		height,
+	}).map((o) => convert3DCoordinateToPicturePlane(vanishingPoint, observerDistanceFromPicturePlane, o));
+
+	const p2 = getRectangularPlane({
+		origin: { x: origin.x, y: origin.y, z: origin.z + depth },
+		width,
+		height,
+	}).map((o) => convert3DCoordinateToPicturePlane(vanishingPoint, observerDistanceFromPicturePlane, o));
+
+	tracePolygon(ctx, ...p1);
 	ctx.strokeStyle = color;
 	ctx.stroke();
-	tracePolygon(
-		ctx,
-		...getRectangularPlane({
-			origin: { x: origin.x, y: origin.y, z: origin.z + depth },
-			width,
-			height,
-		}).map((o) => convert3DCoordinateToPicturePlane(vanishingPoint, observerDistanceFromPicturePlane, o)),
-	);
+
+	tracePolygon(ctx, ...p2);
 	ctx.strokeStyle = color;
 	ctx.stroke();
+
+	const p1BottomToVanishing = compareCoordinateAgainst(p1[0], vanishingPoint);
+	if (p1BottomToVanishing.y === 'above') {
+		console.log('show bottom face');
+	}
+	const p1LeftToVanishing = compareCoordinateAgainst(p1[0], vanishingPoint);
+	const p1RightToVanishing = compareCoordinateAgainst(p1[1], vanishingPoint);
+	if (p1LeftToVanishing.x === 'left') {
+		console.log('show the left face');
+	}
+	if (p1RightToVanishing.x === 'right') {
+		console.log('show right face');
+	}
+	tracePolygon(ctx);
 }
 
 export function drawing(canvas: HTMLCanvasElement): void {
