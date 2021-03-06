@@ -1,1 +1,4 @@
-TODO vanishing point lines for prism
+TODO find a way to declare the height of a building as the end of the canvas, rather than a random huge percentage
+TODO parallax vis moving vanishing point based on scroll position https://developer.mozilla.org/en-US/docs/Web/API/Document/scroll_event
+TODO should be some unit tests for the more mathematical functions
+TODO decide if how non-mobile views would be rendered (completely new drawing set, modification on a base, etc)

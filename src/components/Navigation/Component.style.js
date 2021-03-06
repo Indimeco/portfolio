@@ -7,7 +7,7 @@ export const NavigationWrapper = styled.nav`
 	display: flex;
 	align-items: center;
 	justify-content: flex-end;
-	background-color: ${({ theme }) => theme.colors.bg};
+	background-color: black;
 	top: 0;
 	min-height: 7vh;
 	margin-bottom: 0;
