@@ -47,7 +47,7 @@ function _getRectangularPlane({
 		{ x: origin.x, y: destination.y, z: origin.z },
 	];
 }
-const getRectangularPlane = curry(_getRectangularPlane);
+export const getRectangularPlane = curry(_getRectangularPlane);
 
 function _convert3DCoordinateToPicturePlane(
 	vanishingPoint: Coordinate,
@@ -69,12 +69,12 @@ const convert3DCoordinateToPicturePlane = curry(_convert3DCoordinateToPicturePla
 
 type CoordinateRelationX = 'left' | 'right' | 'same';
 type CoordinateRelationY = 'above' | 'below' | 'same';
-function c2XIs(c1: Coordinate, c2: Coordinate): CoordinateRelationX {
+export function c2XIs(c1: Coordinate, c2: Coordinate): CoordinateRelationX {
 	if (c2.x > c1.x) return 'right';
 	if (c2.x === c1.x) return 'same';
 	return 'left';
 }
-function c2YIs(c1: Coordinate, c2: Coordinate): CoordinateRelationY {
+export function c2YIs(c1: Coordinate, c2: Coordinate): CoordinateRelationY {
 	if (c2.y > c1.y) return 'below';
 	if (c2.y === c1.y) return 'same';
 	return 'above';
@@ -137,7 +137,7 @@ const drawRectangularPrism = curry(_drawRectangularPrism);
 function _percentOf(value: number, percent: number) {
 	return Math.round((percent / 100) * value);
 }
-const percentOf = curry(_percentOf);
+export const percentOf = curry(_percentOf);
 
 function getColorFromDepth(color: string, maxDepth: number, depth: number) {
 	return lighten(depth / maxDepth, color);

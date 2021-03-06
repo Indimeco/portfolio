@@ -46,7 +46,8 @@
 		"eslint-plugin-react-hooks": "^4",
 		"gh-pages": "^2.1.1",
 		"husky": "^3.0.4",
-		"jest-styled-components": "^6.3.3",
+		"jest-canvas-mock": "^2.3.1",
+		"jest-styled-components": "^7",
 		"prettier": "^2",
 		"pretty-quick": "^1.11.1",
 		"typescript": "^4"
@@ -60,6 +61,7 @@
 		"start": "react-scripts start",
 		"build": "react-scripts build",
 		"test": "CI=true react-scripts test",
+		"test:watch": "react-scripts test",
 		"predeploy": "npm run build",
 		"deploy": "gh-pages -d build",
 		"eject": "react-scripts eject",

@@ -1,8 +1,6 @@
 import 'jest-styled-components';
 import '@testing-library/jest-dom/extend-expect';
+import { mockAllIsIntersecting } from 'react-intersection-observer/test-utils';
+import 'jest-canvas-mock';
 
-global.IntersectionObserver = jest.fn(function () {
-	this.observe = jest.fn();
-	this.unobserve = jest.fn();
-	this.disconnect = jest.fn();
-});
+mockAllIsIntersecting(true);
