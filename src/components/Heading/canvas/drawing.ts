@@ -91,17 +91,15 @@ function _drawRectangularPrism(
 		width,
 		height,
 	}).map((o) => convert3DCoordinateToPicturePlane(vanishingPoint, observerDistanceFromPicturePlane, o));
+	tracePolygon(ctx, ...p1);
+	ctx.fillStyle = color;
+	ctx.fill();
 
 	const p2 = getRectangularPlane({
 		origin: { x: origin.x, y: origin.y, z: origin.z + depth },
 		width,
 		height,
 	}).map((o) => convert3DCoordinateToPicturePlane(vanishingPoint, observerDistanceFromPicturePlane, o));
-
-	tracePolygon(ctx, ...p1);
-	ctx.fillStyle = color;
-	ctx.fill();
-
 	const [p1TopLeft, p1TopRight, p1BottomRight, p1BottomLeft] = p1;
 	const [p2TopLeft, p2TopRight, p2BottomRight, p2BottomLeft] = p2;
 
@@ -143,7 +141,7 @@ function getColorFromDepth(color: string, maxDepth: number, depth: number) {
 	return lighten(depth / maxDepth, color);
 }
 
-export function drawing(canvas: HTMLCanvasElement): void {
+export function drawing(canvas: HTMLCanvasElement, vanishingPointY: number): void {
 	const ctx = canvas.getContext('2d');
 	if (!ctx) return;
 	const { width: canvasWidth, height: canvasHeight } = canvas.getBoundingClientRect();
@@ -160,7 +158,10 @@ export function drawing(canvas: HTMLCanvasElement): void {
 	const percentOfCanvasWidth = percentOf(canvasWidth);
 	const percentOfCanvasHeight = percentOf(canvasHeight);
 
-	const vanishingPoint: Coordinate = { x: percentOfCanvasWidth(80), y: percentOfCanvasHeight(20) };
+	const vanishingPoint: Coordinate = {
+		x: percentOfCanvasWidth(80),
+		y: Math.max(vanishingPointY, percentOfCanvasHeight(10)),
+	};
 	const observerDistanceFromPicturePlane = 1000;
 
 	const dRectangularPrism = drawRectangularPrism(ctx, {

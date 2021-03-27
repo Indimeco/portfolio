@@ -1,4 +1,3 @@
 TODO find a way to declare the height of a building as the end of the canvas, rather than a random huge percentage
-TODO parallax vis moving vanishing point based on scroll position https://developer.mozilla.org/en-US/docs/Web/API/Document/scroll_event, actually not only that but the observer position must change. This likely means a change to the conversion math.
-TODO should be some unit tests for the more mathematical functions
 TODO decide if how non-mobile views would be rendered (completely new drawing set, modification on a base, etc)
+REVIEW does the observer position need to change in the math mapping? The vanishing point should always stay on the same part of the screen. Should the height of the distant objects really decrease?
