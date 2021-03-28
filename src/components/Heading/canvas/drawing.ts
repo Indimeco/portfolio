@@ -3,18 +3,10 @@ import { curry } from 'ramda';
 
 import theme from '../../UI/themes';
 
-type Coordinate = { x: number; y: number };
-type Coordinate3D = Coordinate & { z: number };
-type Polygon = {
-	width: number;
-	height: number;
-	color: string;
-};
-type Polygon3D = Polygon & { depth: number };
-type PicturePlane = {
-	vanishingPoint: Coordinate;
-	observerDistanceFromPicturePlane: number;
-};
+import { buildings } from './buildings';
+// import { obelisks as buildings } from './obelisks';
+import { PicturePlane, Coordinate, Coordinate3D, Polygon3D } from './types';
+
 function _tracePolygon(ctx: CanvasRenderingContext2D, ...coords: Coordinate[]) {
 	if (coords.length <= 0) return;
 
@@ -83,8 +75,9 @@ export function c2YIs(c1: Coordinate, c2: Coordinate): CoordinateRelationY {
 function _drawRectangularPrism(
 	ctx: CanvasRenderingContext2D,
 	{ vanishingPoint, observerDistanceFromPicturePlane }: PicturePlane,
-	{ width, depth, height, color }: Polygon3D,
+	{ width, depth, height }: Polygon3D,
 	origin: Coordinate3D,
+	color: string,
 ) {
 	const p1 = getRectangularPlane({
 		origin: { x: origin.x, y: origin.y, z: origin.z },
@@ -181,113 +174,31 @@ export function drawing(canvas: HTMLCanvasElement, vanishingPointY: number): voi
 	ctx.fillStyle = 'red';
 	ctx.fill();
 
-	// left receding
-	dRectangularPrism(
-		{
-			width: percentOfCanvasWidth(50),
-			height: percentOfCanvasHeight(300),
-			depth: percentOfCanvasWidth(30),
-			color: getColorFromDepth(theme.colors.bg, maxDepth, percentOfMaxDepth(6)),
-		},
-		{ x: percentOfCanvasWidth(0), y: percentOfCanvasHeight(0), z: percentOfMaxDepth(6) },
+	// Draw sky
+	tracePolygon(
+		ctx,
+		...getRectangularPlane({
+			origin: { x: 0, y: 0, z: 0 },
+			width: canvasWidth,
+			height: vanishingPoint.y,
+		}).map((o) => ({ x: o.x, y: o.y })),
 	);
+	ctx.fillStyle = 'grey';
+	ctx.fill();
 
-	// small right middle
-	dRectangularPrism(
-		{
-			width: percentOfCanvasWidth(30),
-			height: percentOfCanvasHeight(300),
-			depth: percentOfCanvasWidth(30),
-			color: getColorFromDepth(theme.colors.bg, maxDepth, percentOfMaxDepth(2)),
-		},
-		{ x: percentOfCanvasWidth(80), y: percentOfCanvasHeight(40), z: percentOfMaxDepth(2) },
-	);
-
-	// left center tall
-	dRectangularPrism(
-		{
-			width: percentOfCanvasWidth(50),
-			height: percentOfCanvasHeight(300),
-			depth: percentOfCanvasWidth(30),
-			color: getColorFromDepth(theme.colors.bg, maxDepth, percentOfMaxDepth(1)),
-		},
-		{ x: percentOfCanvasWidth(2), y: percentOfCanvasHeight(0), z: percentOfMaxDepth(1) },
-	);
-
-	// middle cover
-	dRectangularPrism(
-		{
-			width: percentOfCanvasWidth(40),
-			height: percentOfCanvasHeight(300),
-			depth: percentOfCanvasWidth(40),
-			color: getColorFromDepth(theme.colors.bg, maxDepth, percentOfMaxDepth(0.8)),
-		},
-		{ x: percentOfCanvasWidth(40), y: percentOfCanvasHeight(40), z: percentOfMaxDepth(0.8) },
-	);
-
-	// left centre medium tall
-	dRectangularPrism(
-		{
-			width: percentOfCanvasWidth(24),
-			height: percentOfCanvasHeight(300),
-			depth: percentOfCanvasWidth(40),
-			color: getColorFromDepth(theme.colors.bg, maxDepth, percentOfMaxDepth(0.4)),
-		},
-		{ x: percentOfCanvasWidth(2), y: percentOfCanvasHeight(33), z: percentOfMaxDepth(0.4) },
-	);
-
-	// left centre medium
-	dRectangularPrism(
-		{
-			width: percentOfCanvasWidth(30),
-			height: percentOfCanvasHeight(300),
-			depth: percentOfCanvasWidth(40),
-			color: getColorFromDepth(theme.colors.bg, maxDepth, percentOfMaxDepth(0.2)),
-		},
-		{ x: percentOfCanvasWidth(10), y: percentOfCanvasHeight(60), z: percentOfMaxDepth(0.2) },
-	);
-
-	// left tall edge
-	dRectangularPrism(
-		{
-			width: percentOfCanvasWidth(25),
-			height: percentOfCanvasHeight(300),
-			depth: percentOfCanvasWidth(23),
-			color: getColorFromDepth(theme.colors.bg, maxDepth, percentOfMaxDepth(0.1)),
-		},
-		{ x: percentOfCanvasWidth(-20), y: percentOfCanvasHeight(5), z: percentOfMaxDepth(0.1) },
-	);
-
-	// medium right edge
-	dRectangularPrism(
-		{
-			width: percentOfCanvasWidth(20),
-			height: percentOfCanvasHeight(300),
-			depth: percentOfCanvasWidth(30),
-			color: getColorFromDepth(theme.colors.bg, maxDepth, percentOfMaxDepth(0.1)),
-		},
-		{ x: percentOfCanvasWidth(90), y: percentOfCanvasHeight(20), z: percentOfMaxDepth(0.1) },
-	);
-
-	// small right edge
-	dRectangularPrism(
-		{
-			width: percentOfCanvasWidth(40),
-			height: percentOfCanvasHeight(300),
-			depth: percentOfCanvasWidth(40),
-			color: getColorFromDepth(theme.colors.bg, maxDepth, percentOfMaxDepth(0.1)),
-		},
-		{ x: percentOfCanvasWidth(70), y: percentOfCanvasHeight(80), z: percentOfMaxDepth(0.1) },
-	);
-
-	// left edge short corner
-	dRectangularPrism(
-		{
-			width: percentOfCanvasWidth(40),
-			height: percentOfCanvasHeight(300),
-			depth: percentOfCanvasWidth(40),
-			color: getColorFromDepth(theme.colors.bg, maxDepth, percentOfMaxDepth(0)),
-		},
-		{ x: percentOfCanvasWidth(-30), y: percentOfCanvasHeight(92), z: percentOfMaxDepth(0) },
+	buildings.forEach(([polygon3D, coordinate3D]) =>
+		dRectangularPrism(
+			{
+				width: percentOfCanvasWidth(polygon3D.width),
+				height: percentOfCanvasHeight(polygon3D.height),
+				depth: percentOfCanvasWidth(polygon3D.depth),
+			},
+			{
+				x: percentOfCanvasWidth(coordinate3D.x),
+				y: percentOfCanvasHeight(coordinate3D.y),
+				z: percentOfMaxDepth(coordinate3D.z),
+			},
+			getColorFromDepth(theme.colors.bg, maxDepth, percentOfMaxDepth(coordinate3D.z)),
+		),
 	);
 }

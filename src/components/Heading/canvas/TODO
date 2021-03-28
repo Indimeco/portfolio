@@ -1,3 +1,23 @@
-TODO find a way to declare the height of a building as the end of the canvas, rather than a random huge percentage
-TODO decide if how non-mobile views would be rendered (completely new drawing set, modification on a base, etc)
-REVIEW does the observer position need to change in the math mapping? The vanishing point should always stay on the same part of the screen. Should the height of the distant objects really decrease?
+TODO make header bar absolute so perspective always smoothly shifts
+TODO subdivide canvas into sections and make the whole background one canvas
+TODO make drawing data not use percentages of canvas width/height/depth. Drawing data should resolve its own dimensions and overflow would be cut off the screen (not seen on smaller devices)
+TODO make canvas only render what's currently on screen to preserve performance
+TODO make more city-like high perspective view, not in rows
+REVIEW why does higher observer distance = closer? bug
+TODO add detail to buildings
+TODO street view
+TODO undercity view
+TODO sky design
+
+
+Decisions
+* mobile views will just be a subset of the wider canvas rather than squishing/stretching the drawing or rendering different drawings for different views
+* builds view wil lnot have infinite height. It will have a natural height and end as a 3d object would
+
+Current outline:
+<Heading /> // High city view
+<About /> // Building view
+<Portfolio title={sections.titles[1]} /> // street view
+<Contact title={sections.titles[2]} /> // undercity view
+
+
