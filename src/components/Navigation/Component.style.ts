@@ -7,10 +7,13 @@ export const NavigationWrapper = styled.nav`
 	display: flex;
 	align-items: center;
 	justify-content: flex-end;
-	background-color: black;
+	background-color: transparent;
 	top: 0;
 	min-height: 7vh;
 	margin-bottom: 0;
+	position: absolute;
+	z-index: 1;
+	width: 100%;
 `;
 
 export const NavigationItem = styled.button`

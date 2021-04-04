@@ -6,7 +6,7 @@ import { NavigationWrapper, NavigationItem } from './Component.style';
 
 const { links } = sections;
 
-const scroll = location => () => {
+const scroll = (location: string) => () => {
 	const target = document.querySelector(`#${location}`);
 	if (target) {
 		target.scrollIntoView({ behavior: 'smooth' });
@@ -15,7 +15,7 @@ const scroll = location => () => {
 
 const Navigation = () => (
 	<NavigationWrapper data-testid="navigation">
-		{links.map(link => (
+		{links.map((link) => (
 			<NavigationItem key={link} data-testid="navigation-item" onClick={scroll(link)}>
 				{link}
 			</NavigationItem>
