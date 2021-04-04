@@ -1,5 +1,5 @@
 import { darken, lighten } from 'polished';
-import { curry } from 'ramda';
+import { add, curry } from 'ramda';
 
 import theme from '../../UI/themes';
 
@@ -135,6 +135,10 @@ function getColorFromDepth(color: string, maxDepth: number, depth: number) {
 }
 
 export function drawing(canvas: HTMLCanvasElement, vanishingPointY: number): void {
+	const MAX_DEPTH = 100000;
+	const OBSERVER_DISTANCE_FROM_PICTURE_PLANE = 1000;
+	const HORIZON__Y_OFFSET = 200;
+
 	const ctx = canvas.getContext('2d');
 	if (!ctx) return;
 	const { width: canvasWidth, height: canvasHeight } = canvas.getBoundingClientRect();
@@ -146,20 +150,18 @@ export function drawing(canvas: HTMLCanvasElement, vanishingPointY: number): voi
 	canvas.height = canvasHeight;
 	ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-	const maxDepth = 100000;
-	const percentOfMaxDepth = percentOf(maxDepth);
+	const percentOfMaxDepth = percentOf(MAX_DEPTH);
 	const percentOfCanvasWidth = percentOf(canvasWidth);
 	const percentOfCanvasHeight = percentOf(canvasHeight);
 
 	const vanishingPoint: Coordinate = {
 		x: percentOfCanvasWidth(80),
-		y: Math.max(vanishingPointY, percentOfCanvasHeight(10)),
+		y: add(vanishingPointY, HORIZON__Y_OFFSET),
 	};
-	const observerDistanceFromPicturePlane = 1000;
 
 	const dRectangularPrism = drawRectangularPrism(ctx, {
 		vanishingPoint,
-		observerDistanceFromPicturePlane,
+		observerDistanceFromPicturePlane: OBSERVER_DISTANCE_FROM_PICTURE_PLANE,
 	});
 
 	// Draw the vanishing point
@@ -198,7 +200,7 @@ export function drawing(canvas: HTMLCanvasElement, vanishingPointY: number): voi
 				y: percentOfCanvasHeight(coordinate3D.y),
 				z: percentOfMaxDepth(coordinate3D.z),
 			},
-			getColorFromDepth(theme.colors.bg, maxDepth, percentOfMaxDepth(coordinate3D.z)),
+			getColorFromDepth(theme.colors.bg, MAX_DEPTH, percentOfMaxDepth(coordinate3D.z)),
 		),
 	);
 }
