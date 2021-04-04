@@ -1,1 +1,0 @@
-export { drawing } from './drawing';

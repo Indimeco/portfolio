@@ -1,11 +1,8 @@
 import { useRef, useEffect, useState } from 'react';
 
-import { drawFunctionSignature } from './types';
+import { composition } from './drawings';
 
-export const useCanvas = (
-	drawFunction: drawFunctionSignature,
-	shouldAnimate: boolean,
-): [React.RefObject<HTMLCanvasElement>] => {
+export const useCanvas = (shouldAnimate: boolean): [React.RefObject<HTMLCanvasElement>] => {
 	const ref = useRef<HTMLCanvasElement>(null);
 	const [vanishingPointY, setVanishingPointY] = useState(0);
 
@@ -19,16 +16,19 @@ export const useCanvas = (
 		document.addEventListener('scroll', handleScroll);
 
 		if (canvas) {
-			frameId = window.requestAnimationFrame(() => drawFunction(canvas, vanishingPointY));
-			while (shouldAnimate) {
-				frameId = window.requestAnimationFrame(() => drawFunction(canvas, vanishingPointY));
-			}
+			frameId = window.requestAnimationFrame(() => composition(canvas, vanishingPointY));
+
+			// while (shouldAnimate) {
+			// 	frameId = window.requestAnimationFrame(() =>
+			// 		pipe(() => composeDrawings(canvas, vanishingPointY), drawFunction),
+			// 	);
+			// }
 		}
 
 		return () => {
 			if (frameId) window.cancelAnimationFrame(frameId);
 		};
-	}, [drawFunction, shouldAnimate, vanishingPointY]);
+	}, [shouldAnimate, vanishingPointY]);
 
 	return [ref];
 };

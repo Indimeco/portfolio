@@ -16,11 +16,8 @@ const BackgroundCanvasContext = styled.div`
 	z-index: 0;
 `;
 
-type PropTypes = {
-	drawing: any;
-};
-export const CanvasDrawing: React.FC<PropTypes> = ({ children, drawing }) => {
-	const [canvasRef] = useCanvas(drawing, false);
+export const CanvasDrawing: React.FC = ({ children }) => {
+	const [canvasRef] = useCanvas(false);
 
 	return (
 		<BackgroundCanvasContext>

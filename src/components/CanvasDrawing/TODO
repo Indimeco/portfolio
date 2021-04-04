@@ -1,4 +1,6 @@
-TODO subdivide canvas into sections and make the whole background one canvas
+TODO continue refactoring individual drawings to make them more abstract
+TODO find a way to control height of individual drawings to make a more 'sectioned' view
+TODO debounce drawing effect
 TODO make drawing data not use percentages of canvas width/height/depth. Drawing data should resolve its own dimensions and overflow would be cut off the screen (not seen on smaller devices)
 TODO make canvas only render what's currently on screen to preserve performance
 TODO make more city-like high perspective view, not in rows

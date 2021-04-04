@@ -1,4 +1,4 @@
-import { Coordinate3D, Polygon3D } from '../../CanvasDrawing';
+import { Coordinate3D, Polygon3D } from '../../drawing';
 
 export const buildings: [Polygon3D, Coordinate3D][] = [
 	// left receding

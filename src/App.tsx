@@ -6,13 +6,16 @@ import Portfolio from './components/Portfolio';
 import Contact from './components/Contact';
 import About from './components/About';
 import { sections } from './content';
+import { CanvasDrawing } from './components/CanvasDrawing';
 
 const IndexPage = () => (
 	<Layout data-testid="app">
-		<Heading />
-		<About />
-		<Portfolio title={sections.titles[1]} />
-		<Contact title={sections.titles[2]} />
+		<CanvasDrawing>
+			<Heading />
+			<About />
+			<Portfolio title={sections.titles[1]} />
+			<Contact title={sections.titles[2]} />
+		</CanvasDrawing>
 	</Layout>
 );
 

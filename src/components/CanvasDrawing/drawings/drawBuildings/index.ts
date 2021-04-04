@@ -1,0 +1,1 @@
+export { drawBuildings } from './drawBuildings';
