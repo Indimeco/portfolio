@@ -1,9 +1,15 @@
 import { add, curry } from 'ramda';
 
 import theme from '../../UI/themes';
+import {
+	drawRectangularPrism,
+	getColorFromDepth,
+	Coordinate,
+	tracePolygon,
+	getRectangularPlane,
+} from '../../CanvasDrawing';
 
 import { obelisks } from './obelisks';
-import { drawRectangularPrism, getColorFromDepth, Coordinate } from '../../CanvasDrawing';
 
 function _percentOf(value: number, percent: number) {
 	return Math.round((percent / 100) * value);
@@ -53,16 +59,16 @@ export function drawing(canvas: HTMLCanvasElement, vanishingPointY: number): voi
 	// ctx.fill();
 
 	// Draw sky
-	// tracePolygon(
-	// 	ctx,
-	// 	...getRectangularPlane({
-	// 		origin: { x: 0, y: 0, z: 0 },
-	// 		width: canvasWidth,
-	// 		height: vanishingPoint.y,
-	// 	}).map((o) => ({ x: o.x, y: o.y })),
-	// );
-	// ctx.fillStyle = 'grey';
-	// ctx.fill();
+	tracePolygon(
+		ctx,
+		...getRectangularPlane({
+			origin: { x: 0, y: 0, z: 0 },
+			width: canvasWidth,
+			height: vanishingPoint.y,
+		}).map((o) => ({ x: o.x, y: o.y })),
+	);
+	ctx.fillStyle = 'grey';
+	ctx.fill();
 
 	obelisks.forEach(([polygon3D, coordinate3D]) =>
 		dRectangularPrism(

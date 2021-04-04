@@ -25,7 +25,7 @@ function _getRectangularPlane({
 		{ x: origin.x, y: destination.y, z: origin.z },
 	];
 }
-const getRectangularPlane = curry(_getRectangularPlane);
+export const getRectangularPlane = curry(_getRectangularPlane);
 
 function _drawRectangularPrism(
 	ctx: CanvasRenderingContext2D,
