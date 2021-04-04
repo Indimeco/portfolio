@@ -9,3 +9,5 @@ export type PicturePlane = {
 	vanishingPoint: Coordinate;
 	observerDistanceFromPicturePlane: number;
 };
+export type CoordinateRelationX = 'left' | 'right' | 'same';
+export type CoordinateRelationY = 'above' | 'below' | 'same';

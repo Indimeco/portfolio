@@ -1,6 +1,6 @@
 import { divide, flatten, map, multiply, uniq, pipe, unnest } from 'ramda';
 
-import { Coordinate3D, Polygon3D } from './types';
+import { Coordinate3D, Polygon3D } from '../../CanvasDrawing';
 
 type GetRow = (x: number) => [Polygon3D, Coordinate3D][];
 // depth is a hard coded factor rather than a scalable attribute

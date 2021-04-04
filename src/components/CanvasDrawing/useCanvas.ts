@@ -1,6 +1,7 @@
 import { useRef, useEffect, useState } from 'react';
 
-type drawFunctionSignature = (canvas: HTMLCanvasElement, vanishingPointY: number) => void;
+import { drawFunctionSignature } from './types';
+
 export const useCanvas = (
 	drawFunction: drawFunctionSignature,
 	shouldAnimate: boolean,
