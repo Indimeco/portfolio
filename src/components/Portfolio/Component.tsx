@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useLayoutEffect, useRef, useState } from 'react';
 
 import { portfolio } from '../../content';
 import { FadeOnScroll } from '../UI/utils';
@@ -17,12 +17,16 @@ const Portfolio: React.FC<Props> = ({ title, setSectionBoundary }) => {
 	const portfolioRef = useRef(null);
 	const sectionBoundary = useRef<HTMLDivElement>(null);
 
-	useEffect(() => {
+	useLayoutEffect(() => {
 		const node = sectionBoundary.current;
 		if (node) {
-			setSectionBoundary(node.offsetHeight + node.offsetTop);
+			window.requestAnimationFrame(() => setSectionBoundary(node.offsetHeight + node.offsetTop));
+			const resizeObserver = new ResizeObserver(() => setSectionBoundary(node.offsetHeight + node.offsetTop));
+			resizeObserver.observe(node);
+
+			return () => resizeObserver.unobserve(node);
 		}
-	}, [setSectionBoundary, sectionBoundary, portfolioRef]);
+	}, [setSectionBoundary, sectionBoundary]);
 	return (
 		<PortfolioView data-testid="portfolio" ref={sectionBoundary}>
 			<PortfolioWrapper>
