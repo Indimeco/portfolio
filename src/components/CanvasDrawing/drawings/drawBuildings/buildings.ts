@@ -15,10 +15,10 @@ export const buildings: [Polygon3D, Coordinate3D][] = [
 	[
 		{
 			width: 30,
-			height: 300,
+			height: 260,
 			depth: 30,
 		},
-		{ x: 80, y: 40, z: 2 },
+		{ x: 80, y: 0, z: 2 },
 	],
 
 	// left center tall
@@ -35,69 +35,69 @@ export const buildings: [Polygon3D, Coordinate3D][] = [
 	[
 		{
 			width: 40,
-			height: 300,
+			height: 260,
 			depth: 40,
 		},
-		{ x: 40, y: 40, z: 0.8 },
+		{ x: 40, y: 0, z: 0.8 },
 	],
 
 	// left centre medium tall
 	[
 		{
 			width: 24,
-			height: 300,
+			height: 267,
 			depth: 40,
 		},
-		{ x: 2, y: 33, z: 0.4 },
+		{ x: 2, y: 0, z: 0.4 },
 	],
 
 	// left centre medium
 	[
 		{
 			width: 30,
-			height: 300,
+			height: 240,
 			depth: 40,
 		},
-		{ x: 10, y: 60, z: 0.2 },
+		{ x: 10, y: 0, z: 0.2 },
 	],
 
 	// left tall edge
 	[
 		{
 			width: 25,
-			height: 300,
+			height: 295,
 			depth: 23,
 		},
-		{ x: -20, y: 5, z: 0.1 },
+		{ x: -20, y: 0, z: 0.1 },
 	],
 
 	// medium right edge
 	[
 		{
 			width: 20,
-			height: 300,
+			height: 280,
 			depth: 30,
 		},
-		{ x: 90, y: 20, z: 0.1 },
+		{ x: 90, y: 0, z: 0.1 },
 	],
 
 	// small right edge
 	[
 		{
 			width: 40,
-			height: 300,
+			height: 220,
 			depth: 40,
 		},
-		{ x: 70, y: 80, z: 0.1 },
+		{ x: 70, y: 0, z: 0.1 },
 	],
 
 	// left edge short corner
 	[
 		{
 			width: 40,
-			height: 300,
+			height: 208,
 			depth: 40,
 		},
-		{ x: -30, y: 92, z: 0 },
+		{ x: -30, y: 0, z: 0 },
 	],
 ];

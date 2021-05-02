@@ -11,8 +11,8 @@ describe('rectangular prisms', () => {
 		expect(plane).toStrictEqual([
 			{ x: 2, y: 0, z: 10 },
 			{ x: 22, y: 0, z: 10 },
-			{ x: 22, y: 35, z: 10 },
-			{ x: 2, y: 35, z: 10 },
+			{ x: 22, y: -35, z: 10 },
+			{ x: 2, y: -35, z: 10 },
 		]);
 	});
 });

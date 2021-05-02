@@ -32,7 +32,7 @@ export const drawBuildings: Drawing = (context) => {
 		dRectangularPrism(
 			{
 				width: percentOfCanvasWidth(polygon3D.width),
-				height: percentOfCanvasHeight(polygon3D.height),
+				height: polygon3D.height,
 				depth: percentOfCanvasWidth(polygon3D.depth),
 			},
 			{
