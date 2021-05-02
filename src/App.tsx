@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import Layout from './components/Layout';
 import Heading from './components/Heading';
@@ -9,15 +9,19 @@ import { sections } from './content';
 import { CanvasDrawing } from './components/CanvasDrawing';
 import { composition } from './components/CanvasDrawing/drawings';
 
-const IndexPage = () => (
-	<Layout data-testid="app">
-		<CanvasDrawing draw={composition} drawVars={{ StreetLevel: 1000 }}>
-			<Heading />
-			<About />
-			<Portfolio title={sections.titles[1]} />
-			<Contact title={sections.titles[2]} />
-		</CanvasDrawing>
-	</Layout>
-);
+const App = () => {
+	const [streetLevel, setStreetLevel] = useState(0);
 
-export default IndexPage;
+	return (
+		<Layout data-testid="app">
+			<CanvasDrawing draw={composition} drawVars={{ StreetLevel: streetLevel }}>
+				<Heading />
+				<About />
+				<Portfolio title={sections.titles[1]} setSectionBoundary={setStreetLevel} />
+				<Contact title={sections.titles[2]} />
+			</CanvasDrawing>
+		</Layout>
+	);
+};
+
+export default App;
