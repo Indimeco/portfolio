@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import { DrawingSetup, DrawVars } from './drawing';
 import { useCanvas } from './useCanvas';
 
 const BackgroundCanvas = styled.canvas`
@@ -16,8 +17,13 @@ const BackgroundCanvasContext = styled.div`
 	z-index: 0;
 `;
 
-export const CanvasDrawing: React.FC = ({ children }) => {
-	const [canvasRef] = useCanvas(false);
+type Props = {
+	draw: DrawingSetup;
+	drawVars?: DrawVars;
+	shouldAnimate?: boolean;
+};
+export const CanvasDrawing: React.FC<Props> = ({ draw, drawVars, shouldAnimate = false, children }) => {
+	const [canvasRef] = useCanvas(draw, drawVars, shouldAnimate);
 
 	return (
 		<BackgroundCanvasContext>

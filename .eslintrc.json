@@ -1,3 +1,7 @@
 {
-	"extends": ["@indimeco/eslint-config-indimeco"]
+	"extends": ["@indimeco/eslint-config-indimeco"],
+	"rules": {
+		"no-shadow": "off",
+		"@typescript-eslint/no-shadow": "error"
+	}
 }

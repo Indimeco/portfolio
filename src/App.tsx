@@ -7,10 +7,11 @@ import Contact from './components/Contact';
 import About from './components/About';
 import { sections } from './content';
 import { CanvasDrawing } from './components/CanvasDrawing';
+import { composition } from './components/CanvasDrawing/drawings';
 
 const IndexPage = () => (
 	<Layout data-testid="app">
-		<CanvasDrawing>
+		<CanvasDrawing draw={composition} drawVars={{ StreetLevel: 1000 }}>
 			<Heading />
 			<About />
 			<Portfolio title={sections.titles[1]} />

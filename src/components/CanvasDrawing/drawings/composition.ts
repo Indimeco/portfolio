@@ -5,7 +5,13 @@ import { Coordinate, DrawingSetup, tracePolygon, getRectangularPlane } from '../
 import { drawBuildings } from './drawBuildings';
 import { drawObelisks } from './drawObelisks';
 
-export const composeDrawings: DrawingSetup = (canvas, vanishingPointY) => {
+export enum LandmarkDefinitions {
+	StreetLevel = 'StreetLevel',
+}
+
+type DrawVars = Record<LandmarkDefinitions, number>;
+
+export const composeDrawings: DrawingSetup<DrawVars> = (canvas, vanishingPointY, drawVars) => {
 	const ctx = canvas.getContext('2d');
 	if (!ctx) return null;
 
@@ -36,7 +42,7 @@ export const composeDrawings: DrawingSetup = (canvas, vanishingPointY) => {
 	ctx.fillStyle = 'red';
 	ctx.fill();
 
-	// Draw ground
+	// Draw horizon
 	tracePolygon(
 		ctx,
 		...getRectangularPlane({
@@ -48,10 +54,23 @@ export const composeDrawings: DrawingSetup = (canvas, vanishingPointY) => {
 	ctx.fillStyle = 'grey';
 	ctx.fill();
 
+	// Draw street level
+	tracePolygon(
+		ctx,
+		...getRectangularPlane({
+			origin: { x: 0, y: drawVars[LandmarkDefinitions.StreetLevel], z: 0 },
+			width: canvasWidth,
+			height: canvasHeight - vanishingPoint.y,
+		}).map((o) => ({ x: o.x, y: o.y })),
+	);
+	ctx.fillStyle = 'pink';
+	ctx.fill();
+
 	return {
 		canvas,
 		ctx,
 		vanishingPoint,
+		drawVars,
 	};
 };
 

@@ -12,11 +12,17 @@ export type PicturePlane = {
 export type CoordinateRelationX = 'left' | 'right' | 'same';
 export type CoordinateRelationY = 'above' | 'below' | 'same';
 
+export type DrawVars = any;
 export type DrawingContext = null | {
 	canvas: HTMLCanvasElement;
 	ctx: CanvasRenderingContext2D;
 	vanishingPoint: Coordinate;
+	drawVars: DrawVars;
 };
 
-export type DrawingSetup = (canvas: HTMLCanvasElement, vanishingPointY: number) => DrawingContext;
+export type DrawingSetup<T = DrawVars> = (
+	canvas: HTMLCanvasElement,
+	vanishingPointY: number,
+	vars: T,
+) => DrawingContext;
 export type Drawing = (context: DrawingContext) => DrawingContext;
