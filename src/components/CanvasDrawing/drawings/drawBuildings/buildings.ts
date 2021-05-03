@@ -4,100 +4,90 @@ export const buildings: [Polygon3D, Coordinate3D][] = [
 	// left receding
 	[
 		{
-			width: 50,
-			height: 300,
-			depth: 30,
+			width: 500,
+			height: 3000,
+			depth: 500,
 		},
-		{ x: 0, y: 0, z: 6 },
-	],
-
-	// small right middle
-	[
-		{
-			width: 30,
-			height: 260,
-			depth: 30,
-		},
-		{ x: 80, y: 0, z: 2 },
+		{ x: -90, y: 0, z: 600 },
 	],
 
 	// left center tall
+	// [
+	// 	{
+	// 		width: 300,
+	// 		height: 2500,
+	// 		depth: 600,
+	// 	},
+	// 	{ x: -20, y: 0, z: -10 },
+	// ],
+
+	// // middle cover
 	[
 		{
-			width: 50,
-			height: 300,
-			depth: 30,
+			width: 400,
+			height: 2600,
+			depth: 400,
 		},
-		{ x: 2, y: 0, z: 1 },
+		{ x: 400, y: 0, z: 8 },
 	],
 
-	// middle cover
-	[
-		{
-			width: 40,
-			height: 260,
-			depth: 40,
-		},
-		{ x: 40, y: 0, z: 0.8 },
-	],
+	// // left centre medium tall
+	// [
+	// 	{
+	// 		width: 240,
+	// 		height: 2670,
+	// 		depth: 400,
+	// 	},
+	// 	{ x: 20, y: 0, z: 4 },
+	// ],
 
-	// left centre medium tall
-	[
-		{
-			width: 24,
-			height: 267,
-			depth: 40,
-		},
-		{ x: 2, y: 0, z: 0.4 },
-	],
+	// // left centre medium
+	// [
+	// 	{
+	// 		width: 300,
+	// 		height: 2400,
+	// 		depth: 400,
+	// 	},
+	// 	{ x: 100, y: 0, z: 2 },
+	// ],
 
-	// left centre medium
-	[
-		{
-			width: 30,
-			height: 240,
-			depth: 40,
-		},
-		{ x: 10, y: 0, z: 0.2 },
-	],
+	// // left tall edge
+	// [
+	// 	{
+	// 		width: 250,
+	// 		height: 2950,
+	// 		depth: 230,
+	// 	},
+	// 	{ x: -200, y: 0, z: 1 },
+	// ],
 
-	// left tall edge
-	[
-		{
-			width: 25,
-			height: 295,
-			depth: 23,
-		},
-		{ x: -20, y: 0, z: 0.1 },
-	],
+	// // medium right edge
+	// [
+	// 	{
+	// 		width: 200,
+	// 		height: 2800,
+	// 		depth: 300,
+	// 	},
+	// 	{ x: 900, y: 0, z: 1 },
+	// ],
 
-	// medium right edge
-	[
-		{
-			width: 20,
-			height: 280,
-			depth: 30,
-		},
-		{ x: 90, y: 0, z: 0.1 },
-	],
+	// // small right edge
+	// [
+	// 	{
+	// 		width: 400,
+	// 		height: 2200,
+	// 		depth: 400,
+	// 	},
+	// 	{ x: 700, y: 0, z: 1 },
+	// ],
 
-	// small right edge
-	[
-		{
-			width: 40,
-			height: 220,
-			depth: 40,
-		},
-		{ x: 70, y: 0, z: 0.1 },
-	],
-
-	// left edge short corner
-	[
-		{
-			width: 40,
-			height: 208,
-			depth: 40,
-		},
-		{ x: -30, y: 0, z: 0 },
-	],
+	// // left edge short corner
+	// [
+	// 	{
+	// 		width: 400,
+	// 		height: 2080,
+	// 		depth: 400,
+	// 	},
+	// 	{ x: -300, y: 0, z: 0 },
+	// ],
 ];

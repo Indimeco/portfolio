@@ -7,6 +7,7 @@ import { drawObelisks } from './drawObelisks';
 
 export enum LandmarkDefinitions {
 	StreetLevel = 'StreetLevel',
+	TitleLevel = 'TitleLevel',
 }
 
 type DrawVars = Record<LandmarkDefinitions, number>;
@@ -52,18 +53,6 @@ export const composeDrawings: DrawingSetup<DrawVars> = (canvas, vanishingPointY,
 		}).map((o) => ({ x: o.x, y: o.y })),
 	);
 	ctx.fillStyle = 'grey';
-	ctx.fill();
-
-	// Draw street level
-	tracePolygon(
-		ctx,
-		...getRectangularPlane({
-			origin: { x: 0, y: drawVars[LandmarkDefinitions.StreetLevel], z: 0 },
-			width: canvasWidth,
-			height: canvasHeight - vanishingPoint.y,
-		}).map((o) => ({ x: o.x, y: o.y })),
-	);
-	ctx.fillStyle = 'pink';
 	ctx.fill();
 
 	return {

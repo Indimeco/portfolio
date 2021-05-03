@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useLayoutEffect, useRef } from 'react';
 
 import { heading } from '../../content';
 import { useDyingLight, FadeOnScroll } from '../UI/utils';
@@ -13,18 +13,32 @@ const SubtitleLight: React.FunctionComponent = ({ children }) => {
 	return <Subtitle {...dyingLightProps}>{children}</Subtitle>;
 };
 
-export const Heading: React.FunctionComponent = () => (
-	<HeaderWrapper data-testid="heading">
-		<FadeOnScroll>
-			<TitleWrapper>
-				<Title>{title}</Title>
-				<SubtitleLight>{description}</SubtitleLight>
-			</TitleWrapper>
-		</FadeOnScroll>
-		<FadeOnScroll>
-			<HeaderImage src={headshot.src} alt={headshot.alt} />
-		</FadeOnScroll>
-	</HeaderWrapper>
-);
+type Props = {
+	setTitleLevel: (level: number) => void;
+};
+
+export const Heading: React.FunctionComponent<Props> = ({ setTitleLevel }) => {
+	const titleRef = useRef<HTMLDivElement>(null);
+
+	useLayoutEffect(() => {
+		if (titleRef.current) {
+			console.log(titleRef.current.getBoundingClientRect().bottom);
+			setTitleLevel(titleRef.current.getBoundingClientRect().bottom);
+		}
+	}, [titleRef, setTitleLevel]);
+	return (
+		<HeaderWrapper data-testid="heading">
+			<FadeOnScroll>
+				<TitleWrapper ref={titleRef}>
+					<Title>{title}</Title>
+					<SubtitleLight>{description}</SubtitleLight>
+				</TitleWrapper>
+			</FadeOnScroll>
+			<FadeOnScroll>
+				<HeaderImage src={headshot.src} alt={headshot.alt} />
+			</FadeOnScroll>
+		</HeaderWrapper>
+	);
+};
 
 export default Heading;
