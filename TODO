@@ -1,5 +1,3 @@
-// TODO move background canvas out of Header
 // TODO Lazy load images ( try out react 17? )
 // TODO replace rotary animation ( spotlight? )
-// TODO some kind of street parallax?
 // TODO animate entry of content (loading?)
