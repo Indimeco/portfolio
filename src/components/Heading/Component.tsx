@@ -22,7 +22,6 @@ export const Heading: React.FunctionComponent<Props> = ({ setTitleLevel }) => {
 
 	useLayoutEffect(() => {
 		if (titleRef.current) {
-			console.log(titleRef.current.getBoundingClientRect().bottom);
 			setTitleLevel(titleRef.current.getBoundingClientRect().bottom);
 		}
 	}, [titleRef, setTitleLevel]);
