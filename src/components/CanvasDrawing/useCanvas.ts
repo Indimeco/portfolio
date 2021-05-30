@@ -2,11 +2,7 @@ import { useRef, useEffect, useState } from 'react';
 
 import { DrawingSetup } from './drawing';
 
-export const useCanvas = (
-	draw: DrawingSetup,
-	drawVars: any,
-	shouldAnimate: boolean,
-): [React.RefObject<HTMLCanvasElement>] => {
+export const useCanvas = (draw: DrawingSetup, drawVars: any): [React.RefObject<HTMLCanvasElement>] => {
 	const ref = useRef<HTMLCanvasElement>(null);
 	const [vanishingPointY, setVanishingPointY] = useState(0);
 
@@ -21,16 +17,12 @@ export const useCanvas = (
 
 		if (canvas) {
 			frameId = window.requestAnimationFrame(() => draw(canvas, vanishingPointY, drawVars));
-
-			while (shouldAnimate) {
-				frameId = window.requestAnimationFrame(() => draw(canvas, vanishingPointY, drawVars));
-			}
 		}
 
 		return () => {
 			if (frameId) window.cancelAnimationFrame(frameId);
 		};
-	}, [shouldAnimate, vanishingPointY]);
+	}, [vanishingPointY, drawVars, draw]);
 
 	return [ref];
 };

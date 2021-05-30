@@ -22,8 +22,8 @@ type Props = {
 	drawVars?: DrawVars;
 	shouldAnimate?: boolean;
 };
-export const CanvasDrawing: React.FC<Props> = ({ draw, drawVars, shouldAnimate = false, children }) => {
-	const [canvasRef] = useCanvas(draw, drawVars, shouldAnimate);
+export const CanvasDrawing: React.FC<Props> = ({ draw, drawVars, children }) => {
+	const [canvasRef] = useCanvas(draw, drawVars);
 
 	return (
 		<BackgroundCanvasContext>
