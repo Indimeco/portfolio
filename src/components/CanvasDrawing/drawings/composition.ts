@@ -16,7 +16,7 @@ export const composeDrawings: DrawingSetup<Landmarks> = (canvas, vanishingPointY
 	const ctx = canvas.getContext('2d');
 	if (!ctx) return null;
 
-	const HORIZON__Y_OFFSET = 200;
+	const HORIZON__Y_OFFSET = 300;
 	const VANISHING_X_OFFSET = 500;
 	const vanishingPoint: Coordinate = {
 		x: VANISHING_X_OFFSET,

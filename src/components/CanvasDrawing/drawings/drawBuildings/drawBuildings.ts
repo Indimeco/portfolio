@@ -40,22 +40,22 @@ export const drawBuildings: Drawing = (context) => {
 		buildings,
 		(x) => x.map(constructBuildingWithLandmarks(drawVars)),
 		(x) => x.reverse(),
-	);
-
-	b.forEach(({ dimensions: { width, height, depth }, position: { x, z } }) =>
-		dRectangularPrism(
-			{
-				width,
-				height,
-				depth,
-			},
-			{
-				x,
-				y: drawVars.StreetLevel,
-				z,
-			},
-			getColorFromDepth(theme.colors.bg, MAX_DEPTH, z),
-		),
+		(x) =>
+			x.forEach(({ dimensions: { width, height, depth }, position: { x, z } }) =>
+				dRectangularPrism(
+					{
+						width,
+						height,
+						depth,
+					},
+					{
+						x,
+						y: drawVars.StreetLevel,
+						z,
+					},
+					getColorFromDepth(theme.colors.bg, MAX_DEPTH, z),
+				),
+			),
 	);
 
 	return context;
