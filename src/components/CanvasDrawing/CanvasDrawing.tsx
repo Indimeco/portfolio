@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { DrawingSetup, DrawVars } from './drawing';
+import { DrawingSetup, Landmarks } from './drawings';
 import { useCanvas } from './useCanvas';
 
 const BackgroundCanvas = styled.canvas`
@@ -19,7 +19,7 @@ const BackgroundCanvasContext = styled.div`
 
 type Props = {
 	draw: DrawingSetup;
-	drawVars?: DrawVars;
+	drawVars?: Landmarks;
 	shouldAnimate?: boolean;
 };
 export const CanvasDrawing: React.FC<Props> = ({ draw, drawVars, children }) => {

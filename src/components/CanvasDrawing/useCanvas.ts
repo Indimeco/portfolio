@@ -1,8 +1,8 @@
 import { useRef, useEffect, useState } from 'react';
 
-import { DrawingSetup } from './drawing';
+import { DrawingSetup } from './drawings';
 
-export const useCanvas = (draw: DrawingSetup, drawVars: any): [React.RefObject<HTMLCanvasElement>] => {
+export const useCanvas = (draw: DrawingSetup, landmarks: any): [React.RefObject<HTMLCanvasElement>] => {
 	const ref = useRef<HTMLCanvasElement>(null);
 	const [vanishingPointY, setVanishingPointY] = useState(0);
 
@@ -16,13 +16,13 @@ export const useCanvas = (draw: DrawingSetup, drawVars: any): [React.RefObject<H
 		document.addEventListener('scroll', handleScroll);
 
 		if (canvas) {
-			frameId = window.requestAnimationFrame(() => draw(canvas, vanishingPointY, drawVars));
+			frameId = window.requestAnimationFrame(() => draw(canvas, vanishingPointY, landmarks));
 		}
 
 		return () => {
 			if (frameId) window.cancelAnimationFrame(frameId);
 		};
-	}, [vanishingPointY, drawVars, draw]);
+	}, [vanishingPointY, landmarks, draw]);
 
 	return [ref];
 };

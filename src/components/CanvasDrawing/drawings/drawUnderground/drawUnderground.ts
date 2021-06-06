@@ -1,4 +1,5 @@
-import { Drawing, tracePolygon, getRectangularPlane } from '../../drawing';
+import { tracePolygon, getRectangularPlane } from '../../drawing';
+import { Drawing } from '../types';
 
 export const drawUnderground: Drawing = (context) => {
 	if (!context) return null;

@@ -1,8 +1,8 @@
 import { pipe } from 'fp-ts/lib/function';
 
 import theme from '../../../UI/themes';
-import { drawRectangularPrism, getColorFromDepth, Drawing } from '../../drawing';
-import { Landmarks } from '../composition';
+import { drawRectangularPrism, getColorFromDepth } from '../../drawing';
+import { Landmarks, Drawing } from '../types';
 
 import { buildings } from './buildings';
 import { ArchitectureVal, Building, BuildingPlan } from './types';
@@ -28,12 +28,9 @@ export const drawBuildings: Drawing = (context) => {
 	if (!context) return null;
 	const { vanishingPoint, ctx, drawVars } = context;
 
-	const MAX_DEPTH = 20000;
-	const OBSERVER_DISTANCE_FROM_PICTURE_PLANE = 1000;
-
 	const dRectangularPrism = drawRectangularPrism(ctx, {
 		vanishingPoint,
-		observerDistanceFromPicturePlane: OBSERVER_DISTANCE_FROM_PICTURE_PLANE,
+		observerDistanceFromPicturePlane: drawVars.observerDistanceFromPicturePlane,
 	});
 
 	pipe(
@@ -53,7 +50,7 @@ export const drawBuildings: Drawing = (context) => {
 						y: drawVars.StreetLevel,
 						z,
 					},
-					getColorFromDepth(theme.colors.bg, MAX_DEPTH, z),
+					getColorFromDepth(theme.colors.bg, drawVars.maximumDepth, z),
 				),
 			),
 	);

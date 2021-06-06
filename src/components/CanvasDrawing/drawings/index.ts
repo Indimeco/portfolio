@@ -1,4 +1,4 @@
 export * from './drawBuildings';
 export * from './drawObelisks';
-export { composition, LandmarkDefinitions } from './composition';
-export type { Landmarks } from './composition';
+export { composition } from './composition';
+export * from './types';

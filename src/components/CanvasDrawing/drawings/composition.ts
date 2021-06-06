@@ -1,19 +1,13 @@
 import { add, pipe } from 'ramda';
 
-import { Coordinate, DrawingSetup, tracePolygon, getRectangularPlane } from '../drawing';
+import { Coordinate, tracePolygon, getRectangularPlane } from '../drawing';
 
+import { DrawingSetup } from './types';
 import { drawBuildings } from './drawBuildings';
 import { drawObelisks } from './drawObelisks';
 import { drawUnderground } from './drawUnderground';
 
-export enum LandmarkDefinitions {
-	StreetLevel = 'StreetLevel',
-	TitleLevel = 'TitleLevel',
-}
-
-export type Landmarks = Record<LandmarkDefinitions, number>;
-
-export const composeDrawings: DrawingSetup<Landmarks> = (canvas, vanishingPointY, drawVars) => {
+export const composeDrawings: DrawingSetup = (canvas, vanishingPointY, landmarks) => {
 	const ctx = canvas.getContext('2d');
 	if (!ctx) return null;
 
@@ -60,7 +54,11 @@ export const composeDrawings: DrawingSetup<Landmarks> = (canvas, vanishingPointY
 		canvas,
 		ctx,
 		vanishingPoint,
-		drawVars,
+		drawVars: {
+			...landmarks,
+			observerDistanceFromPicturePlane: 1000,
+			maximumDepth: 100000,
+		},
 	};
 };
 
