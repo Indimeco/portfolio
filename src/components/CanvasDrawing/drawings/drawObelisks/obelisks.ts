@@ -12,7 +12,7 @@ const getRow: GetRow = (x) =>
 				height: 800,
 				depth: 100,
 			},
-			{ x, y: 200, z: index * 30 || 2 },
+			{ x, y: 200, z: index * 30 || 9 },
 		])
 		.reverse();
 

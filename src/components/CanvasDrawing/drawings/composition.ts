@@ -4,6 +4,7 @@ import { Coordinate, DrawingSetup, tracePolygon, getRectangularPlane } from '../
 
 import { drawBuildings } from './drawBuildings';
 import { drawObelisks } from './drawObelisks';
+import { drawUnderground } from './drawUnderground';
 
 export enum LandmarkDefinitions {
 	StreetLevel = 'StreetLevel',
@@ -63,4 +64,4 @@ export const composeDrawings: DrawingSetup<Landmarks> = (canvas, vanishingPointY
 	};
 };
 
-export const composition = pipe(composeDrawings, drawObelisks, drawBuildings);
+export const composition = pipe(composeDrawings, drawObelisks, drawBuildings, drawUnderground);

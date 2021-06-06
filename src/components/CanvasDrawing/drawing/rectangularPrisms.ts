@@ -5,6 +5,10 @@ import { tracePolygon } from './polygons';
 import { convert3DCoordinateToPicturePlane, c2XIs, c2YIs } from './coordinates';
 import { darkPolygonFace, lightPolygonFace } from './coloration';
 
+function positiveOrZero(num: number) {
+	return num > 0 ? num : 0;
+}
+
 function _getRectangularPlane({
 	origin,
 	width,
@@ -15,8 +19,8 @@ function _getRectangularPlane({
 	height: number;
 }): Coordinate3D[] {
 	const destination = {
-		x: origin.x + width,
-		y: origin.y - height,
+		x: origin.x + positiveOrZero(width),
+		y: origin.y - positiveOrZero(height),
 	};
 	return [
 		{ x: origin.x, y: origin.y, z: origin.z },
