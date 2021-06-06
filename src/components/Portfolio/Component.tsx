@@ -1,6 +1,6 @@
 import React, { useLayoutEffect, useRef, useState } from 'react';
 
-import { portfolio } from '../../content';
+import { portfolio, portfolioId } from '../../content';
 import { FadeOnScroll } from '../UI/utils';
 
 import PortfolioEntryDetails from './PortfolioEntryDetails';
@@ -27,8 +27,9 @@ const Portfolio: React.FC<Props> = ({ title, setSectionBoundary }) => {
 			return () => resizeObserver.unobserve(node);
 		}
 	}, [setSectionBoundary, sectionBoundary]);
+
 	return (
-		<PortfolioView data-testid="portfolio" ref={sectionBoundary}>
+		<PortfolioView data-testid="portfolio" ref={sectionBoundary} id={portfolioId}>
 			<PortfolioWrapper>
 				<PortfolioHeading as="h2" ref={portfolioRef}>
 					<FadeOnScroll>{title}</FadeOnScroll>

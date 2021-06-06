@@ -1,6 +1,3 @@
 // TODO Lazy load images
 // TODO replace rotary animation ( spotlight? )
 // TODO animate entry of content (loading?)
-// BUGFIX nav links don't work
-// BUGFIX perf of drawing with lots of scrolling
-// TODO how will drawing be able to scale when content grows or shrinks over time?

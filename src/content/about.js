@@ -9,3 +9,4 @@ export const about = [
 	["Hi, I'm a self taught web developer", faCodeBranch, 'from the USA'],
 	['I work in the React', faReact, 'and Node', faNode, 'ecosystem'],
 ];
+export const aboutId = 'about';

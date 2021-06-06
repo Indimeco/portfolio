@@ -150,3 +150,5 @@ export const portfolio = [
 		],
 	},
 ];
+
+export const portfolioId = 'portfolio';

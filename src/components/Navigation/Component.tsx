@@ -7,7 +7,7 @@ import { NavigationWrapper, NavigationItem } from './Component.style';
 const { links } = sections;
 
 const scroll = (location: string) => () => {
-	const target = document.querySelector(`#${location}`);
+	const target = document.getElementById(location);
 	if (target) {
 		target.scrollIntoView({ behavior: 'smooth' });
 	}

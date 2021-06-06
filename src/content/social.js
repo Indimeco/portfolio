@@ -13,3 +13,5 @@ export const social = [
 	},
 	{ href: 'https://github.com/Indimeco', icon: faGithub, name: 'Github' },
 ];
+
+export const socialId = 'contact';
