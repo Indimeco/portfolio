@@ -31,18 +31,6 @@ export const composeDrawings: DrawingSetup<Landmarks> = (canvas, vanishingPointY
 	canvas.height = canvasHeight;
 	ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-	// Draw the vanishing point
-	tracePolygon(
-		ctx,
-		...getRectangularPlane({
-			origin: { x: vanishingPoint.x, y: vanishingPoint.y, z: -1 },
-			width: 2,
-			height: 2,
-		}).map((o) => ({ x: o.x, y: o.y })),
-	);
-	ctx.fillStyle = 'red';
-	ctx.fill();
-
 	// Draw horizon
 	tracePolygon(
 		ctx,
@@ -53,6 +41,18 @@ export const composeDrawings: DrawingSetup<Landmarks> = (canvas, vanishingPointY
 		}).map((o) => ({ x: o.x, y: o.y })),
 	);
 	ctx.fillStyle = 'grey';
+	ctx.fill();
+
+	// Draw the vanishing point
+	tracePolygon(
+		ctx,
+		...getRectangularPlane({
+			origin: { x: vanishingPoint.x, y: vanishingPoint.y, z: -1 },
+			width: 2,
+			height: 2,
+		}).map((o) => ({ x: o.x, y: o.y })),
+	);
+	ctx.fillStyle = 'red';
 	ctx.fill();
 
 	return {

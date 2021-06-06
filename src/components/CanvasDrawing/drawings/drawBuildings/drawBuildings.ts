@@ -36,12 +36,12 @@ export const drawBuildings: Drawing = (context) => {
 		observerDistanceFromPicturePlane: OBSERVER_DISTANCE_FROM_PICTURE_PLANE,
 	});
 
-	const b = pipe(
+	pipe(
 		buildings,
-		(x) => x.map(constructBuildingWithLandmarks(drawVars)),
-		(x) => x.reverse(),
-		(x) =>
-			x.forEach(({ dimensions: { width, height, depth }, position: { x, z } }) =>
+		(b) => b.map(constructBuildingWithLandmarks(drawVars)),
+		(b) => b.reverse(),
+		(b) =>
+			b.forEach(({ dimensions: { width, height, depth }, position: { x, z } }) =>
 				dRectangularPrism(
 					{
 						width,
