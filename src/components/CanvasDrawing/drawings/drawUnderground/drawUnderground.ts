@@ -1,3 +1,4 @@
+import theme from '../../../UI/themes';
 import { tracePolygon, getRectangularPlane } from '../../drawing';
 import { Drawing } from '../types';
 
@@ -14,7 +15,7 @@ export const drawUnderground: Drawing = (context) => {
 			height: vanishingPoint.y - drawVars.StreetLevel,
 		}).map((o) => ({ x: o.x, y: o.y })),
 	);
-	ctx.fillStyle = 'black';
+	ctx.fillStyle = theme.colors.auxAccent;
 	ctx.fill();
 
 	return context;

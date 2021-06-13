@@ -3,6 +3,7 @@ import { Coordinate } from '../drawing';
 export enum LandmarkDefinitions {
 	StreetLevel = 'StreetLevel',
 	TitleLevel = 'TitleLevel',
+	PageEnd = 'End',
 }
 export type Landmarks = Record<LandmarkDefinitions, number>;
 

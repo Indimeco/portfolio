@@ -5,16 +5,16 @@ import { DrawingSetup, Landmarks } from './drawings';
 import { useCanvas } from './useCanvas';
 
 const BackgroundCanvas = styled.canvas`
-	width: 100%;
-	height: 100%;
 	position: absolute;
-	z-index: -1;
 	background-color: black;
+	width: 100%;
+	height: 100vh;
 `;
 
 const BackgroundCanvasContext = styled.div`
-	position: relative;
-	z-index: 0;
+	position: sticky;
+	top: 0;
+	z-index: -1;
 `;
 
 type Props = {

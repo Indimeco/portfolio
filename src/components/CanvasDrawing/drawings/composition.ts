@@ -32,7 +32,7 @@ export const composeDrawings: DrawingSetup = (canvas, vanishingPointY, landmarks
 		...getRectangularPlane({
 			origin: { x: 0, y: vanishingPoint.y, z: 0 },
 			width: canvasWidth,
-			height: canvasHeight - vanishingPoint.y,
+			height: vanishingPoint.y,
 		}).map((o) => ({ x: o.x, y: o.y })),
 	);
 	ctx.fillStyle = 'grey';

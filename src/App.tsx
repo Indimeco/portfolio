@@ -12,22 +12,25 @@ import { composition, LandmarkDefinitions } from './components/CanvasDrawing/dra
 const App: React.FC = () => {
 	const [streetLevel, setStreetLevel] = useState(0);
 	const [titleLevel, setTitleLevel] = useState(0);
+	const [pageEnd, setPageEnd] = useState(0);
 
 	return (
-		<Layout data-testid="app">
+		<>
 			<CanvasDrawing
 				draw={composition}
 				drawVars={{
 					[LandmarkDefinitions.StreetLevel]: streetLevel,
 					[LandmarkDefinitions.TitleLevel]: titleLevel,
+					[LandmarkDefinitions.PageEnd]: pageEnd,
 				}}
-			>
+			/>
+			<Layout data-testid="app" setPageEnd={setPageEnd}>
 				<Heading setTitleLevel={setTitleLevel} />
 				<About />
 				<Portfolio title={sections.titles[1]} setSectionBoundary={setStreetLevel} />
 				<Contact title={sections.titles[2]} />
-			</CanvasDrawing>
-		</Layout>
+			</Layout>
+		</>
 	);
 };
 
