@@ -11,11 +11,11 @@ export const composeDrawings: DrawingSetup = (canvas, vanishingPointY, landmarks
 	const ctx = canvas.getContext('2d');
 	if (!ctx) return null;
 
-	const HORIZON__Y_OFFSET = 300;
+	const HORIZON_Y_OFFSET = 300;
 	const VANISHING_X_OFFSET = 500;
 	const vanishingPoint: Coordinate = {
 		x: VANISHING_X_OFFSET,
-		y: add(vanishingPointY, HORIZON__Y_OFFSET),
+		y: add(vanishingPointY, HORIZON_Y_OFFSET),
 	};
 
 	const { width: canvasWidth, height: canvasHeight } = canvas.getBoundingClientRect();
@@ -30,9 +30,9 @@ export const composeDrawings: DrawingSetup = (canvas, vanishingPointY, landmarks
 	tracePolygon(
 		ctx,
 		...getRectangularPlane({
-			origin: { x: 0, y: vanishingPoint.y, z: 0 },
+			origin: { x: 0, y: canvasHeight + vanishingPointY, z: 0 },
 			width: canvasWidth,
-			height: vanishingPoint.y,
+			height: canvasHeight - HORIZON_Y_OFFSET,
 		}).map((o) => ({ x: o.x, y: o.y })),
 	);
 	ctx.fillStyle = 'grey';

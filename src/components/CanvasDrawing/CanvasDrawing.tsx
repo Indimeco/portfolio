@@ -6,7 +6,6 @@ import { useCanvas } from './useCanvas';
 
 const BackgroundCanvas = styled.canvas`
 	position: absolute;
-	background-color: black;
 	width: 100%;
 	height: 100vh;
 `;
