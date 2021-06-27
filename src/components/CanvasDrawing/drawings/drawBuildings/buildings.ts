@@ -9,29 +9,39 @@ const getRandomInt = (min: number, max: number) => Math.floor(Math.random() * (m
 
 const generateBuilding = (position: BuildingPlanPosition): BuildingPlan => ({
 	dimensions: {
-		width: getRandomInt(400, 900),
-		height: getRandomInt(3000, 800),
-		depth: getRandomInt(400, 900),
+		width: getRandomInt(400, 3000),
+		height: getRandomInt(800, 3000),
+		depth: getRandomInt(400, 3000),
 	},
 	position,
 });
 
-// TODO this should create parallel buildings, but at the moment is messy
-// must be switchable between generating x and z blocks
 const generateBlock = (
 	start: BuildingPlanPosition,
-	end: BuildingPlanPosition,
+	end: {
+		untilX?: number;
+		untilZ?: number;
+	},
 	buildings?: BuildingPlan[],
 ): BuildingPlan[] => {
 	const b = generateBuilding(start);
 	const blockBuildings = [...(buildings || []), b];
-	if (b.position.x >= end.x || b.position.z >= end.z) {
+	if (
+		(typeof end.untilX === 'number' && b.position.x >= end.untilX) ||
+		(typeof end.untilZ === 'number' && b.position.z >= end.untilZ)
+	) {
 		return blockBuildings;
 	}
 	return generateBlock(
 		{
-			x: start.x,
-			z: (b.position.z as number) + (b.dimensions.depth as number) + getRandomInt(300, 500),
+			x:
+				typeof end.untilX === 'number'
+					? (b.position.x as number) + (b.dimensions.width as number) + getRandomInt(500, 3000)
+					: start.x,
+			z:
+				typeof end.untilZ === 'number'
+					? (b.position.z as number) + (b.dimensions.depth as number) + getRandomInt(500, 3000)
+					: start.z,
 		},
 		end,
 		blockBuildings,
@@ -75,35 +85,35 @@ const leftBlock: BuildingPlan[] = [
 			z: 0,
 		},
 	},
-	...generateBlock({ x: leftBlockStart, z: 4500 }, { x: 9999, z: 9999 }),
+	...generateBlock({ x: leftBlockStart, z: 4500 }, { untilZ: 20000 }),
 ];
 
 const centralAvenueLeft: BuildingPlan[] = [
-	{
-		dimensions: {
-			width: 400,
-			height: 1400,
-			depth: 500,
-		},
-		position: {
-			x: centralAvenueStart,
-			z: 4400,
-		},
-	},
+	// {
+	// 	dimensions: {
+	// 		width: 400,
+	// 		height: 1400,
+	// 		depth: 500,
+	// 	},
+	// 	position: {
+	// 		x: centralAvenueStart,
+	// 		z: 4400,
+	// 	},
+	// },
 ];
 
 const centralAvenueRight: BuildingPlan[] = [
-	{
-		dimensions: {
-			width: 400,
-			height: 1400,
-			depth: 500,
-		},
-		position: {
-			x: centralAvenueStart + avenueWidth,
-			z: 4400,
-		},
-	},
+	// {
+	// 	dimensions: {
+	// 		width: 400,
+	// 		height: 1400,
+	// 		depth: 500,
+	// 	},
+	// 	position: {
+	// 		x: centralAvenueStart + avenueWidth,
+	// 		z: 4400,
+	// 	},
+	// },
 ];
 
 const backdrop: BuildingPlan[] = [];
