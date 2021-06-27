@@ -35,7 +35,7 @@ export const composeDrawings: DrawingSetup = (canvas, vanishingPointY, landmarks
 			height: canvasHeight - HORIZON_Y_OFFSET,
 		}).map((o) => ({ x: o.x, y: o.y })),
 	);
-	ctx.fillStyle = 'grey';
+	ctx.fillStyle = 'black';
 	ctx.fill();
 
 	// Draw the vanishing point
