@@ -4,15 +4,14 @@ import { Coordinate, tracePolygon, getRectangularPlane } from '../drawing';
 
 import { DrawingSetup } from './types';
 import { drawBuildings } from './drawBuildings';
-import { drawObelisks } from './drawObelisks';
 import { drawUnderground } from './drawUnderground';
 
 export const composeDrawings: DrawingSetup = (canvas, vanishingPointY, landmarks) => {
 	const ctx = canvas.getContext('2d');
 	if (!ctx) return null;
 
-	const HORIZON_Y_OFFSET = 300;
-	const VANISHING_X_OFFSET = 500;
+	const HORIZON_Y_OFFSET = 400;
+	const VANISHING_X_OFFSET = 300;
 	const vanishingPoint: Coordinate = {
 		x: VANISHING_X_OFFSET,
 		y: add(vanishingPointY, HORIZON_Y_OFFSET),
@@ -62,4 +61,4 @@ export const composeDrawings: DrawingSetup = (canvas, vanishingPointY, landmarks
 	};
 };
 
-export const composition = pipe(composeDrawings, drawObelisks, drawBuildings, drawUnderground);
+export const composition = pipe(composeDrawings, drawBuildings, drawUnderground);

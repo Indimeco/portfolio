@@ -1,1 +1,0 @@
-export { drawObelisks } from './drawObelisks';
