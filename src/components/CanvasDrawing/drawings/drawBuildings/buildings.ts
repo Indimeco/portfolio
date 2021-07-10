@@ -1,13 +1,18 @@
 import { BuildingPlan, BuildingPlanPosition } from './types';
 
+/* There is the implicit assumption that the avenue width contains the vanishing point
+ * When this isn't true the ordering of the building rendering completely breaks down
+ * However there are perf benefits to generating the buildings before knowing where the vanishing point is
+ */
+
 const leftBlockStart = -1400;
 const avenueWidth = 2500;
 const rightBlockStart = leftBlockStart + avenueWidth;
-const mainAvenueLength = 20000;
+const mainAvenueLength = 70000;
 
 const buildingConfig = {
 	minHeight: 800,
-	maxHeight: 4000,
+	maxHeight: 6000,
 	minDepth: 400,
 	maxDepth: 3000,
 	minWidth: 800,
@@ -39,7 +44,7 @@ const generateBuilding = (position: BuildingPlanPosition): BuildingPlan => ({
 	position,
 });
 
-const generateBlock = (
+const generateRow = (
 	start: BuildingPlanPosition,
 	end: {
 		untilX?: number;
@@ -55,7 +60,7 @@ const generateBlock = (
 		return buildings || [];
 	}
 	const gap = getRandomInt(buildingConfig.minGap, buildingConfig.maxGap);
-	return generateBlock(
+	return generateRow(
 		{
 			x:
 				typeof end.untilX === 'number'
@@ -71,21 +76,54 @@ const generateBlock = (
 	);
 };
 
+const generateLeftBlock = (
+	start: { x: number; z: number },
+	end: {
+		untilX?: number;
+		untilZ?: number;
+	},
+): BuildingPlan[] => [
+	...generateRow({ x: start.x, z: start.z }, end),
+	...generateRow(
+		{
+			x: typeof end.untilZ === 'number' ? start.x - buildingConfig.maxWidth - buildingConfig.maxGap : start.x,
+			z: typeof end.untilX === 'number' ? start.z - buildingConfig.maxDepth - buildingConfig.maxGap : start.z,
+		},
+		end,
+	),
+];
+
+const generateRightBlock = (
+	start: { x: number; z: number },
+	end: {
+		untilX?: number;
+		untilZ?: number;
+	},
+): BuildingPlan[] => [
+	...generateRow({ x: start.x, z: start.z }, end),
+	...generateRow(
+		{
+			x: typeof end.untilZ === 'number' ? start.x + buildingConfig.maxWidth + buildingConfig.maxGap : start.x,
+			z: typeof end.untilX === 'number' ? start.z + buildingConfig.maxDepth + buildingConfig.maxGap : start.z,
+		},
+		end,
+	),
+];
+
 const rightBlock: BuildingPlan[] = [
 	{
 		dimensions: {
 			width: 800,
-			height: (landmarks) => landmarks.StreetLevel - landmarks.TitleLevel,
+			height: (landmarks) => landmarks.StreetLevel - landmarks.TitleLevel - 100,
 			depth: 1000,
 		},
 		position: {
 			x: rightBlockStart,
-			z: 0,
+			z: -300,
 		},
 	},
-	...generateBlock({ x: rightBlockStart, z: 1000 + buildingConfig.minGap }, { untilZ: mainAvenueLength }),
-	...generateBlock(
-		{ x: rightBlockStart + buildingConfig.maxWidth + buildingConfig.maxGap, z: 0 },
+	...generateRightBlock(
+		{ x: rightBlockStart, z: 1000 + buildingConfig.minGap },
 		{ untilZ: mainAvenueLength },
 	),
 ];
@@ -113,90 +151,32 @@ const leftBlock: BuildingPlan[] = [
 			z: 1000 + buildingConfig.minGap,
 		},
 	},
-	...generateBlock(
+	...generateLeftBlock(
 		{ x: leftBlockStart, z: 1800 + buildingConfig.minGap + buildingConfig.minGap },
-		{ untilZ: mainAvenueLength },
-	),
-	...generateBlock(
-		{ x: leftBlockStart - buildingConfig.maxWidth - buildingConfig.maxGap, z: -900 },
 		{ untilZ: mainAvenueLength },
 	),
 ];
 
 const centralAvenue: BuildingPlan[] = [
-	// left
-	...generateBlock(
-		{ x: -20000, z: mainAvenueLength + buildingConfig.maxDepth + buildingConfig.maxGap },
+	...generateLeftBlock(
+		{ x: -40000, z: mainAvenueLength + buildingConfig.maxDepth + buildingConfig.maxGap },
 		{ untilX: leftBlockStart },
 	).reverse(),
-	...generateBlock(
-		{
-			x: -20000,
-			z:
-				mainAvenueLength +
-				buildingConfig.maxDepth +
-				buildingConfig.maxGap +
-				buildingConfig.maxGap +
-				buildingConfig.maxDepth,
-		},
-		{ untilX: leftBlockStart },
-	).reverse(),
-	// left far side
-	...generateBlock(
-		{ x: -20000, z: mainAvenueLength + buildingConfig.maxDepth + buildingConfig.maxGap + avenueWidth },
-		{ untilX: leftBlockStart },
-	).reverse(),
-	...generateBlock(
-		{
-			x: -20000,
-			z:
-				mainAvenueLength +
-				buildingConfig.maxDepth +
-				buildingConfig.maxGap +
-				buildingConfig.maxGap +
-				buildingConfig.maxDepth +
-				avenueWidth,
-		},
+	...generateLeftBlock(
+		{ x: -40000, z: mainAvenueLength + buildingConfig.maxDepth + buildingConfig.maxGap + avenueWidth },
 		{ untilX: leftBlockStart },
 	).reverse(),
 
-	// right
-	...generateBlock(
+	...generateRightBlock(
 		{ x: rightBlockStart, z: mainAvenueLength + buildingConfig.maxDepth + buildingConfig.maxGap },
-		{ untilX: 30000, untilZ: 70000 },
+		{ untilX: 100000, untilZ: 200000 },
 	),
-	...generateBlock(
-		{
-			x: rightBlockStart,
-			z:
-				mainAvenueLength +
-				buildingConfig.maxDepth +
-				buildingConfig.maxGap +
-				buildingConfig.maxGap +
-				buildingConfig.maxDepth,
-		},
-		{ untilX: 30000, untilZ: 90000 },
-	),
-	// right far side
-	...generateBlock(
+	...generateRightBlock(
 		{
 			x: leftBlockStart + buildingConfig.maxGap,
 			z: mainAvenueLength + buildingConfig.maxDepth + buildingConfig.maxGap + avenueWidth,
 		},
-		{ untilX: 30000, untilZ: 70000 },
-	),
-	...generateBlock(
-		{
-			x: leftBlockStart + buildingConfig.maxGap,
-			z:
-				mainAvenueLength +
-				buildingConfig.maxDepth +
-				buildingConfig.maxGap +
-				buildingConfig.maxGap +
-				buildingConfig.maxDepth +
-				avenueWidth,
-		},
-		{ untilX: 30000, untilZ: 90000 },
+		{ untilX: 100000, untilZ: 200000 },
 	),
 ];
 
