@@ -5,29 +5,30 @@ import { BuildingPlan, BuildingPlanPosition } from './types';
  * However there are perf benefits to generating the buildings before knowing where the vanishing point is
  */
 
-const leftBlockStart = -1400;
-const avenueWidth = 2500;
+const leftBlockStart = -2500;
+const avenueWidth = 5000;
 const rightBlockStart = leftBlockStart + avenueWidth;
-const mainAvenueLength = 70000;
+const mainAvenueLength = 50000;
 
 const buildingConfig = {
-	minHeight: 800,
+	minHeight: 1600,
 	maxHeight: 6000,
-	minDepth: 400,
-	maxDepth: 3000,
-	minWidth: 800,
-	maxWidth: 900,
-	minGap: 500,
-	maxGap: 600,
+	minDepth: 800,
+	maxDepth: 2000,
+	minWidth: 1500,
+	maxWidth: 2000,
+	minGap: 800,
+	maxGap: 1200,
 };
 
 const getRandomInt = (min: number, max: number) => Math.floor(Math.random() * (max - min) + min);
 const getPsuedoRandomHeight = (): number => {
+	const heightThird = (buildingConfig.maxHeight - buildingConfig.minHeight) / 3;
 	switch (getRandomInt(1, 3)) {
 		case 1:
-			return getRandomInt(buildingConfig.minHeight, buildingConfig.minHeight + 1000);
+			return getRandomInt(buildingConfig.minHeight, buildingConfig.minHeight + heightThird);
 		case 2:
-			return getRandomInt(buildingConfig.minHeight, buildingConfig.maxHeight - 1000);
+			return getRandomInt(buildingConfig.minHeight, buildingConfig.maxHeight - heightThird);
 		case 3:
 			return getRandomInt(buildingConfig.minHeight, buildingConfig.maxHeight);
 		default:
@@ -113,17 +114,17 @@ const generateRightBlock = (
 const rightBlock: BuildingPlan[] = [
 	{
 		dimensions: {
-			width: 800,
-			height: (landmarks) => landmarks.StreetLevel - landmarks.TitleLevel - 100,
-			depth: 1000,
+			width: buildingConfig.minWidth,
+			height: (landmarks) => landmarks.StreetLevel - landmarks.TitleLevel - 1000,
+			depth: buildingConfig.minDepth,
 		},
 		position: {
 			x: rightBlockStart,
-			z: -300,
+			z: 1400,
 		},
 	},
 	...generateRightBlock(
-		{ x: rightBlockStart, z: 1000 + buildingConfig.minGap },
+		{ x: rightBlockStart, z: 1400 + buildingConfig.minDepth + buildingConfig.minGap - 400 },
 		{ untilZ: mainAvenueLength },
 	),
 ];
@@ -133,7 +134,7 @@ const leftBlock: BuildingPlan[] = [
 		dimensions: {
 			width: buildingConfig.minWidth,
 			height: buildingConfig.minHeight,
-			depth: 1000,
+			depth: buildingConfig.minDepth,
 		},
 		position: {
 			x: leftBlockStart,

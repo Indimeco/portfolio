@@ -7,8 +7,6 @@ import { Landmarks, Drawing } from '../types';
 import { buildings } from './buildings';
 import { ArchitectureVal, Building, BuildingPlan } from './types';
 
-// const percentOf = (value: number) => (percent: number) => Math.round((percent / 100) * value);
-
 const constructArchitectureVal = (landmarks: Landmarks, value: ArchitectureVal): number =>
 	typeof value === 'function' ? value(landmarks) : value;
 

@@ -10,7 +10,7 @@ export const composeDrawings: DrawingSetup = (canvas, vanishingPointY, landmarks
 	const ctx = canvas.getContext('2d');
 	if (!ctx) return null;
 
-	const HORIZON_Y_OFFSET = 400;
+	const HORIZON_Y_OFFSET = 140;
 	const VANISHING_X_OFFSET = 300;
 	const vanishingPoint: Coordinate = {
 		x: VANISHING_X_OFFSET,
@@ -55,8 +55,8 @@ export const composeDrawings: DrawingSetup = (canvas, vanishingPointY, landmarks
 		vanishingPoint,
 		drawVars: {
 			...landmarks,
-			observerDistanceFromPicturePlane: 1000,
-			maximumDepth: 100000,
+			observerDistanceFromPicturePlane: 500,
+			maximumDepth: 300000,
 		},
 	};
 };
