@@ -6,12 +6,11 @@ import { BuildingPlan, BuildingPlanPosition } from './types';
  */
 
 const leftBlockStart = -2500;
-const avenueWidth = 5000;
-const rightBlockStart = leftBlockStart + avenueWidth;
+const avenueSize = 5000;
+const rightBlockStart = leftBlockStart + avenueSize;
 const mainAvenueLength = 50000;
-
 const buildingConfig = {
-	minHeight: 1600,
+	minHeight: 2600,
 	maxHeight: 6000,
 	minDepth: 800,
 	maxDepth: 2000,
@@ -20,6 +19,8 @@ const buildingConfig = {
 	minGap: 800,
 	maxGap: 1200,
 };
+
+const blockSize = Math.max(buildingConfig.maxWidth, buildingConfig.maxDepth) * 2 + avenueSize;
 
 const getRandomInt = (min: number, max: number) => Math.floor(Math.random() * (max - min) + min);
 const getPsuedoRandomHeight = (): number => {
@@ -105,13 +106,13 @@ const generateRightBlock = (
 	...generateRow(
 		{
 			x: typeof end.untilZ === 'number' ? start.x + buildingConfig.maxWidth + buildingConfig.maxGap : start.x,
-			z: typeof end.untilX === 'number' ? start.z + buildingConfig.maxDepth + buildingConfig.maxGap : start.z,
+			z: typeof end.untilX === 'number' ? start.z + blockSize : start.z,
 		},
 		end,
 	),
 ];
 
-const rightBlock: BuildingPlan[] = [
+const right: BuildingPlan[] = [
 	{
 		dimensions: {
 			width: buildingConfig.minWidth,
@@ -127,9 +128,14 @@ const rightBlock: BuildingPlan[] = [
 		{ x: rightBlockStart, z: 1400 + buildingConfig.minDepth + buildingConfig.minGap - 400 },
 		{ untilZ: mainAvenueLength },
 	),
+	...generateRightBlock({ x: rightBlockStart + blockSize + avenueSize, z: 0 }, { untilZ: mainAvenueLength }),
+	...generateRightBlock(
+		{ x: rightBlockStart + (blockSize + avenueSize) * 2, z: 0 },
+		{ untilZ: mainAvenueLength },
+	),
 ];
 
-const leftBlock: BuildingPlan[] = [
+const left: BuildingPlan[] = [
 	{
 		dimensions: {
 			width: buildingConfig.minWidth,
@@ -156,29 +162,42 @@ const leftBlock: BuildingPlan[] = [
 		{ x: leftBlockStart, z: 1800 + buildingConfig.minGap + buildingConfig.minGap },
 		{ untilZ: mainAvenueLength },
 	),
+	...generateLeftBlock({ x: leftBlockStart - avenueSize - blockSize, z: 0 }, { untilZ: mainAvenueLength }),
 ];
 
-const centralAvenue: BuildingPlan[] = [
+const central: BuildingPlan[] = [
+	...generateLeftBlock({ x: -40000, z: mainAvenueLength + blockSize }, { untilX: leftBlockStart }).reverse(),
 	...generateLeftBlock(
-		{ x: -40000, z: mainAvenueLength + buildingConfig.maxDepth + buildingConfig.maxGap },
-		{ untilX: leftBlockStart },
-	).reverse(),
-	...generateLeftBlock(
-		{ x: -40000, z: mainAvenueLength + buildingConfig.maxDepth + buildingConfig.maxGap + avenueWidth },
+		{ x: -40000, z: mainAvenueLength + blockSize + avenueSize },
 		{ untilX: leftBlockStart },
 	).reverse(),
 
 	...generateRightBlock(
-		{ x: rightBlockStart, z: mainAvenueLength + buildingConfig.maxDepth + buildingConfig.maxGap },
-		{ untilX: 100000, untilZ: 200000 },
+		{ x: rightBlockStart, z: mainAvenueLength + blockSize },
+		{ untilX: 50000, untilZ: 9999999 },
 	),
 	...generateRightBlock(
 		{
 			x: leftBlockStart + buildingConfig.maxGap,
-			z: mainAvenueLength + buildingConfig.maxDepth + buildingConfig.maxGap + avenueWidth,
+			z: mainAvenueLength + blockSize + avenueSize,
 		},
-		{ untilX: 100000, untilZ: 200000 },
+		{ untilX: 50000, untilZ: 9999999 },
+	),
+
+	// This is a kind of sad approximation
+	...generateRightBlock({ x: 55000, z: 100000 }, { untilX: 150000 }),
+	...generateRightBlock(
+		{
+			x: 55000,
+			z: 150000,
+		},
+		{ untilX: 100000 },
 	),
 ];
 
-export const buildings: BuildingPlan[] = [...leftBlock, ...rightBlock, ...centralAvenue];
+// prettier-ignore
+export const buildings: BuildingPlan[] = [
+	...left,
+	...right,
+	...central,
+];
