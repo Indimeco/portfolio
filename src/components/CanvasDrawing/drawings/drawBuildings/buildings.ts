@@ -1,3 +1,5 @@
+import { flow } from 'fp-ts/lib/function';
+
 import { BuildingPlan, BuildingPlanPosition } from './types';
 
 /* There is the implicit assumption that the avenue width contains the vanishing point
@@ -19,28 +21,24 @@ const buildingConfig = {
 	minGap: 800,
 	maxGap: 1200,
 };
-
 const blockSize = Math.max(buildingConfig.maxWidth, buildingConfig.maxDepth) * 2 + avenueSize;
 
 const getRandomInt = (min: number, max: number) => Math.floor(Math.random() * (max - min) + min);
-const getPsuedoRandomHeight = (): number => {
-	const heightThird = (buildingConfig.maxHeight - buildingConfig.minHeight) / 3;
-	switch (getRandomInt(1, 3)) {
-		case 1:
-			return getRandomInt(buildingConfig.minHeight, buildingConfig.minHeight + heightThird);
-		case 2:
-			return getRandomInt(buildingConfig.minHeight, buildingConfig.maxHeight - heightThird);
-		case 3:
-			return getRandomInt(buildingConfig.minHeight, buildingConfig.maxHeight);
-		default:
-			throw new Error('Invalid case');
-	}
-};
+const minMax = (min: number, max: number) =>
+	flow(
+		(val: number) => (val > max ? max : val),
+		(val: number) => (val < min ? min : val),
+	);
+const getPsuedoRandomHeight = (d = 0): number =>
+	getRandomInt(
+		buildingConfig.minHeight,
+		minMax(buildingConfig.minHeight, buildingConfig.maxHeight)(buildingConfig.maxHeight * (d / 8000)),
+	);
 
 const generateBuilding = (position: BuildingPlanPosition): BuildingPlan => ({
 	dimensions: {
 		width: getRandomInt(buildingConfig.minWidth, buildingConfig.maxWidth),
-		height: getPsuedoRandomHeight(),
+		height: getPsuedoRandomHeight(position.z as number),
 		depth: getRandomInt(buildingConfig.minDepth, buildingConfig.maxDepth),
 	},
 	position,
