@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 import { heading, title, indent, center, dyingLightStyles, onLight } from '../UI/utils';
-import { MEDIA_1, FONT_HERO, SPACE_SMALL } from '../UI/base';
+import { MEDIA_1, FONT_HERO, SPACE_SMALL, SPACE_MEDIUM, SPACE_HUGE } from '../UI/base';
 
 export const HeaderWrapper = styled.header`
 	${indent};
@@ -18,6 +18,25 @@ export const HeaderWrapper = styled.header`
 		align-items: center;
 		justify-content: space-around;
 	}
+`;
+
+export const SignBody = styled.div`
+	background-color: black;
+	box-shadow: 0 6px 6px black;
+	padding: ${SPACE_MEDIUM};
+`;
+
+export const SignScaffolding = styled.div`
+	width: 50%;
+	position: absolute;
+	left: -42%;
+	top: ${SPACE_SMALL};
+	height: ${SPACE_HUGE};
+	z-index: -1;
+`;
+
+export const SignLayout = styled.div`
+	position: relative;
 `;
 
 export const Title = styled.h1`
@@ -41,13 +60,4 @@ export const Subtitle = styled.div`
 	@media only screen and (min-width: ${MEDIA_1}) {
 		text-align: center;
 	}
-`;
-
-export const TitleWrapper = styled.div`
-	margin-right: 5vw;
-`;
-
-export const HeaderImage = styled.img`
-	width: calc(10vw + 10vh + 0.5vmin);
-	border-radius: 50%;
 `;
