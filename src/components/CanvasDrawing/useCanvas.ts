@@ -12,15 +12,14 @@ export const useCanvas = (draw: DrawingSetup, landmarks: any): [React.RefObject<
 
 	useEffect(() => {
 		const canvas = ref?.current;
-		let frameId: number;
 		document.addEventListener('scroll', handleScroll);
 
 		if (canvas) {
-			frameId = window.requestAnimationFrame(() => draw(canvas, vanishingPointY, landmarks));
+			draw(canvas, vanishingPointY, landmarks);
 		}
 
 		return () => {
-			if (frameId) window.cancelAnimationFrame(frameId);
+			document.removeEventListener('scroll', handleScroll);
 		};
 	}, [vanishingPointY, landmarks, draw]);
 

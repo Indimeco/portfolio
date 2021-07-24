@@ -10,7 +10,7 @@ function _convert3DCoordinateToPicturePlane(
 	const multiplier = observerDistanceFromPicturePlane / (coordinate.z + observerDistanceFromPicturePlane);
 	return {
 		x: vanishingPoint.x + (coordinate.x - vanishingPoint.x) * multiplier,
-		y: vanishingPoint.y + (coordinate.y - vanishingPoint.y) * multiplier,
+		y: vanishingPoint.y + (coordinate.y - window.scrollY) * multiplier,
 	};
 }
 export const convert3DCoordinateToPicturePlane = curry(_convert3DCoordinateToPicturePlane);

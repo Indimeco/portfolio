@@ -1,4 +1,4 @@
-import { add, pipe } from 'ramda';
+import { pipe } from 'ramda';
 
 import { Coordinate, tracePolygon, getRectangularPlane } from '../drawing';
 
@@ -14,7 +14,7 @@ export const composeDrawings: DrawingSetup = (canvas, vanishingPointY, landmarks
 	const VANISHING_X_OFFSET = 300;
 	const vanishingPoint: Coordinate = {
 		x: VANISHING_X_OFFSET,
-		y: add(vanishingPointY, HORIZON_Y_OFFSET),
+		y: HORIZON_Y_OFFSET,
 	};
 
 	const { width: canvasWidth, height: canvasHeight } = canvas.getBoundingClientRect();
@@ -29,7 +29,7 @@ export const composeDrawings: DrawingSetup = (canvas, vanishingPointY, landmarks
 	tracePolygon(
 		ctx,
 		...getRectangularPlane({
-			origin: { x: 0, y: canvasHeight + vanishingPointY, z: 0 },
+			origin: { x: 0, y: canvasHeight, z: 0 },
 			width: canvasWidth,
 			height: canvasHeight - HORIZON_Y_OFFSET,
 		}).map((o) => ({ x: o.x, y: o.y })),
