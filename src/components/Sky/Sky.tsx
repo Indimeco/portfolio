@@ -5,7 +5,7 @@ const SkyBackground = styled.div`
 	position: absolute;
 	width: 100%;
 	height: 100vh;
-	background: linear-gradient(black, white 90%);
+	background: linear-gradient(${({ theme }) => theme.colors.bgShadow}, ${({ theme }) => theme.colors.fg} 95%);
 `;
 
 const SkyContext = styled.div`

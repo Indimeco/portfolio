@@ -21,12 +21,13 @@ export const HeaderWrapper = styled.header`
 `;
 
 export const SignBody = styled.div`
-	background-color: black;
-	box-shadow: 0 6px 6px black;
+	background-color: ${({ theme }) => theme.colors.bg};
+	box-shadow: 0 6px 6px ${({ theme }) => theme.colors.bgShadow};
 	padding: ${SPACE_MEDIUM};
 `;
 
 export const SignScaffolding = styled.div`
+	color: ${({ theme }) => theme.colors.bgShadow};
 	width: 50%;
 	position: absolute;
 	left: -42%;

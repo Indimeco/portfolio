@@ -3,8 +3,9 @@ import { palette } from '../base/palette';
 export const theme = {
 	colors: {
 		fg: palette.ghostWhite,
-		bg: palette.raisinBlack,
-		bgAccent: palette.gunMetal,
+		bg: palette.eerieBlack,
+		bgAccent: palette.raisinBlack,
+		bgShadow: palette.richBlack,
 		aux: palette.ghostBlue,
 		auxAccent: palette.spectre,
 		brand: palette.paleMalachite,

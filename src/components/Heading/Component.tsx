@@ -30,8 +30,7 @@ export const Heading: React.FunctionComponent<Props> = ({ setTitleLevel }) => {
 			<FadeOnScroll>
 				<SignLayout>
 					<SignScaffolding>
-						<svg viewBox="0 0 24 12">
-							<defs />
+						<svg viewBox="0 0 24 12" fill="currentColor">
 							<g>
 								<path fillRule="evenodd" d="M0 1.37v9.49h19.09V1.37zm.32.48h18.44v8.53H.32z" />
 								<path fillRule="evenodd" d="M16.81 1.35V10.8h7.05V1.35zm.3.43h6.46v8.59H17.1z" />
