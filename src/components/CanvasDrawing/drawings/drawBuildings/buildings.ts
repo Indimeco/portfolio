@@ -8,18 +8,18 @@ import { Building, BuildingPosition } from './types';
  */
 
 const leftBlockStart = -2500;
-const avenueSize = 5000;
+const avenueSize = 7000;
 const rightBlockStart = leftBlockStart + avenueSize;
-const mainAvenueLength = 50000;
+const mainAvenueLength = 40000;
 const buildingConfig = {
-	minHeight: 2600,
-	maxHeight: 6000,
-	minDepth: 800,
-	maxDepth: 2000,
-	minWidth: 1500,
-	maxWidth: 2000,
-	minGap: 800,
-	maxGap: 1200,
+	minHeight: 4000,
+	maxHeight: 10000,
+	minDepth: 1200,
+	maxDepth: 2200,
+	minWidth: 2300,
+	maxWidth: 3000,
+	minGap: 1200,
+	maxGap: 1900,
 };
 const blockSize = Math.max(buildingConfig.maxWidth, buildingConfig.maxDepth) * 2 + avenueSize;
 
@@ -166,7 +166,7 @@ const central: Building[] = [
 	),
 
 	// This is a kind of sad approximation
-	...generateRightBlock({ x: 55000, z: 100000 }, { untilX: 150000 }),
+	...generateRightBlock({ x: 4000, z: 100000 }, { untilX: 150000 }),
 	...generateRightBlock(
 		{
 			x: 55000,

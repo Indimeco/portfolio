@@ -23,7 +23,11 @@ const App: React.FC = () => {
 			<CanvasDrawing
 				draw={composition}
 				drawVars={{
-					[LandmarkDefinitions.StreetLevel]: streetLevel,
+					/*
+					 * street level is the same as page end because there is not enough content
+					 * to render another drawing without compromising the building effect
+					 */
+					[LandmarkDefinitions.StreetLevel]: pageEnd,
 					[LandmarkDefinitions.TitleLevel]: titleLevel,
 					[LandmarkDefinitions.PageEnd]: pageEnd,
 				}}

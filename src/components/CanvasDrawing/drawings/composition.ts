@@ -1,6 +1,7 @@
 import { pipe } from 'ramda';
 
 import { Coordinate, tracePolygon, getRectangularPlane } from '../drawing';
+import theme from '../../UI/themes';
 
 import { DrawingSetup } from './types';
 import { drawBuildings } from './drawBuildings';
@@ -34,7 +35,7 @@ export const composeDrawings: DrawingSetup = (canvas, vanishingPointY, landmarks
 			height: canvasHeight - HORIZON_Y_OFFSET,
 		}).map((o) => ({ x: o.x, y: o.y })),
 	);
-	ctx.fillStyle = 'black';
+	ctx.fillStyle = theme.colors.bgShadow;
 	ctx.fill();
 
 	// Draw the vanishing point
