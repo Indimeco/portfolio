@@ -198,4 +198,4 @@ export const buildings: BuildingPlan[] = [
 	...left,
 	...right,
 	...central,
-];
+].reverse();

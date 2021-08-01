@@ -1,6 +1,4 @@
-import { curry } from 'ramda';
-
-import { PicturePlane, Polygon3D, Coordinate3D } from './types';
+import { PicturePlane, Polygon3D, Coordinate3D, Coordinate } from './types';
 import { tracePolygon } from './polygons';
 import { convert3DCoordinateToPicturePlane, c2XIs, c2YIs } from './coordinates';
 import { darkPolygonFace, lightPolygonFace } from './coloration';
@@ -9,7 +7,7 @@ function positiveOrZero(num: number) {
 	return num > 0 ? num : 0;
 }
 
-function _getRectangularPlane({
+export function getRectangularPlane({
 	origin,
 	width,
 	height,
@@ -29,25 +27,39 @@ function _getRectangularPlane({
 		{ x: origin.x, y: destination.y, z: origin.z },
 	];
 }
-export const getRectangularPlane = curry(_getRectangularPlane);
 
-function _drawRectangularPrism(
+function drawRectangularPlane(ctx: CanvasRenderingContext2D, coordinates: Coordinate[], color: string) {
+	tracePolygon(ctx, ...coordinates);
+	ctx.fillStyle = color;
+	ctx.fill();
+}
+
+function isFaceOnCanvas(ctx: CanvasRenderingContext2D, face: Coordinate[]) {
+	return face.some((c) => c.x >= 0 && c.x <= ctx.canvas.width);
+}
+
+export function drawRectangularPrism(
 	ctx: CanvasRenderingContext2D,
 	{ vanishingPoint, observerDistanceFromPicturePlane }: PicturePlane,
 	{ width, depth, height }: Polygon3D,
 	origin: Coordinate3D,
 	color: string,
-) {
+): void {
 	// draw front face
 	const p1 = getRectangularPlane({
 		origin: { x: origin.x, y: origin.y, z: origin.z },
 		width,
 		height,
 	}).map((o) => convert3DCoordinateToPicturePlane(vanishingPoint, observerDistanceFromPicturePlane, o));
-	tracePolygon(ctx, ...p1);
-	ctx.fillStyle = color;
-	ctx.fill();
 
+	// if the front face isn't on the canvas then we dump the shape for perf
+	if (!isFaceOnCanvas(ctx, p1)) {
+		return;
+	}
+	drawRectangularPlane(ctx, p1, color);
+
+	const light = lightPolygonFace(color);
+	const dark = darkPolygonFace(color);
 	// get back face coordinates
 	const p2 = getRectangularPlane({
 		origin: { x: origin.x, y: origin.y, z: origin.z + depth },
@@ -59,27 +71,18 @@ function _drawRectangularPrism(
 
 	// draw bottom face
 	if (c2YIs(p1TopLeft, vanishingPoint) === 'below') {
-		tracePolygon(ctx, p1TopRight, p2TopRight, p2TopLeft, p1TopLeft);
-		ctx.fillStyle = darkPolygonFace(color);
-		ctx.fill();
+		drawRectangularPlane(ctx, [p1TopRight, p2TopRight, p2TopLeft, p1TopLeft], dark);
 	}
 	// draw top face
 	if (c2YIs(p1BottomLeft, vanishingPoint) === 'above') {
-		tracePolygon(ctx, p1BottomLeft, p1BottomRight, p2BottomRight, p2BottomLeft);
-		ctx.fillStyle = lightPolygonFace(color);
-		ctx.fill();
+		drawRectangularPlane(ctx, [p1BottomLeft, p1BottomRight, p2BottomRight, p2BottomLeft], light);
 	}
 	// draw left face
 	if (c2XIs(p1BottomLeft, vanishingPoint) === 'left') {
-		tracePolygon(ctx, p1TopLeft, p2TopLeft, p2BottomLeft, p1BottomLeft);
-		ctx.fillStyle = darkPolygonFace(color);
-		ctx.fill();
+		drawRectangularPlane(ctx, [p1TopLeft, p2TopLeft, p2BottomLeft, p1BottomLeft], dark);
 	}
 	// draw right face
 	if (c2XIs(p1TopRight, vanishingPoint) === 'right') {
-		tracePolygon(ctx, p1TopRight, p2TopRight, p2BottomRight, p1BottomRight);
-		ctx.fillStyle = darkPolygonFace(color);
-		ctx.fill();
+		drawRectangularPlane(ctx, [p1TopRight, p2TopRight, p2BottomRight, p1BottomRight], dark);
 	}
 }
-export const drawRectangularPrism = curry(_drawRectangularPrism);
