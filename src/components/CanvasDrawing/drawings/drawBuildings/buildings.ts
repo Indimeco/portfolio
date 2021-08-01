@@ -1,6 +1,6 @@
 import { flow } from 'fp-ts/lib/function';
 
-import { BuildingPlan, BuildingPlanPosition } from './types';
+import { Building, BuildingPosition } from './types';
 
 /* There is the implicit assumption that the avenue width contains the vanishing point
  * When this isn't true the ordering of the building rendering completely breaks down
@@ -35,23 +35,23 @@ const getPsuedoRandomHeight = (d = 0): number =>
 		minMax(buildingConfig.minHeight, buildingConfig.maxHeight)(buildingConfig.maxHeight * (d / 8000)),
 	);
 
-const generateBuilding = (position: BuildingPlanPosition): BuildingPlan => ({
+const generateBuilding = (position: BuildingPosition): Building => ({
 	dimensions: {
 		width: getRandomInt(buildingConfig.minWidth, buildingConfig.maxWidth),
-		height: getPsuedoRandomHeight(position.z as number),
+		height: getPsuedoRandomHeight(position.z),
 		depth: getRandomInt(buildingConfig.minDepth, buildingConfig.maxDepth),
 	},
 	position,
 });
 
 const generateRow = (
-	start: BuildingPlanPosition,
+	start: BuildingPosition,
 	end: {
 		untilX?: number;
 		untilZ?: number;
 	},
-	buildings?: BuildingPlan[],
-): BuildingPlan[] => {
+	buildings?: Building[],
+): Building[] => {
 	const b = generateBuilding(start);
 	if (
 		(typeof end.untilX === 'number' && b.position.x >= end.untilX) ||
@@ -62,14 +62,8 @@ const generateRow = (
 	const gap = getRandomInt(buildingConfig.minGap, buildingConfig.maxGap);
 	return generateRow(
 		{
-			x:
-				typeof end.untilX === 'number'
-					? (b.position.x as number) + (b.dimensions.width as number) + gap
-					: start.x,
-			z:
-				typeof end.untilZ === 'number'
-					? (b.position.z as number) + (b.dimensions.depth as number) + gap
-					: start.z,
+			x: typeof end.untilX === 'number' ? b.position.x + b.dimensions.width + gap : start.x,
+			z: typeof end.untilZ === 'number' ? b.position.z + b.dimensions.depth + gap : start.z,
 		},
 		end,
 		[...(buildings || []), b],
@@ -82,7 +76,7 @@ const generateLeftBlock = (
 		untilX?: number;
 		untilZ?: number;
 	},
-): BuildingPlan[] => [
+): Building[] => [
 	...generateRow({ x: start.x, z: start.z }, end),
 	...generateRow(
 		{
@@ -99,7 +93,7 @@ const generateRightBlock = (
 		untilX?: number;
 		untilZ?: number;
 	},
-): BuildingPlan[] => [
+): Building[] => [
 	...generateRow({ x: start.x, z: start.z }, end),
 	...generateRow(
 		{
@@ -110,20 +104,9 @@ const generateRightBlock = (
 	),
 ];
 
-const right: BuildingPlan[] = [
-	{
-		dimensions: {
-			width: buildingConfig.minWidth,
-			height: (landmarks) => landmarks.StreetLevel - landmarks.TitleLevel - 1000,
-			depth: buildingConfig.minDepth,
-		},
-		position: {
-			x: rightBlockStart,
-			z: 1400,
-		},
-	},
+const right: Building[] = [
 	...generateRightBlock(
-		{ x: rightBlockStart, z: 1400 + buildingConfig.minDepth + buildingConfig.minGap - 400 },
+		{ x: rightBlockStart, z: 0 + buildingConfig.minDepth + buildingConfig.minGap - 400 },
 		{ untilZ: mainAvenueLength },
 	),
 	...generateRightBlock({ x: rightBlockStart + blockSize + avenueSize, z: 0 }, { untilZ: mainAvenueLength }),
@@ -133,7 +116,7 @@ const right: BuildingPlan[] = [
 	),
 ];
 
-const left: BuildingPlan[] = [
+const left: Building[] = [
 	{
 		dimensions: {
 			width: buildingConfig.minWidth,
@@ -163,7 +146,7 @@ const left: BuildingPlan[] = [
 	...generateLeftBlock({ x: leftBlockStart - avenueSize - blockSize, z: 0 }, { untilZ: mainAvenueLength }),
 ];
 
-const central: BuildingPlan[] = [
+const central: Building[] = [
 	...generateLeftBlock({ x: -40000, z: mainAvenueLength + blockSize }, { untilX: leftBlockStart }).reverse(),
 	...generateLeftBlock(
 		{ x: -40000, z: mainAvenueLength + blockSize + avenueSize },
@@ -194,7 +177,7 @@ const central: BuildingPlan[] = [
 ];
 
 // prettier-ignore
-export const buildings: BuildingPlan[] = [
+export const buildings: Building[] = [
 	...left,
 	...right,
 	...central,

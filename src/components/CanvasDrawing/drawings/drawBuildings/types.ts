@@ -1,30 +1,13 @@
-export type ArchitectureVal<LandmarkDefinitions = Record<string, any>> =
-	| number
-	| ((landmarks: LandmarkDefinitions) => number);
-
-export type BuildingPlanDimension = {
-	width: ArchitectureVal;
-	height: ArchitectureVal;
-	depth: ArchitectureVal;
+export type BuildingDimension = {
+	width: number;
+	height: number;
+	depth: number;
 };
-export type BuildingPlanPosition = {
-	x: ArchitectureVal;
-	z: ArchitectureVal;
+export type BuildingPosition = {
+	x: number;
+	z: number;
 };
-
-export type BuildingPlan = {
-	dimensions: BuildingPlanDimension;
-	position: BuildingPlanPosition;
-};
-
 export type Building = {
-	dimensions: {
-		width: number;
-		height: number;
-		depth: number;
-	};
-	position: {
-		x: number;
-		z: number;
-	};
+	dimensions: BuildingDimension;
+	position: BuildingPosition;
 };
