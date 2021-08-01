@@ -1,12 +1,10 @@
-import { curry } from 'ramda';
-
 import { Coordinate } from './types';
 
 function getCanvasPosition(canvas: HTMLCanvasElement) {
 	return Math.round(canvas.parentElement?.offsetTop ?? 0);
 }
 
-function _tracePolygon(ctx: CanvasRenderingContext2D, ...coords: Coordinate[]) {
+export function tracePolygon(ctx: CanvasRenderingContext2D, ...coords: Coordinate[]): void {
 	if (coords.length <= 0) return;
 
 	const canvasOffsetTop = getCanvasPosition(ctx.canvas);
@@ -20,4 +18,3 @@ function _tracePolygon(ctx: CanvasRenderingContext2D, ...coords: Coordinate[]) {
 	});
 	ctx.closePath();
 }
-export const tracePolygon = curry(_tracePolygon);

@@ -19,9 +19,5 @@ export type DrawingContext = null | {
 	drawVars: DrawVars;
 };
 
-export type DrawingSetup = (
-	canvas: HTMLCanvasElement,
-	vanishingPointY: number,
-	landmarks: Landmarks,
-) => DrawingContext;
+export type DrawingSetup = (canvas: HTMLCanvasElement, landmarks: Landmarks) => DrawingContext;
 export type Drawing = (context: DrawingContext) => DrawingContext;

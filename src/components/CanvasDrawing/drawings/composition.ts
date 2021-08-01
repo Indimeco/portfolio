@@ -1,4 +1,4 @@
-import { pipe } from 'ramda';
+import { flow } from 'fp-ts/function';
 
 import { Coordinate, tracePolygon, getRectangularPlane } from '../drawing';
 import theme from '../../UI/themes';
@@ -7,7 +7,7 @@ import { DrawingSetup } from './types';
 import { drawBuildings } from './drawBuildings';
 import { drawUnderground } from './drawUnderground';
 
-export const composeDrawings: DrawingSetup = (canvas, vanishingPointY, landmarks) => {
+export const composeDrawings: DrawingSetup = (canvas, landmarks) => {
 	const ctx = canvas.getContext('2d');
 	if (!ctx) return null;
 
@@ -62,4 +62,4 @@ export const composeDrawings: DrawingSetup = (canvas, vanishingPointY, landmarks
 	};
 };
 
-export const composition = pipe(composeDrawings, drawBuildings, drawUnderground);
+export const composition = flow(composeDrawings, drawBuildings, drawUnderground);
