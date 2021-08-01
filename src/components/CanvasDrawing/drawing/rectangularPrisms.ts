@@ -38,12 +38,17 @@ function isFaceOnCanvas(ctx: CanvasRenderingContext2D, face: Coordinate[]) {
 	return face.some((c) => c.x >= 0 && c.x <= ctx.canvas.width);
 }
 
+type FaceColors = {
+	light: string;
+	dark: string;
+	neutral: string;
+};
 export function drawRectangularPrism(
 	ctx: CanvasRenderingContext2D,
 	{ vanishingPoint, observerDistanceFromPicturePlane }: PicturePlane,
 	{ width, depth, height }: Polygon3D,
 	origin: Coordinate3D,
-	color: string,
+	{ light, dark, neutral }: FaceColors,
 ): void {
 	// draw front face
 	const p1 = getRectangularPlane({
@@ -63,10 +68,8 @@ export function drawRectangularPrism(
 		return;
 	}
 
-	drawRectangularPlane(ctx, p1, color);
+	drawRectangularPlane(ctx, p1, neutral);
 
-	const light = lightPolygonFace(color);
-	const dark = darkPolygonFace(color);
 	const [p1TopLeft, p1TopRight, p1BottomRight, p1BottomLeft] = p1;
 	const [p2TopLeft, p2TopRight, p2BottomRight, p2BottomLeft] = p2;
 
