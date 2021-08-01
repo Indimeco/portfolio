@@ -51,21 +51,22 @@ export function drawRectangularPrism(
 		width,
 		height,
 	}).map((o) => convert3DCoordinateToPicturePlane(vanishingPoint, observerDistanceFromPicturePlane, o));
-
-	// if the front face isn't on the canvas then we dump the shape for perf
-	if (!isFaceOnCanvas(ctx, p1)) {
-		return;
-	}
-	drawRectangularPlane(ctx, p1, color);
-
-	const light = lightPolygonFace(color);
-	const dark = darkPolygonFace(color);
 	// get back face coordinates
 	const p2 = getRectangularPlane({
 		origin: { x: origin.x, y: origin.y, z: origin.z + depth },
 		width,
 		height,
 	}).map((o) => convert3DCoordinateToPicturePlane(vanishingPoint, observerDistanceFromPicturePlane, o));
+
+	// if the front or back face isn't on the canvas then we dump the shape for perf
+	if (!isFaceOnCanvas(ctx, p1) && !isFaceOnCanvas(ctx, p2)) {
+		return;
+	}
+
+	drawRectangularPlane(ctx, p1, color);
+
+	const light = lightPolygonFace(color);
+	const dark = darkPolygonFace(color);
 	const [p1TopLeft, p1TopRight, p1BottomRight, p1BottomLeft] = p1;
 	const [p2TopLeft, p2TopRight, p2BottomRight, p2BottomLeft] = p2;
 
