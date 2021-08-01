@@ -2,3 +2,5 @@
 // Optimise images
 // TODO replace rotary animation ( spotlight? )
 // TODO animate entry of content (loading?)
+// FIXME fading reactspring bad perf on mobile
+// TODO content and images for new portfolio items

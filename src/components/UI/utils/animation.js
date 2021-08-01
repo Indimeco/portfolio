@@ -14,12 +14,12 @@ export const FadeOnScroll = ({ children, ...restProps }) => {
 	*/
 	const [ref, inView] = useInView({
 		threshold: 0,
-		rootMargin: '0px 0px -30% 0px',
+		rootMargin: '0px 0px 10% 0px',
 	});
 
 	const props = useSpring({
 		opacity: debouncedInView ? 1 : 0,
-		config: { mass: 5, tension: 50 },
+		config: { mass: 1, tension: 90 },
 	});
 
 	useEffect(() => {

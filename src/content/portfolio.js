@@ -5,7 +5,7 @@ import qrpg from './images/QRPG_Logo.png';
 
 export const portfolio = [
 	{
-		name: 'Lightspeed Inventory Micrfrontends',
+		name: 'Lightspeed Inventory Microfrontends',
 		image: investorSurvey,
 		alt: 'Web UI Toolkit',
 		description:
@@ -76,6 +76,41 @@ export const portfolio = [
 	},
 	{
 		name: 'Chameleon Design System',
+		image: investorSurvey,
+		alt: 'Web UI Toolkit',
+		description:
+			'The Web UI Toolkit is a React component library designed to help development teams deliver quality and consistency at velocity.',
+		content: [
+			{
+				type: 'blurb',
+				value: 'Divergent patterns breed defects',
+			},
+			{
+				type: 'paragraph',
+				value:
+					'The organization I was working for was rife with custom html/css solutions for every individual part of the website. Each time a new project was initiated a new frontend would have to be fabricated to meet design requirements. This led to innumerable inconsistent and defect prone ui from page to page.',
+			},
+			{
+				type: 'blurb',
+				value: 'Adoption is its own cost',
+			},
+			{
+				type: 'paragraph',
+				value: `In the beginning I struggled to understand why other developers weren't as keen to stop building custom ui as I thought they would be. Many of them simply wanted to keep doing what they had been doing. Many of them felt like a component library with its own API was just extra complexity. Many of them didn't even know the Web UI Toolkit existed. I realized then that so much of the success of software, even a development tool, is in client aquisition and client retention. I had to inform and upskill people; I had to prove to them that the AA compliant, responsive and flexible component library was worth learning and maintaining.`,
+			},
+			{
+				type: 'blurb',
+				value: 'Communication is an architectural tool',
+			},
+			{
+				type: 'paragraph',
+				value:
+					"One of the biggest challenges of consolidating and developing a React component library to solve the quality and consistency issues was understanding how people would use such a tool. From UX to UI to the scrum teams, I needed to ensure there was a common language around our designs and builds otherwise information would be corrupted and confusion would take hold. I did an endless amount of collaboration to understand the organization's methods, needs and culture which would, in turn, allow me to define the API layers of the library.",
+			},
+		],
+	},
+	{
+		name: 'Triona Bot',
 		image: investorSurvey,
 		alt: 'Web UI Toolkit',
 		description:
