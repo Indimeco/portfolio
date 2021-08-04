@@ -12,8 +12,8 @@ const avenueSize = 7000;
 const rightBlockStart = leftBlockStart + avenueSize;
 const mainAvenueLength = 40000;
 const buildingConfig = {
-	minHeight: 4000,
-	maxHeight: 10000,
+	minHeight: 6000,
+	maxHeight: 12000,
 	minDepth: 1200,
 	maxDepth: 2200,
 	minWidth: 2300,
