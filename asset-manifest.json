@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/portfolio/static/css/main.79e47b38.chunk.css",
-    "main.js": "/portfolio/static/js/main.3ea77cb6.chunk.js",
-    "main.js.map": "/portfolio/static/js/main.3ea77cb6.chunk.js.map",
+    "main.js": "/portfolio/static/js/main.a24f895b.chunk.js",
+    "main.js.map": "/portfolio/static/js/main.a24f895b.chunk.js.map",
     "runtime-main.js": "/portfolio/static/js/runtime-main.a9f76519.js",
     "runtime-main.js.map": "/portfolio/static/js/runtime-main.a9f76519.js.map",
-    "static/js/2.83f98603.chunk.js": "/portfolio/static/js/2.83f98603.chunk.js",
-    "static/js/2.83f98603.chunk.js.map": "/portfolio/static/js/2.83f98603.chunk.js.map",
+    "static/js/2.2727bf50.chunk.js": "/portfolio/static/js/2.2727bf50.chunk.js",
+    "static/js/2.2727bf50.chunk.js.map": "/portfolio/static/js/2.2727bf50.chunk.js.map",
     "index.html": "/portfolio/index.html",
     "static/css/main.79e47b38.chunk.css.map": "/portfolio/static/css/main.79e47b38.chunk.css.map",
-    "static/js/2.83f98603.chunk.js.LICENSE.txt": "/portfolio/static/js/2.83f98603.chunk.js.LICENSE.txt",
+    "static/js/2.2727bf50.chunk.js.LICENSE.txt": "/portfolio/static/js/2.2727bf50.chunk.js.LICENSE.txt",
     "static/media/2018-portfolio.b6bfab4d.png": "/portfolio/static/media/2018-portfolio.b6bfab4d.png",
     "static/media/ChameleonNew.77107dfa.PNG": "/portfolio/static/media/ChameleonNew.77107dfa.PNG",
     "static/media/QRPG_Logo.9b3c6c89.png": "/portfolio/static/media/QRPG_Logo.9b3c6c89.png",
@@ -21,8 +21,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.a9f76519.js",
-    "static/js/2.83f98603.chunk.js",
+    "static/js/2.2727bf50.chunk.js",
     "static/css/main.79e47b38.chunk.css",
-    "static/js/main.3ea77cb6.chunk.js"
+    "static/js/main.a24f895b.chunk.js"
   ]
 }
