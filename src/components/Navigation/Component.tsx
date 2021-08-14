@@ -13,7 +13,7 @@ const scroll = (location: string) => () => {
 	}
 };
 
-const Navigation = () => (
+const Navigation: React.FC = () => (
 	<NavigationWrapper data-testid="navigation">
 		{links.map((link) => (
 			<NavigationItem key={link} data-testid="navigation-item" onClick={scroll(link)}>

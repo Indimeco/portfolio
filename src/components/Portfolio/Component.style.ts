@@ -30,7 +30,8 @@ export const PortfolioItemDescription = styled.p`
 
 export const PortfolioButton = styled.button`
 	${text};
-	${link}
+	${link};
+	height: 40px;
 	display: block;
 	padding: ${SPACE_SMALL};
 	margin: 0;
@@ -48,5 +49,6 @@ export const PortfolioButton = styled.button`
 
 	@media only screen and (min-width: ${MEDIA_1}) {
 		margin: 0;
+		height: 80px;
 	}
 `;

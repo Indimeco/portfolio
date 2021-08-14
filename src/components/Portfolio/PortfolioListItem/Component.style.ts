@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { SPACE_HUGE } from '../../UI/base';
+import { MEDIA_1, SPACE_HUGE } from '../../UI/base';
 
 export const PortfolioItem = styled.div`
 	padding: ${SPACE_HUGE} 0;
@@ -10,7 +10,11 @@ export const PortfolioItem = styled.div`
 `;
 
 export const PortfolioThumbnail = styled.div`
-	height: 30vh;
+	min-height: 50vh;
+
+	@media only screen and (min-width: ${MEDIA_1}) {
+		min-height: 30vh;
+	}
 
 	&,
 	img {

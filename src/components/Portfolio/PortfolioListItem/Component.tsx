@@ -1,24 +1,32 @@
-import React from 'react';
+import React, { HTMLAttributes } from 'react';
 
 import { PortfolioItemName, PortfolioItemDescription, PortfolioButton } from '../Component.style';
 
 import { PortfolioItem, PortfolioThumbnail } from './Component.style';
 
-// TODO update CRA to 2.0 to use <> syntax
-const PortfolioItemDetailsButton = ({ onChange, ...restProps }) => (
+const PortfolioItemDetailsButton: React.FC<
+	{ onChange: (e: React.MouseEvent) => void } & Omit<HTMLAttributes<HTMLButtonElement>, 'onChange'>
+> = ({ onChange, ...restProps }) => (
 	<PortfolioButton onClick={onChange} {...restProps}>
 		View details
 	</PortfolioButton>
 );
 
-const PortfolioItemContentPreview = ({ name, description }) => (
+const PortfolioItemContentPreview: React.FC<{ name: string; description: string }> = ({
+	name,
+	description,
+}) => (
 	<>
 		<PortfolioItemName>{name}</PortfolioItemName>
 		<PortfolioItemDescription>{description}</PortfolioItemDescription>
 	</>
 );
 
-const PortfolioListItem = ({ item, onChange, index }) => (
+const PortfolioListItem: React.FC<{
+	item: { name: string; description: string; image: string; alt: string };
+	onChange: (e: React.MouseEvent) => void;
+	index: number;
+}> = ({ item, onChange, index }) => (
 	<PortfolioItem data-testid="portfolio-list-item">
 		<PortfolioThumbnail>
 			<img src={item.image} alt={item.alt} />
