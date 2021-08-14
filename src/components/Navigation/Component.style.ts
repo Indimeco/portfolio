@@ -11,7 +11,7 @@ export const NavigationWrapper = styled.nav`
 	top: 0;
 	min-height: 7vh;
 	margin-bottom: 0;
-	position: absolute;
+	position: sticky;
 	z-index: 1;
 	width: 100%;
 `;
