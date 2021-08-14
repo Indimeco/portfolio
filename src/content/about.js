@@ -15,9 +15,9 @@ export const about = [
 		'and Typescript',
 	],
 	[
-		'I have lead the development of multiple design systems that form the backbone of large FinTech and Hospitality user experiences.',
+		'I have lead the development of multiple design systems that now form the backbone of large FinTech and Hospitality user experiences',
 	],
-	['Thousands of people use payment integrations I wrote.'],
-	['I live a life of learning. I want to build great experiences. I want to empower people'],
+	['Thousands of people use payment integrations I wrote'],
+	['I live a life of learning. I want to build meaningful experiences'],
 ];
 export const aboutId = 'about';

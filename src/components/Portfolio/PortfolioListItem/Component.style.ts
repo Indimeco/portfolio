@@ -5,24 +5,20 @@ import { MEDIA_1, SPACE_HUGE } from '../../UI/base';
 export const PortfolioItem = styled.div`
 	padding: ${SPACE_HUGE} 0;
 	display: grid;
-	grid-template-columns: 2fr 5fr;
-	grid-column-gap: 5vw;
-`;
+	grid-template-columns: 1fr;
+	grid-row-gap: 5vh;
 
-export const PortfolioThumbnail = styled.div`
 	min-height: 50vh;
 
 	@media only screen and (min-width: ${MEDIA_1}) {
 		min-height: 30vh;
+		grid-column-gap: 5vw;
+		grid-template-columns: 2fr 5fr;
 	}
+`;
 
-	&,
-	img {
-		width: 100%;
-		max-height: 100%;
-	}
-
-	img {
-		object-fit: cover;
-	}
+export const PortfolioThumbnail = styled.img`
+	max-width: 100%;
+	max-height: 100%;
+	object-fit: cover;
 `;

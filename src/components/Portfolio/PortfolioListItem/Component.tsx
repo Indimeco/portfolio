@@ -28,9 +28,7 @@ const PortfolioListItem: React.FC<{
 	index: number;
 }> = ({ item, onChange, index }) => (
 	<PortfolioItem data-testid="portfolio-list-item">
-		<PortfolioThumbnail>
-			<img src={item.image} alt={item.alt} />
-		</PortfolioThumbnail>
+		<PortfolioThumbnail src={item.image} alt={item.alt} />
 
 		<div>
 			<PortfolioItemContentPreview name={item.name} description={item.description} />
