@@ -27,7 +27,7 @@ export const portfolio = [
 			{
 				type: 'paragraph',
 				value:
-					'Having each application continue to work in a standalone mode was of vital importance to me. Even though these applications would live together in the same space, they needed to be truly independent and autonomous. This was critical to ensuring the success of implementing indepenetent test automation and deployment patters for each frontend.',
+					'Having each application continue to work in a standalone mode was of vital importance to me. Even though these applications would live together in the same space, they needed to be truly independent and autonomous. This was critical to ensuring the success of implementing indepenetent test automation and deployment patterns for each frontend.',
 			},
 		],
 	},
