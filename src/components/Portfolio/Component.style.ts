@@ -31,6 +31,7 @@ export const PortfolioItemDescription = styled.p`
 export const PortfolioButton = styled.button`
 	${text};
 	${link};
+	min-width: fit-content;
 	height: 40px;
 	display: block;
 	padding: ${SPACE_SMALL};

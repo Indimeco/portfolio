@@ -54,7 +54,7 @@ export const portfolio = [
 			{
 				type: 'paragraph',
 				value:
-					'Pay@Table was my first PHP project; not everyone can say their first foray into a new programming language was handling money over an API. There are certainly some dragons inside PHP, but Pay@Table was still successful because of the practices and techniques I brought from other programming languages: a plethora unit tests, pure functions and clean interfaces.',
+					'Pay@Table was my first PHP project; not everyone can say their first foray into a new programming language was handling money over an API. There are certainly some dragons inside PHP, but Pay@Table was still successful because of the practices and techniques I brought from other programming languages: a plethora of unit tests, pure functions and clean interfaces.',
 			},
 		],
 	},
