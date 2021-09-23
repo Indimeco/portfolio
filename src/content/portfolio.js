@@ -18,16 +18,16 @@ export const portfolio = [
 			{
 				type: 'paragraph',
 				value:
-					'The microfrontends themselves are all react applications, written in typescript, with graphql backends grounded in aws appsync.',
+					'Each microfrontend was a react applications, written in typescript, with graphql backends grounded in aws appsync.',
 			},
 			{
 				type: 'blurb',
-				value: 'Resilient programs run alone',
+				value: 'All microservices must be truly independent',
 			},
 			{
 				type: 'paragraph',
 				value:
-					'Having each application continue to work in a standalone mode was of vital importance to me. Even though these applications would live together in the same space, they needed to be truly independent and autonomous. This was critical to ensuring the success of implementing indepenetent test automation and deployment patterns for each frontend.',
+					'Having each application continue to work in a standalone mode was of vital importance to me. Even though these applications would live together in the same space, they needed to be truly independent and autonomous. This allowed us to independent test automation and deployment patterns for each frontend.',
 			},
 		],
 	},
@@ -39,9 +39,22 @@ export const portfolio = [
 			'Tyro Pay@Table is an API in php for Kounta by Lightspeed which allows customers to pay for their meals without waiting at the counter.',
 		content: [
 			{
+				type: 'blurb',
+				value: 'The human need',
+			},
+			{
 				type: 'paragraph',
 				value:
-					'Not everyone can say their first foray into a new programming language was handling money over an API. I am thankful to all of the unit tests that never lead to a production issue.',
+					'One of my main reasons for joining Kounta was to create real value for other people. Pay@Table is something that improves peoples dining experiences and business operations, just a little.',
+			},
+			{
+				type: 'blurb',
+				value: 'A programming language is just a tool',
+			},
+			{
+				type: 'paragraph',
+				value:
+					'Pay@Table was my first PHP project; not everyone can say their first foray into a new programming language was handling money over an API. There are certainly some dragons inside PHP, but Pay@Table was still successful because of the practices and techniques I brought from other programming languages: a plethora unit tests, pure functions and clean interfaces.',
 			},
 		],
 	},
@@ -54,7 +67,7 @@ export const portfolio = [
 			{
 				type: 'paragraph',
 				value:
-					"I accidentally inherited Chameleon when I joined Kounta. Going from having built my own design system at the bank now to maintaining somebody else's system was a huge undertaking.",
+					"I accidentally inherited Chameleon when I joined Kounta. Transitioning from having built my own design system at the bank now to maintaining somebody else's system was a huge undertaking.",
 			},
 			{
 				type: 'blurb',
@@ -62,7 +75,7 @@ export const portfolio = [
 			},
 			{
 				type: 'paragraph',
-				value: `I rewrote the design system in typescript, brought in true themeing capability for dark mode, combined all divergent maintained versions of the design system into a single verion, built an automatic versioning and release pipeline. All this, and I never broke an interface, the documented inputs and outputs of each component prop and callback. An interface is the holy contract between the distributor and the consumer.`,
+				value: `I rewrote the design system in typescript, brought in true themeing capability, combined all divergent maintained versions of the design system into a single version, built an automatic versioning and release pipeline. All this, and I never broke an interface. The interface of a design system is the contractual agreement in each component prop and callback. Without sacred interfaces there can be no progress.`,
 			},
 		],
 	},
@@ -74,7 +87,7 @@ export const portfolio = [
 		content: [
 			{
 				type: 'blurb',
-				value: 'There is better way to learn than to try',
+				value: 'There is no better way to learn than to try',
 			},
 			{
 				type: 'paragraph',
@@ -101,15 +114,15 @@ export const portfolio = [
 			{
 				type: 'paragraph',
 				value:
-					'The organization I was working for was rife with custom html/css solutions for every individual part of the website. Each time a new project was initiated a new frontend would have to be fabricated to meet design requirements. This led to innumerable inconsistent and defect prone ui from page to page.',
+					'MLC had custom html/css solutions for every individual part of their website. Each time a new project was initiated a new frontend would be built from the ground up, or layer precariously on top of what was existing. This led to innumerable inconsistent and defect prone pages. The Web UI Toolkit was a great tool for creating better experiences by being a consolidated library.',
 			},
 			{
 				type: 'blurb',
-				value: 'Adoption is its own cost',
+				value: 'The cost of adoption',
 			},
 			{
 				type: 'paragraph',
-				value: `In the beginning I struggled to understand why other developers weren't as keen to stop building custom ui as I thought they would be. Many of them simply wanted to keep doing what they had been doing. Many of them felt like a component library with its own API was just extra complexity. Many of them didn't even know the Web UI Toolkit existed. I realized then that so much of the success of software, even a development tool, is in client aquisition and client retention. I had to inform and upskill people; I had to prove to them that the AA compliant, responsive and flexible component library was worth learning and maintaining.`,
+				value: `In the beginning I struggled to understand why other developers weren't as keen to stop building custom ui as I thought they would be. Many of them simply wanted to keep doing what they had been doing. Many of them felt like a component library with its own API was just extra complexity. Some of them didn't even know the Web UI Toolkit existed. I realized then that so much of the success of software, even a development tool, is in investing in people. I had to inform and up-skill people; I had to prove to them that the AA compliant, responsive and flexible component library was worth learning and maintaining.`,
 			},
 			{
 				type: 'blurb',
@@ -118,7 +131,7 @@ export const portfolio = [
 			{
 				type: 'paragraph',
 				value:
-					"One of the biggest challenges of consolidating and developing a React component library to solve the quality and consistency issues was understanding how people would use such a tool. From UX to UI to the scrum teams, I needed to ensure there was a common language around our designs and builds otherwise information would be corrupted and confusion would take hold. I did an endless amount of collaboration to understand the organization's methods, needs and culture which would, in turn, allow me to define the API layers of the library.",
+					"One of the biggest challenges of consolidating and developing a React component library to solve the quality and consistency issues was understanding how people would use such a tool. From UX to UI to the scrum teams, I needed to ensure there was a common language around both our designs and our code, otherwise information would be corrupted and confusion would take hold. It took careful listening to understand the organization's methods, needs and culture which would, in turn, allow me to define the API layers of the library.",
 			},
 		],
 	},
@@ -136,7 +149,7 @@ export const portfolio = [
 			{
 				type: 'paragraph',
 				value:
-					'In the fall of 2018 the organization I was working for wanted to move massive amounts of content from one CMS to another. They had no technical solution for this and planned to test it all using a force of QAs and editors. This was unacceptable to me so I took it upon myself to prototype a tool on my personal github that would collect and analyze the data across our different CMS. The prototype was a success and I continued to develop My Little Charlotte within the company until it reached production quality and was feature complete.',
+					'In the fall of 2018 MLC wanted to move massive amounts of content from one CMS to another. They had no technical solution for this and planned to test it all using a force of QAs and content editors. I took it upon myself to prototype a tool on my personal github that would collect and analyze the data between our different CMS. The prototype was a success and I continued to develop My Little Charlotte within the company. It was used on a daily basis during the migration project to produce reports and migration accuracy tests.',
 			},
 			{
 				type: 'link',
@@ -152,7 +165,7 @@ export const portfolio = [
 			{
 				type: 'paragraph',
 				value:
-					'With the data collected from My Little Charlotte I was not only able to deliver confidence in the content migration accuracy, direct links to defects as well as time relevant test coverage dashboards, but also a suite of insightful metrics unrelated to the project. For instance, I was able to create reports on the frequency and locations of dead links across the website and reports on the occurance of certain sensitive word combinations.',
+					'With the data collected from My Little Charlotte I was not only able to deliver confidence in the content migration accuracy, direct links to defects as well as time relevant test coverage dashboards, but also a suite of insightful metrics unrelated to the project. For many months following the project I would create reports on the frequency and locations of dead links across the website as well as reports on the occurrence of certain sensitive word combinations.',
 			},
 		],
 	},
@@ -169,14 +182,7 @@ export const portfolio = [
 			},
 			{
 				type: 'paragraph',
-				value: `There are so many unknowns and half-truths which glimmer only dimly; a good developer is a person who can find the lights in the darkness. Many of the techniques and solutions I empoyed in the construction of the 2018 portfolio I now know to be dangerous or primitive, but it took trialing them to gain that depth of technological and strategic understanding.`,
-			},
-			{
-				type: 'link',
-				value: {
-					href: '',
-					text: 'View the full 2018 portfolio',
-				},
+				value: `There are so many unknowns and half-truths which glimmer only dimly; I believe a good developer is a person who can find the lights in the darkness. Many of the techniques and solutions I employed in the construction of the 2018 portfolio I now know to be dangerous or primitive, but it took trialing them to gain that depth of technological and strategic understanding.`,
 			},
 			{
 				type: 'blurb',
@@ -223,12 +229,12 @@ export const portfolio = [
 			{
 				type: 'blurb',
 
-				value: 'Passion without constitution will stagnate',
+				value: 'A healthy module needs a healthy system',
 			},
 			{
 				type: 'paragraph',
 				value:
-					'At its height, QRPG had over 13,000 followers on the Steam Workshop. The functionalities and combined utilities of QRPG were very sought after, but there were glaring issues with the netcode and rendering engine of Tabletop Simulator. Pair this last fact with the ever-flowing and inevitable breaking changes to the Tabletop Simulator Lua API and we have a huge maintenence cost. After distributing QRPG, the dev team, mostly because of the aforementioned struggles, wanted to move on. Since then I have only worked on critical bugfixes and documentation enhancements. Working with the unstable engine and legacy scripting code base is too laborious an obstacle to implement and maintain new features.',
+					'At its height, QRPG had over 13,000 followers on the Steam Workshop. The functionalities and combined utilities of QRPG were very sought after, but there were glaring issues with the Tabletop Simulator netcode and rendering engine; strange bugs our mod could not solve for. The Tabletop Simulator Lua API was not versioned and that breaking changes were continuously made over the years. These things took a huge toll on mod developers in the form of maintenance cost. After distributing QRPG, the QRPG team moved on. Since then I have only worked on critical bugfixes and documentation enhancements. Working with the unstable engine and legacy scripting code base is too laborious an obstacle to implement and maintain new features.',
 			},
 		],
 	},
