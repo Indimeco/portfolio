@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { ThemeProvider } from 'styled-components';
 
 import Layout from './components/Layout';
@@ -16,6 +16,12 @@ const App: React.FC = () => {
 	const [streetLevel, setStreetLevel] = useState(0);
 	const [titleLevel, setTitleLevel] = useState(0);
 	const [pageEnd, setPageEnd] = useState(0);
+
+	useEffect(() => {
+		const rust = import('./wasm-buildings/pkg/wasm_buildings');
+
+		rust.then((m) => m.greet('World!')).catch(console.error);
+	}, []);
 
 	return (
 		<ThemeProvider theme={theme}>

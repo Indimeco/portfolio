@@ -1,7 +1,6 @@
-'use strict';
-
 const fs = require('fs');
 const path = require('path');
+
 const webpack = require('webpack');
 const resolve = require('resolve');
 const PnpWebpackPlugin = require('pnp-webpack-plugin');
@@ -19,15 +18,16 @@ const WatchMissingNodeModulesPlugin = require('react-dev-utils/WatchMissingNodeM
 const ModuleScopePlugin = require('react-dev-utils/ModuleScopePlugin');
 const getCSSModuleLocalIdent = require('react-dev-utils/getCSSModuleLocalIdent');
 const ESLintPlugin = require('eslint-webpack-plugin');
-const paths = require('./paths');
-const modules = require('./modules');
-const getClientEnvironment = require('./env');
 const ModuleNotFoundPlugin = require('react-dev-utils/ModuleNotFoundPlugin');
 const ForkTsCheckerWebpackPlugin = require('react-dev-utils/ForkTsCheckerWebpackPlugin');
 const typescriptFormatter = require('react-dev-utils/typescriptFormatter');
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
-
 const postcssNormalize = require('postcss-normalize');
+const WasmPackPlugin = require('@wasm-tool/wasm-pack-plugin');
+
+const getClientEnvironment = require('./env');
+const modules = require('./modules');
+const paths = require('./paths');
 
 const appPackageJson = require(paths.appPackageJson);
 
@@ -45,12 +45,20 @@ const emitErrorsAsWarnings = process.env.ESLINT_NO_DEV_ERRORS === 'true';
 const disableESLintPlugin = process.env.DISABLE_ESLINT_PLUGIN === 'true';
 
 const imageInlineSizeLimit = parseInt(process.env.IMAGE_INLINE_SIZE_LIMIT || '10000');
-
+new WasmPackPlugin({
+	crateDirectory: path.resolve(__dirname, '.'),
+}),
+	// Have this example work in Edge which doesn't ship `TextEncoder` or
+	// `TextDecoder` at this time.
+	new webpack.ProvidePlugin({
+		TextDecoder: ['text-encoding', 'TextDecoder'],
+		TextEncoder: ['text-encoding', 'TextEncoder'],
+	});
 // Check if TypeScript is setup
 const useTypeScript = fs.existsSync(paths.appTsConfig);
 
 // Get the path to the uncompiled service worker (if it exists).
-const swSrc = paths.swSrc;
+const { swSrc } = paths;
 
 // style files regexes
 const cssRegex = /\.css$/;
@@ -522,31 +530,26 @@ module.exports = function (webpackEnv) {
 		},
 		plugins: [
 			// Generates an `index.html` file with the <script> injected.
-			new HtmlWebpackPlugin(
-				Object.assign(
-					{},
-					{
-						inject: true,
-						template: paths.appHtml,
-					},
-					isEnvProduction
-						? {
-								minify: {
-									removeComments: true,
-									collapseWhitespace: true,
-									removeRedundantAttributes: true,
-									useShortDoctype: true,
-									removeEmptyAttributes: true,
-									removeStyleLinkTypeAttributes: true,
-									keepClosingSlash: true,
-									minifyJS: true,
-									minifyCSS: true,
-									minifyURLs: true,
-								},
-						  }
-						: undefined,
-				),
-			),
+			new HtmlWebpackPlugin({
+				inject: true,
+				template: paths.appHtml,
+				...(isEnvProduction
+					? {
+							minify: {
+								removeComments: true,
+								collapseWhitespace: true,
+								removeRedundantAttributes: true,
+								useShortDoctype: true,
+								removeEmptyAttributes: true,
+								removeStyleLinkTypeAttributes: true,
+								keepClosingSlash: true,
+								minifyJS: true,
+								minifyCSS: true,
+								minifyURLs: true,
+							},
+					  }
+					: undefined),
+			}),
 			// Inlines the webpack runtime script. This script is too small to warrant
 			// a network request.
 			// https://github.com/facebook/create-react-app/issues/5358
@@ -691,6 +694,15 @@ module.exports = function (webpackEnv) {
 						},
 					},
 				}),
+			new WasmPackPlugin({
+				crateDirectory: path.resolve(__dirname, '.'),
+			}),
+			// Have this example work in Edge which doesn't ship `TextEncoder` or
+			// `TextDecoder` at this time.
+			new webpack.ProvidePlugin({
+				TextDecoder: ['text-encoding', 'TextDecoder'],
+				TextEncoder: ['text-encoding', 'TextEncoder'],
+			}),
 		].filter(Boolean),
 		// Some libraries import Node modules but don't use them in the browser.
 		// Tell webpack to provide empty mocks for them so importing them works.
