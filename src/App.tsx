@@ -18,9 +18,9 @@ const App: React.FC = () => {
 	const [pageEnd, setPageEnd] = useState(0);
 
 	useEffect(() => {
-		const rust = import('./wasm-buildings/pkg/wasm_buildings');
-
-		rust.then((m) => m.greet('World!')).catch(console.error);
+		import('./generated_js/wasm_buildings').then((module) => {
+			console.log(module.greet());
+		});
 	}, []);
 
 	return (
