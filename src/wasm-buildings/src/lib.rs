@@ -3,61 +3,67 @@ mod polygons;
 mod rectangular_prisms;
 mod utils;
 
+use serde::{Deserialize, Serialize};
 use wasm_bindgen::prelude::*;
 
 #[wasm_bindgen]
 extern "C" {
-    pub type DrawingContext;
-    fn alert(s: &str);
-    fn drawBuildings(context: DrawingContext) -> DrawingContext;
+    // Use `js_namespace` here to bind `console.log(..)` instead of just
+    // `log(..)`
+    #[wasm_bindgen(js_namespace = console)]
+    fn log(s: &str);
+
+    // The `console.log` is quite polymorphic, so we can bind it with multiple
+    // signatures. Note that we need to use `js_name` to ensure we always call
+    // `log` in JS.
+    #[wasm_bindgen(js_namespace = console, js_name = log)]
+    fn log_f64(a: f64);
+
+    // Multiple arguments too!
+    #[wasm_bindgen(js_namespace = console, js_name = log)]
+    fn log_many(a: &str, b: &str);
 }
 
-#[wasm_bindgen]
-pub fn greet() {
-    alert("Hello, wasm-buildings!");
-}
-
-// struct BuildingDimension {
-//     width: i32,
-//     height: i32,
-//     depth: i32,
-// }
-
-// struct BuildingPosition {
-//     x: i32,
-//     y: i32,
-// }
-// struct ColouredBuilding {
-// 	dimensions: BuildingDimension;
-// 	position: BuildingPosition;
-// }
-
-// struct Coordinate { x: i32; y: i32 }
-// struct Polygon = {
-//     width: i32,
-//     height: i32,
-// }
-// struct PicturePlane {
-//     vanishingPoint: Coordinate,
-//     observerDistanceFromPicturePlane: i32,
-// }
-// enum CoordinateRelationX { left, right, same }
-// enum CoordinateRelationY { above, below, same }
-
-// struct DrawingContext {
-//     canvas: HTMLCanvasElement;
-// 	ctx: CanvasRenderingContext2D;
-// 	vanishingPoint: Coordinate;
-// 	drawVars: DrawVars;
-// }
-
-// finding it hard to test this atm
-// maybe need to replace the whole 'composition' function and not pass any context/canvas/etc between rust/js
 // the bindgen docs are by far the best docs on wasm https://rustwasm.github.io/docs/wasm-bindgen/reference/working-with-duck-typed-interfaces.html
-// there is stuff here about using canvas, and how conversions between rust types / js types happen
-// if we port the whole drawing/composition func to this though, then we'll also need to port all the building generation code.
+
 #[wasm_bindgen]
-pub fn rustDrawBuildings(context: DrawingContext) -> DrawingContext {
-    alert("rust draw buildings");
-    return drawBuildings(context);
+pub fn rust_draw_rectangular_prism(
+    picture_plane_raw: JsValue,
+    polygon_raw: JsValue,
+    origin_raw: JsValue,
+    face_colors_raw: JsValue,
+) -> () {
+    log("Begin parsing");
+    let picture_plane: rectangular_prisms::PicturePlane =
+        serde_wasm_bindgen::from_value(picture_plane_raw).expect("Picture plane failed to parse");
+    let polygon: rectangular_prisms::Polygon3D =
+        serde_wasm_bindgen::from_value(polygon_raw).expect("Polygon failed to parse");
+    let origin: coordinates::Coordinate3D =
+        serde_wasm_bindgen::from_value(origin_raw).expect("Origin failed to parse");
+    let face_colors: rectangular_prisms::FaceColors =
+        serde_wasm_bindgen::from_value(face_colors_raw).expect("Face colors failed to parse");
+
+    let document = web_sys::window().unwrap().document().unwrap();
+    let canvas = document
+        .get_element_by_id("canvas")
+        .expect("Failed to find canvas");
+    let canvas: web_sys::HtmlCanvasElement = canvas
+        .dyn_into::<web_sys::HtmlCanvasElement>()
+        .map_err(|_| ())
+        .unwrap();
+
+    let context = canvas
+        .get_context("2d")
+        .unwrap()
+        .unwrap()
+        .dyn_into::<web_sys::CanvasRenderingContext2d>()
+        .unwrap();
+
+    rectangular_prisms::draw_rectangular_prism(
+        &context,
+        picture_plane,
+        polygon,
+        origin,
+        face_colors,
+    );
 }

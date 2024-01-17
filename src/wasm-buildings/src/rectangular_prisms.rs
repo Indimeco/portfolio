@@ -1,3 +1,4 @@
+use serde::{Deserialize, Serialize};
 use std::convert::TryInto;
 use std::f64::consts::PI;
 use wasm_bindgen::prelude::*;
@@ -7,21 +8,22 @@ use crate::coordinates;
 use crate::coordinates::Coordinate3D;
 use crate::polygons;
 
-#[derive(Debug)]
-struct Polygon3D {
+#[derive(Debug, Serialize, Deserialize)]
+pub struct Polygon3D {
     width: f64,
     height: f64,
     depth: f64,
 }
 
-struct FaceColors {
+#[derive(Debug, Serialize, Deserialize)]
+pub struct FaceColors {
     light: String,
     dark: String,
     neutral: String,
 }
 
-#[derive(Debug)]
-struct PicturePlane {
+#[derive(Debug, Serialize, Deserialize)]
+pub struct PicturePlane {
     vanishing_point: coordinates::Coordinate,
     observer_distance_from_picture_plane: f64,
 }
@@ -97,13 +99,13 @@ fn convert_3d_coordinate_to_picture_plane(
     }
 }
 
-fn draw_rectangular_prism(
+pub fn draw_rectangular_prism(
     ctx: &web_sys::CanvasRenderingContext2d,
     picture_plane: PicturePlane,
     polygon_3d: Polygon3D,
     origin: coordinates::Coordinate3D,
     face_colors: FaceColors,
-) {
+) -> () {
     let vanishing_point = picture_plane.vanishing_point;
     let observer_distance_from_picture_plane = picture_plane.observer_distance_from_picture_plane;
 

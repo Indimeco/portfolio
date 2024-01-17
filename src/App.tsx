@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { ThemeProvider } from 'styled-components';
 
 import Layout from './components/Layout';
@@ -16,12 +16,6 @@ const App: React.FC = () => {
 	const [streetLevel, setStreetLevel] = useState(0);
 	const [titleLevel, setTitleLevel] = useState(0);
 	const [pageEnd, setPageEnd] = useState(0);
-
-	useEffect(() => {
-		import('./generated_js/wasm_buildings').then((module) => {
-			console.log(module.greet());
-		});
-	}, []);
 
 	return (
 		<ThemeProvider theme={theme}>

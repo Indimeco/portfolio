@@ -1,10 +1,12 @@
-#[derive(Debug)]
+use serde::{Deserialize, Serialize};
+
+#[derive(Debug, Serialize, Deserialize)]
 pub struct Coordinate {
     pub x: f64,
     pub y: f64,
 }
 
-#[derive(Debug, PartialEq)]
+#[derive(Debug, PartialEq, Serialize, Deserialize)]
 pub struct Coordinate3D {
     pub x: f64,
     pub y: f64,
@@ -15,12 +17,6 @@ pub struct Coordinate3D {
 struct Polygon {
     width: f64,
     height: f64,
-}
-
-#[derive(Debug)]
-struct Polygon3D {
-    polygon: Polygon,
-    depth: f64,
 }
 
 #[derive(Debug)]

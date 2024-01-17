@@ -1,7 +1,6 @@
 import { PicturePlane, Polygon3D, Coordinate3D, Coordinate } from './types';
 import { tracePolygon } from './polygons';
 import { convert3DCoordinateToPicturePlane, c2XIs, c2YIs } from './coordinates';
-import { darkPolygonFace, lightPolygonFace } from './coloration';
 
 function positiveOrZero(num: number) {
 	return num > 0 ? num : 0;

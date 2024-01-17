@@ -20,5 +20,5 @@ type Props = {
 export const CanvasDrawing: React.FC<Props> = ({ draw, drawVars }) => {
 	const [canvasRef] = useCanvas(draw, drawVars);
 
-	return <BackgroundCanvas ref={canvasRef} />;
+	return <BackgroundCanvas ref={canvasRef} id="canvas" />;
 };
