@@ -24,8 +24,8 @@ pub struct FaceColors {
 
 #[derive(Debug, Serialize, Deserialize)]
 pub struct PicturePlane {
-    vanishing_point: coordinates::Coordinate,
-    observer_distance_from_picture_plane: f64,
+    pub vanishing_point: coordinates::Coordinate,
+    pub observer_distance_from_picture_plane: f64,
 }
 
 fn positive_or_zero(num: &f64) -> f64 {
@@ -86,19 +86,6 @@ fn is_face_on_canvas(ctx: &CanvasRenderingContext2d, face: &[coordinates::Coordi
         .any(|c| c.x >= 0.0 && c.x <= ctx.canvas().unwrap().width() as f64)
 }
 
-fn convert_3d_coordinate_to_picture_plane(
-    vanishing_point: &coordinates::Coordinate,
-    observer_distance_from_picture_plane: &f64,
-    coordinate: &coordinates::Coordinate3D,
-) -> coordinates::Coordinate {
-    let multiplier = observer_distance_from_picture_plane
-        / (coordinate.z + observer_distance_from_picture_plane);
-    coordinates::Coordinate {
-        x: vanishing_point.x + (coordinate.x - vanishing_point.x) * multiplier,
-        y: vanishing_point.y + (coordinate.y - vanishing_point.y) * multiplier,
-    }
-}
-
 pub fn draw_rectangular_prism(
     ctx: &web_sys::CanvasRenderingContext2d,
     picture_plane: PicturePlane,
@@ -114,7 +101,7 @@ pub fn draw_rectangular_prism(
         get_rectangular_plane(&origin, &polygon_3d.width, &polygon_3d.height)
             .iter()
             .map(|o| {
-                convert_3d_coordinate_to_picture_plane(
+                coordinates::convert_3d_coordinate_to_picture_plane(
                     &vanishing_point,
                     &observer_distance_from_picture_plane,
                     &o,
@@ -135,7 +122,7 @@ pub fn draw_rectangular_prism(
     )
     .iter()
     .map(|o| {
-        convert_3d_coordinate_to_picture_plane(
+        coordinates::convert_3d_coordinate_to_picture_plane(
             &vanishing_point,
             &observer_distance_from_picture_plane,
             &o,

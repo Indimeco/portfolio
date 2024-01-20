@@ -201,12 +201,6 @@ function debugString(val) {
 	// TODO we could test for more things here, like `Set`s and `Map`s.
 	return className;
 }
-
-function notDefined(what) {
-	return () => {
-		throw new Error(`${what} is not defined`);
-	};
-}
 /**
  * @param {any} picture_plane_raw
  * @param {any} polygon_raw
@@ -271,13 +265,6 @@ export function __wbindgen_string_new(arg0, arg1) {
 	return addHeapObject(ret);
 }
 
-export function __wbg_log_c23b3a21945e17d7(arg0, arg1) {
-	console.log(getStringFromWasm0(arg0, arg1));
-}
-
-export const __wbg_log_4d4613f9fe03b4b5 =
-	typeof console.log == 'function' ? console.log : notDefined('console.log');
-
 export function __wbindgen_object_clone_ref(arg0) {
 	const ret = getObject(arg0);
 	return addHeapObject(ret);
@@ -318,6 +305,13 @@ export function __wbg_instanceof_Window_99dc9805eaa2614b(arg0) {
 export function __wbg_document_5257b70811e953c0(arg0) {
 	const ret = getObject(arg0).document;
 	return isLikeNone(ret) ? 0 : addHeapObject(ret);
+}
+
+export function __wbg_scrollY_00f7f7c415bde24a() {
+	return handleError(function (arg0) {
+		const ret = getObject(arg0).scrollY;
+		return ret;
+	}, arguments);
 }
 
 export function __wbg_getElementById_00904c7c4a32c23b(arg0, arg1, arg2) {

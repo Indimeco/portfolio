@@ -40,15 +40,16 @@ pub enum CoordinateRelationY {
 }
 
 pub fn convert_3d_coordinate_to_picture_plane(
-    vanishing_point: Coordinate,
-    observer_distance_from_picture_plane: f64,
-    coordinate: Coordinate3D,
+    vanishing_point: &Coordinate,
+    observer_distance_from_picture_plane: &f64,
+    coordinate: &Coordinate3D,
 ) -> Coordinate {
+    let window = web_sys::window().expect("no global `window` exists");
     let multiplier = observer_distance_from_picture_plane
         / (coordinate.z + observer_distance_from_picture_plane);
     Coordinate {
         x: vanishing_point.x + (coordinate.x - vanishing_point.x) * multiplier,
-        y: vanishing_point.y + (coordinate.y - vanishing_point.y) * multiplier,
+        y: vanishing_point.y + (coordinate.y - window.scroll_y().unwrap()) * multiplier,
     }
 }
 
