@@ -26,6 +26,24 @@ export const composeDrawings: DrawingSetup = (canvas, landmarks) => {
 	canvas.height = canvasHeight;
 	ctx.clearRect(0, 0, canvas.width, canvas.height);
 
+	// Draw the vanishing point
+	ctx.globalAlpha = 0.2;
+	ctx.beginPath();
+	ctx.arc(vanishingPoint.x, vanishingPoint.y + 40, 80, 0, 2 * Math.PI);
+	const grad = ctx.createRadialGradient(
+		vanishingPoint.x,
+		vanishingPoint.y,
+		1,
+		vanishingPoint.x,
+		vanishingPoint.y,
+		40,
+	);
+	grad.addColorStop(0.1, theme.colors.fg);
+	grad.addColorStop(0.99, theme.colors.bgAccent);
+	ctx.fillStyle = grad;
+	ctx.fill();
+	ctx.globalAlpha = 1;
+
 	// Draw horizon
 	tracePolygon(
 		ctx,
@@ -36,18 +54,6 @@ export const composeDrawings: DrawingSetup = (canvas, landmarks) => {
 		}).map((o) => ({ x: o.x, y: o.y })),
 	);
 	ctx.fillStyle = theme.colors.bgShadow;
-	ctx.fill();
-
-	// Draw the vanishing point
-	tracePolygon(
-		ctx,
-		...getRectangularPlane({
-			origin: { x: vanishingPoint.x, y: vanishingPoint.y, z: -1 },
-			width: 2,
-			height: 2,
-		}).map((o) => ({ x: o.x, y: o.y })),
-	);
-	ctx.fillStyle = 'red';
 	ctx.fill();
 
 	return {
