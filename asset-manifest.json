@@ -1,28 +1,29 @@
 {
   "files": {
     "main.css": "/portfolio/static/css/main.79e47b38.chunk.css",
-    "main.js": "/portfolio/static/js/main.31121758.chunk.js",
-    "main.js.map": "/portfolio/static/js/main.31121758.chunk.js.map",
+    "main.js": "/portfolio/static/js/main.a9b439e7.chunk.js",
+    "main.js.map": "/portfolio/static/js/main.a9b439e7.chunk.js.map",
     "runtime-main.js": "/portfolio/static/js/runtime-main.a9f76519.js",
     "runtime-main.js.map": "/portfolio/static/js/runtime-main.a9f76519.js.map",
-    "static/js/2.2727bf50.chunk.js": "/portfolio/static/js/2.2727bf50.chunk.js",
-    "static/js/2.2727bf50.chunk.js.map": "/portfolio/static/js/2.2727bf50.chunk.js.map",
+    "static/js/2.fef88062.chunk.js": "/portfolio/static/js/2.fef88062.chunk.js",
+    "static/js/2.fef88062.chunk.js.map": "/portfolio/static/js/2.fef88062.chunk.js.map",
     "index.html": "/portfolio/index.html",
     "static/css/main.79e47b38.chunk.css.map": "/portfolio/static/css/main.79e47b38.chunk.css.map",
-    "static/js/2.2727bf50.chunk.js.LICENSE.txt": "/portfolio/static/js/2.2727bf50.chunk.js.LICENSE.txt",
-    "static/media/2018-portfolio.e05bbeab.png": "/portfolio/static/media/2018-portfolio.e05bbeab.png",
+    "static/js/2.fef88062.chunk.js.LICENSE.txt": "/portfolio/static/js/2.fef88062.chunk.js.LICENSE.txt",
     "static/media/ChameleonNew.5bb3ae73.PNG": "/portfolio/static/media/ChameleonNew.5bb3ae73.PNG",
     "static/media/QRPG_Logo.96a11bb6.png": "/portfolio/static/media/QRPG_Logo.96a11bb6.png",
-    "static/media/coming-soon-message.7913cde1.jpg": "/portfolio/static/media/coming-soon-message.7913cde1.jpg",
+    "static/media/epm-customize.40f159e9.png": "/portfolio/static/media/epm-customize.40f159e9.png",
+    "static/media/inventory-home.8828e505.jpg": "/portfolio/static/media/inventory-home.8828e505.jpg",
     "static/media/investor-survey.30cd29f0.png": "/portfolio/static/media/investor-survey.30cd29f0.png",
     "static/media/my-little-charlotte.63168473.jpg": "/portfolio/static/media/my-little-charlotte.63168473.jpg",
+    "static/media/pulse_marketing.2eb534c8.png": "/portfolio/static/media/pulse_marketing.2eb534c8.png",
     "static/media/triona.30a9867e.png": "/portfolio/static/media/triona.30a9867e.png",
     "static/media/tryo.42a86e33.jpg": "/portfolio/static/media/tryo.42a86e33.jpg"
   },
   "entrypoints": [
     "static/js/runtime-main.a9f76519.js",
-    "static/js/2.2727bf50.chunk.js",
+    "static/js/2.fef88062.chunk.js",
     "static/css/main.79e47b38.chunk.css",
-    "static/js/main.31121758.chunk.js"
+    "static/js/main.a9b439e7.chunk.js"
   ]
 }
