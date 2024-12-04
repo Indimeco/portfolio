@@ -1,5 +1,4 @@
 2024-12-03
-// TODO change rotary text to something cooler
 // TODO visual separation when opening project details (modal? background?)
 // TODO add "tech breakdown" part of each content
 // TODO add interactable gallery part of content?
@@ -8,6 +7,5 @@
 Old
 // TODO Lazy load images
 // Optimise images
-// TODO replace rotary animation ( spotlight? )
 // TODO animate entry of content (loading?)
 // FIXME fading reactspring bad perf on mobile

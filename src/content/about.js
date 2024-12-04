@@ -1,11 +1,6 @@
 import { faReact, faJs, faAws, faGolang } from '@fortawesome/free-brands-svg-icons';
 import { faCodeBranch } from '@fortawesome/free-solid-svg-icons';
 
-export const rotary = {
-	text: 'Great work is born of',
-	words: ['interfaces', 'communication', 'minimalism', 'discovery', 'data', 'clarity', 'feedback'],
-};
-
 export const about = [
 	["Hi, I'm a fullstack software engineer", faCodeBranch, 'living and working in Australia'],
 	["I'm a technical leader, driving solutions, slinging code and planning against entropy"],
